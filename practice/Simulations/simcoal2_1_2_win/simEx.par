@@ -1,0 +1,55 @@
+//Input parameters for the coalescence and recombination simulation program : simcoal2.exe
+3 samples to simulate
+//Deme sizes (haploid number of genes)
+1000
+2000
+1000
+//Sample sizes
+20
+30
+10
+//Growth rates
+0
+0
+0
+//Number of migration matrices : If 0 : No migration between demes
+2
+//Migration rates matrix 0 : 
+0.000 0.005 0.000
+0.005 0.000 0.005
+0.000 0.005 0.000
+//Migration rates matrix 1 : No migrations
+0 0 0
+0 0 0
+0 0 0
+//Historical event: time, source, sink, proportion of migrants, new deme size, new growth rate, new migration matrix
+2 historical events
+500 0 1 1 1 0 1
+500 2 1 1 1 0 1
+//Number of independent (unlinked) chromosomes, and "chromosome structure" flag:  0 for identical structure across chromosomes, and 1 for different structures on different chromosomes.
+4 1
+//Number of contiguous linkage blocks in chromosome 1: 
+5   
+//Per Block: Data type, No. of loci, Recombination rate to the right-side locus, plus optional parameters ***see detailed explanation here***
+SNP               24        0.00002           0.05
+SNP               1          0.00005           0.10
+MICROSAT      49        0.00001           0                   0        0 
+MICROSAT      1          0.00005           0.0025           0        0
+SNP               25        0.00002            0.10
+//Number of contiguous linkage blocks in chromosome 2
+2   
+//Per Block: Data type, No. of loci, Recombination rate to the right-side locus, plus optional parameters ***see detailed explanation here***
+SNP               20        0.002           0.05
+SNP               10        0.00002        0.10
+//Number of contiguous linkage blocks in chromosome 3
+1   
+//Per Block: Data type, No. of loci, Recombination rate to the right-side locus, plus optional parameters ***see detailed explanation here***
+DNA               200        0.00002      0.00005      0.33
+//Number of contiguous linkage blocks in chromosome 4
+4   
+//Per Block: Data type, No. of loci, Recombination rate to the right-side locus, plus optional parameters ***see detailed explanation here***
+SNP               20        0.002           0.05
+MICROSAT      10        0.00002        0                   0.5      10          
+MICROSAT      10        0.0005          0.0025           0        10
+SNP               20        0.002           0.05
+[EOF]

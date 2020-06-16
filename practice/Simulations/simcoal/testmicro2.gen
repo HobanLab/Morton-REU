@@ -1,0 +1,84 @@
+
+Demes initial conditions
+========================
+
+Deme #1
+----------
+
+
+Deme size   : 10000
+Sample size : 10
+Growth rate : 0
+
+---------------------------------------
+
+Deme #2
+----------
+
+
+Deme size   : 10000
+Sample size : 10
+Growth rate : 0
+
+---------------------------------------
+
+MIGRATION MATRIX 0
+=================
+    0.0000     0.0000 
+    0.0000     0.0000 
+
+
+
+HISTORICAL EVENTS
+=================
+
+Event #1
+----------
+
+
+Time             : 5000
+Source           : 0
+Sink             : 1
+Migrants         : 1.0000
+New size         : 1.0000
+New growth rate  : 0.0000
+New migr. matrix : 0
+
+---------------------------------------
+
+Random generator initialized with : 8922
+
+
+Final results
+=============
+
+Data type : MICROSAT
+Number of loci : 1
+Total mutation rate per generation : 0.0012
+Mutation rate per locus per generation : 0.0012
+Mean coalescence times within and among demes over 10 random samples
+ 9200.7689     0.0000 
+12223.2880  8078.5156 
+
+
+S.D. coalescence times within and among demes 
+ 3188.0338     0.0000 
+ 3524.6070  2955.3742 
+
+
+Mean number of pairwise differences within and among demes over 10 random samples
+   22.4333     0.0000 
+   30.6300    20.0333 
+
+
+S.D. number of pairwise differences within and among demes 
+    9.1996     0.0000 
+   10.2657     7.5520 
+
+
+Mean length of the trees (subst. rate per site) : 112.1245 +-   27.99108
+
+Mean length of the trees (total number of mutations) : 114.50000 +-   32.04251
+
+
+Total time for 10 simulations: 78 ms

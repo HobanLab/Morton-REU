@@ -1,0 +1,111 @@
+Simulation parameters for current simulations
+=============================================
+
+
+Deme sizes
+Deme 0	1000
+Deme 1	2000
+Deme 2	1000
+
+
+Sample sizes
+Deme 0	20
+Deme 1	30
+Deme 2	10
+
+Growth rates
+0	0
+1	0
+2	0
+
+
+Migration matrix
+    0.0000     0.0050     0.0000 
+    0.0050     0.0000     0.0050 
+    0.0000     0.0050     0.0000 
+
+
+Migration matrix
+    0.0000     0.0000     0.0000 
+    0.0000     0.0000     0.0000 
+    0.0000     0.0000     0.0000 
+
+
+Historical events
+Event 0
+
+#Time             : 500
+#Source           : 0
+#Sink             : 1
+#Migrants         : 1.0000
+#New size         : 1.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+Event 1
+
+#Time             : 500
+#Source           : 2
+#Sink             : 1
+#Migrants         : 1.0000
+#New size         : 1.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+
+
+Number of independent loci to simulate : 4
+Each with a different chromosomal structure
+
+Number of linkage blocks to simulate in structure 1: 5
+
+   24 partially linked SNP loci:
+      recombination rate and minimum frequency      : 0.0000200   0.0500000
+
+   1 partially linked SNP loci:
+      recombination rate and minimum frequency      : 0.0000500   0.1000000
+
+   49 partially linked MICROSAT loci:
+      recombination, mutation rates, geometric parameter, and range constraint : 0.0000100   0.0000000   0.0000000   0
+
+   1 partially linked MICROSAT loci:
+      recombination, mutation rates, geometric parameter, and range constraint : 0.0000500   0.0025000   0.0000000   0
+
+   25 partially linked SNP loci:
+      recombination rate and minimum frequency      : 0.0000200   0.1000000
+
+Number of linkage blocks to simulate in structure 2: 2
+
+   20 partially linked SNP loci:
+      recombination rate and minimum frequency      : 0.0020000   0.0500000
+
+   10 partially linked SNP loci:
+      recombination rate and minimum frequency      : 0.0000200   0.1000000
+
+Number of linkage blocks to simulate in structure 3: 1
+
+   200 partially linked DNA loci:
+      recombination, mutation rates and transition rates :0.0000200   0.0000500   0.3300000
+
+Number of linkage blocks to simulate in structure 4: 4
+
+   20 partially linked SNP loci:
+      recombination rate and minimum frequency      : 0.0020000   0.0500000
+
+   10 partially linked MICROSAT loci:
+      recombination, mutation rates, geometric parameter, and range constraint : 0.0000200   0.0000000   0.5000000   10
+
+   10 partially linked MICROSAT loci:
+      recombination, mutation rates, geometric parameter, and range constraint : 0.0005000   0.0025000   0.0000000   10
+
+   20 partially linked SNP loci:
+      recombination rate and minimum frequency      : 0.0020000   0.0500000
+
+
+
+Random generator initialized with : 928
+
+
+
+done in 1.3120000sec
+

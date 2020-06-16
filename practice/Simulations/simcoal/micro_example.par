@@ -1,0 +1,22 @@
+//Parameter file for example run in program: simcoal.exe
+2 samples to simulate
+//population effective sizes
+10000
+10000
+//sample sizes
+10
+10
+//growth rates
+0
+0
+//number of migration matrices - 0 implies no migration among demes
+0
+//historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix number
+1 historical event: Population diverged 5000 generations ago
+5000 0 1 1 1 0 0
+//mutation rate per generation for the whole sequence
+0.0012
+//number of loci
+1
+//data type - DNA, RLFP, or MICROSAT : Second term is the range constraint for microsatellite : zero means no range constraint
+MICROSAT 999

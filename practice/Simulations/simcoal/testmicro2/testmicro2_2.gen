@@ -1,0 +1,27 @@
+testmicro2_2_gen_converted
+locus1
+locus2
+locus3
+locus4
+POP
+pop1 ,	mutation#Sites	hits0	mutation0_0
+pop1 ,	#Hits1	1649996	#Hits0_2
+pop1 ,	99881	0_39997	99880_4
+pop1 ,	0_51	19989	0_50_6
+pop1 ,	11	99979989	10_8
+pop1 ,	99861	}10000	9986SampleName="Sample
+pop1 ,	of2"	mutationSampleData=	of{
+pop1 ,	site#Sites	#Number0	site#Sites
+pop1 ,	hits0	per0_0	hits1
+pop1 ,	1649996	0_10_2	1641
+POP
+pop2 ,	mutation#Sites	mutation0
+pop2 ,	site1_0	site1
+pop2 ,	1_19992	1_11_2
+pop2 ,	1_31	1_39993
+pop2 ,	1_51_4	1_51
+pop2 ,	1_79993	1_71_6
+pop2 ,	1_91	1_99994
+pop2 ,	}1_8	}1
+pop2 ,	data"10010	data"NbGroups=1
+pop2 ,	mutation#Sites	mutation0

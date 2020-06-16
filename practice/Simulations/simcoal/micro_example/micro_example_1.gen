@@ -1,0 +1,27 @@
+micro_example_1_gen_converted
+locus1
+locus2
+locus3
+locus4
+POP
+pop1 ,	mutation#Sites	hits0	mutation0_0
+pop1 ,	#Hits1	1069999	#Hits0_2
+pop1 ,	99961	0_39999	99960_4
+pop1 ,	0_51	19997	0_50_6
+pop1 ,	11	100049997	10_8
+pop1 ,	99971	}10004	9997SampleName="Sample
+pop1 ,	of2"	mutationSampleData=	of{
+pop1 ,	site#Sites	#Number0	site#Sites
+pop1 ,	hits0	per0_0	hits1
+pop1 ,	1069999	0_10_2	1061
+POP
+pop2 ,	mutation#Sites	mutation0
+pop2 ,	site1_0	site1
+pop2 ,	1_110002	1_11_2
+pop2 ,	1_31	1_39998
+pop2 ,	1_51_4	1_51
+pop2 ,	1_79997	1_71_6
+pop2 ,	1_91	1_910000
+pop2 ,	}1_8	}1
+pop2 ,	data"10004	data"NbGroups=1
+pop2 ,	mutation#Sites	mutation0

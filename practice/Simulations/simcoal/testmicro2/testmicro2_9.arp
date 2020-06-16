@@ -1,0 +1,95 @@
+#Arlequin input file written by program the simulation program sim_coal.exe
+
+#Simulation parameters:
+#======================
+
+#Deme sizes
+#Deme #0	10000
+#Deme #1	10000
+
+#Sample sizes
+#Deme #0	10
+#Deme #1	10
+
+#Growth rates
+#Deme #0	0
+#Deme #1	0
+
+
+#Historical events
+#Event #0
+
+Time             : 5000
+Source           : 0
+Sink             : 1
+Migrants         : 1
+New size         : 1
+New growth rate  : 0
+New migr. matrix : 0
+
+
+#Data type							 : MICROSAT (No range constraint)
+
+#Mutation rate per generation : 0.0012
+#Number of loci to simulate   : 1
+#Gamma parameter              : 0
+
+
+[Profile]
+	Title="A series of simulated samples"
+	NbSamples=2
+	GenotypicData=0
+	GameticPhase=1
+	RecessiveData=0
+	DataType=MICROSAT
+	LocusSeparator=WHITESPACE
+	MissingData='?'
+
+[Data]
+	[[Samples]]
+
+		SampleName="Sample 1"
+		SampleSize=10
+		SampleData= {
+#Number of mutation hits per site
+#Sites    0 
+#Hits   114 
+0_0 1 9996 
+0_1 1 10005 
+0_2 1 9997 
+0_3 1 10005 
+0_4 1 9997 
+0_5 1 9998 
+0_6 1 10001 
+0_7 1 9995 
+0_8 1 9995 
+0_9 1 9997 
+
+}
+		SampleName="Sample 2"
+		SampleSize=10
+		SampleData= {
+#Number of mutation hits per site
+#Sites    0 
+#Hits   114 
+1_0 1 9997 
+1_1 1 9996 
+1_2 1 9993 
+1_3 1 9997 
+1_4 1 9996 
+1_5 1 9992 
+1_6 1 10001 
+1_7 1 9998 
+1_8 1 9998 
+1_9 1 9999 
+
+}
+
+[[Structure]]
+
+	StructureName="Simulated data"
+	NbGroups=1
+	Group={
+	   "Sample 1"
+	   "Sample 2"
+	}
