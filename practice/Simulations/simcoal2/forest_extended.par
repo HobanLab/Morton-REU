@@ -1,0 +1,1109 @@
+//Parameters for the coalescence simulation program : simcoal.exe
+16 samples to simulate : Structured
+//Population effective sizes (number of genes 2*diploids)
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+1500
+//Samples sizes (number of genes 2*diploids)
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+1400
+//Growth rates	: negative growth implies population expansion
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//Migration rates matrix  0
+0.0 0.005 0.005 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+0.005 0.0 0.005 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+0.005 0.005 0.0 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+0.005 0.005 0.005 0.0 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.0 0.005 0.005 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.0 0.005 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.005 0.0 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.005 0.005 0.0 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.0 0.005 0.005 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.0 0.005 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.005 0.0 0.005 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.005 0.005 0.0 1.0E-5 1.0E-5 1.0E-5 1.0E-5 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.0 0.005 0.005 0.005 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.0 0.005 0.005 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.005 0.0 0.005 
+1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 1.0E-5 0.005 0.005 0.005 0.0 
+//Migration rates matrix  1
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+//historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix index
+16 historical events 
+50000 0 0 1 1 0 1
+50000 1 0 1 1 0 1
+50000 2 0 1 1 0 1
+50000 3 0 1 1 0 1
+50000 4 0 1 1 0 1
+50000 5 0 1 1 0 1
+50000 6 0 1 1 0 1
+50000 7 0 1 1 0 1
+50000 8 0 1 1 0 1
+50000 9 0 1 1 0 1
+50000 10 0 1 1 0 1
+50000 11 0 1 1 0 1
+50000 12 0 1 1 0 1
+50000 13 0 1 1 0 1
+50000 14 0 1 1 0 1
+50000 15 0 1 1 0 1
+//Number of independent loci [chromosome]
+250 1
+//Number of contiguous linkage blocks in chromosome 0
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 1
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 2
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 3
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 4
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 5
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 6
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 7
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 8
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 9
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 10
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 11
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 12
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 13
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 14
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 15
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 16
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 17
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 18
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 19
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 20
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 21
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 22
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 23
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 24
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 25
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 26
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 27
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 28
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 29
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 30
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 31
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 32
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 33
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 34
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 35
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 36
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 37
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 38
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 39
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 40
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 41
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 42
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 43
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 44
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 45
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 46
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 47
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 48
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 49
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 50
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 51
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 52
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 53
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 54
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 55
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 56
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 57
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 58
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 59
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 60
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 61
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 62
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 63
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 64
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 65
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 66
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 67
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 68
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 69
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 70
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 71
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 72
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 73
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 74
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 75
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 76
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 77
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 78
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 79
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 80
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 81
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 82
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 83
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 84
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 85
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 86
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 87
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 88
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 89
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 90
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 91
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 92
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 93
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 94
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 95
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 96
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 97
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 98
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 99
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 100
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 101
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 102
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 103
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 104
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 105
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 106
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 107
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 108
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 109
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 110
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 111
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 112
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 113
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 114
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 115
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 116
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 117
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 118
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 119
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 120
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 121
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 122
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 123
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 124
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 125
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 126
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 127
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 128
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 129
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 130
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 131
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 132
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 133
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 134
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 135
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 136
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 137
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 138
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 139
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 140
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 141
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 142
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 143
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 144
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 145
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 146
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 147
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 148
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 149
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 150
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 151
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 152
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 153
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 154
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 155
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 156
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 157
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 158
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 159
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 160
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 161
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 162
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 163
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 164
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 165
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 166
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 167
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 168
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 169
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 170
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 171
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 172
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 173
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 174
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 175
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 176
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 177
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 178
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 179
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 180
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 181
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 182
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 183
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 184
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 185
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 186
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 187
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 188
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 189
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 190
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 191
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 192
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 193
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 194
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 195
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 196
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 197
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 198
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 199
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 200
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 201
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 202
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 203
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 204
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 205
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 206
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 207
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 208
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 209
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 210
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 211
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 212
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 213
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 214
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 215
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 216
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 217
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 218
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 219
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 220
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 221
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 222
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 223
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 224
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 225
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 226
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 227
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 228
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 229
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 230
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 231
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 232
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 233
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 234
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 235
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 236
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 237
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 238
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 239
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 240
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 241
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 242
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 243
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 244
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 245
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 246
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 247
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 248
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20
+//Number of contiguous linkage blocks in chromosome 249
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 20

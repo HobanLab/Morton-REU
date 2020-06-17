@@ -1,0 +1,44 @@
+//Parameters for the coalescence simulation program : simcoal.exe
+4 samples to simulate : mini uk
+//Population effective sizes (number of genes 2*diploids)
+100000
+200000
+200000
+200000
+//Samples sizes (number of genes 2*diploids)
+10000
+20000
+20000
+20000
+//Growth rates: negative growth implies population expansion
+0
+0
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//Migration rates matrix  0
+0.000 0.0001 0.0001 0.000
+0.0001 0.000 0.0020 0.000
+0.0001 0.0020 0.000 0.0020
+0.000 0.000 0.0020 0.000
+//Migration rates matrix  1
+0.000 0.000 0.000 0.000
+0.000 0.000 0.000 0.000
+0.000 0.000 0.000 0.000
+0.000 0.000 0.000 0.000
+//historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix index
+7 historical events
+400 0 0 0 0.001 0 0  
+480 0 1 1 1.00 0 1  
+600 1 1 0 0.01 0 1
+600 2 2 0 0.01 0 1
+600 3 3 0 0.01 0 1
+4000 1 3 1 10 0 1
+4000 2 3 1 10 0 1
+//Number of independent loci [chromosome]
+1 1
+//Number of contiguous linkage blocks in chromosome  0 
+1
+//per Block:data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT 1  0.0005 5.0E-4 1.0 30
