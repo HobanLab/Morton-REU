@@ -1,0 +1,22 @@
+//Parameters for the coalescence simulation program : simcoal.exe
+2 samples to simulate
+//Population effective sizes (number of genes)
+10000
+10000
+//Samples sizes
+10
+10
+//Growth rates
+0
+0
+//Number of migration matrices : 0 implies no migration among demes
+0
+//historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix number
+1 historical event: Population diverged 5000 generations ago
+5000 0 1 1 1 0 0
+//Mutation rate per generation for the whole sequence
+0.0012
+//Number of loci
+1
+//data type either DNA, RFLP, or MICROSAT : Second term is the range constraint for MICROSAT: zero means no range constraint
+MICROSAT 0 
