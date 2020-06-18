@@ -33,5 +33,7 @@ for(i in 1:length(forest_files_gen)){
 forest_genind_complete = repool(forest_genind, list = FALSE)
 forest_genind_complete
 
+
+
 #converting from genind to genpop
 forest_genpop = genind2genpop(forest_genind_complete)
