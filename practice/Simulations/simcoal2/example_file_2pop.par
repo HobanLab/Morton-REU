@@ -1,5 +1,5 @@
 //Parameters for the coalescence simulation program : simcoal.exe
-2 samples to simulate : Exponential growth : 1000 to 100,000,000 started 3000 generations ago
+2 samples to simulate : Structured
 //Population effective sizes (number of genes 2*diploids)
 100
 100
