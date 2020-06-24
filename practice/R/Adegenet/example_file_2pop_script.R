@@ -23,4 +23,23 @@ import_arp2gen_files("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulat
 genind_list = list()
 genind_list = import_gen2genind_objects("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulations\\simcoal2\\example_file_2pop", ".gen$")
 
+#not working
+pop_1 = genind_list[1]
+pop_1
+pop_1@loc.n.all
 
+#repool to one genind object
+genind_complete = repool(genind_list, list = FALSE)
+genind_complete
+
+#summary
+summary(genind_complete)
+
+
+#number of alleles for each marker
+genind_complete@loc.n.all
+#number of loci
+nLoc(genind_complete)
+nAll(genind_complete)
+#number of individuals in the object
+nInd(genind_complete)
