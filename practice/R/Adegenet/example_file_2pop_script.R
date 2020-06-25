@@ -23,37 +23,25 @@ import_arp2gen_files("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulat
 genind_list = list()
 genind_list = import_gen2genind_objects("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulations\\simcoal2\\example_file_2pop", ".gen$")
 
-#not working
-rep_1 = genind_list[1]
+rep_1 = genind_list[[1]]#note syntax
 rep_1 #prints genind object
 is.genind(rep_1)
 rep_1@loc.n.all
 
-#repool to one genind object
-genind_complete = repool(genind_list, list = FALSE)
-genind_complete
 
 #summary
-sum_genind = summary(genind_complete)
+sum_rep_1 = summary(rep_1)
 
-#par(mfrow=c(2,2))
-plot(sum_genind$n.by.pop, sum_genind$pop.n.all, xlab="Sample size", 
+#plotting statistics for 
+plot(sum_rep_1$n.by.pop, sum_rep_1$pop.n.all, xlab="Sample size", 
      ylab="Number of alleles", main="Alleles numbers and sample sizes",
      type="n")
-text(sum_genind$n.by.pop, sum_genind$pop.n.all, lab=names(sum_genind$n.by.pop))
+text(sum_rep_1$n.by.pop, sum_rep_1$pop.n.all, lab=names(sum_rep_1$n.by.pop))
 
-barplot(sum_genind$loc.n.all, ylab="Number of alleles", main="Number of alleles per locus")
+barplot(sum_rep_1$loc.n.all, ylab="Number of alleles", main="Number of alleles per locus")
 #heterozygosity
-barplot(sum_genind$Hexp-sum_genind$Hobs, main="Heterozygosity: expected-observed", ylab="Hexp - Hobs")
+barplot(sum_rep_1$Hexp-sum_rep_1$Hobs, main="Heterozygosity: expected-observed", ylab="Hexp - Hobs")
 
-barplot(sum_genind$n.by.pop, main ="Sample sizes per population", ylab="Number of genotypes", las=3)
+barplot(sum_rep_1$n.by.pop, main ="Sample sizes per population", ylab="Number of genotypes", las=3)
 
 
-
-#number of alleles for each marker
-genind_complete@loc.n.all
-#number of loci
-nLoc(genind_complete)
-nAll(genind_complete)
-#number of individuals in the object
-nInd(genind_complete)
