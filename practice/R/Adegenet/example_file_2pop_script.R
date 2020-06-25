@@ -31,11 +31,11 @@ rep_1@loc.n.all
 
 #summary
 sum_rep_1 = summary(rep_1)
+sum_rep_1$pop.n.all
 
 #plotting statistics for 
 plot(sum_rep_1$n.by.pop, sum_rep_1$pop.n.all, xlab="Sample size", 
-     ylab="Number of alleles", main="Alleles numbers and sample sizes",
-     type="n")
+     ylab="Number of alleles", main="Alleles numbers and sample sizes")
 text(sum_rep_1$n.by.pop, sum_rep_1$pop.n.all, lab=names(sum_rep_1$n.by.pop))
 
 barplot(sum_rep_1$loc.n.all, ylab="Number of alleles", main="Number of alleles per locus")

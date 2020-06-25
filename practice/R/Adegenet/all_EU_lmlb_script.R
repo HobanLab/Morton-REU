@@ -22,4 +22,4 @@ import_arp2gen_files("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulat
 
 all_EU_lmlb_genind = import_gen2genind_objects("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulations\\simcoal2\\all_EU_lmlb", ".gen$")
 
-all_EU_lmlb_genind[1]
+all_EU_lmlb_genind[[1]]
