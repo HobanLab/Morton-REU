@@ -18,30 +18,46 @@ import_gen2genind_objects = function(mypath, mypattern) {
   temp_list_4
 }
 
+
+##importing files
 import_arp2gen_files("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulations\\simcoal2\\example_file_2pop", ".arp$")
 
 genind_list = list()
 genind_list = import_gen2genind_objects("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulations\\simcoal2\\example_file_2pop", ".gen$")
 
-rep_1 = genind_list[[1]]#note syntax
-rep_1 #prints genind object
-is.genind(rep_1)
-rep_1@loc.n.all
 
+##analyzing/storing results
+##This loop will store results in a 3D array
+##calculating 2 statistics for two populations
+results = array(0, dim=c(2,2,5))##note syntax
+#seppop to separate each fiel into two populations
+for(i in 1:length(genind_list)) {
+  obj[i] = list(seppop(genind_list[[i]]))
+}
+for(i in 1:length(genind_list)) {
+  results[1,1,i] = 1
+  results[1,2,i] = 2
+  results[2,1,i] = 3
+  results[2,2,i] = 4
+}
 
-#summary
-sum_rep_1 = summary(rep_1)
+##plotting
+for(i in 1:length(genind_list)) {
+  x[i] = list(summary(genind_list[[i]]))
+}
 
-#plotting statistics for 
-plot(sum_rep_1$n.by.pop, sum_rep_1$pop.n.all, xlab="Sample size", 
-     ylab="Number of alleles", main="Alleles numbers and sample sizes",
-     type="n")
-text(sum_rep_1$n.by.pop, sum_rep_1$pop.n.all, lab=names(sum_rep_1$n.by.pop))
+#heterozygosity expected vs. observed
+plot(x[[1]]$Hexp, x[[1]]$Hobs, pch=20, cex=3, xlim=c(0,1), ylim=c(0,1))
+abline(0,1,lty=2)
 
-barplot(sum_rep_1$loc.n.all, ylab="Number of alleles", main="Number of alleles per locus")
-#heterozygosity
-barplot(sum_rep_1$Hexp-sum_rep_1$Hobs, main="Heterozygosity: expected-observed", ylab="Hexp - Hobs")
+plot(x[[2]]$Hexp, x[[2]]$Hobs, pch=20, cex=3, xlim=c(0,1), ylim=c(0,1))
+abline(0,1,lty=2)
 
-barplot(sum_rep_1$n.by.pop, main ="Sample sizes per population", ylab="Number of genotypes", las=3)
+plot(x[[3]]$Hexp, x[[3]]$Hobs, pch=20, cex=3, xlim=c(0,1), ylim=c(0,1))
+abline(0,1,lty=2)
 
+plot(x[[4]]$Hexp, x[[4]]$Hobs, pch=20, cex=3, xlim=c(0,1), ylim=c(0,1))
+abline(0,1,lty=2)
 
+plot(x[[5]]$Hexp, x[[5]]$Hobs, pch=20, cex=3, xlim=c(0,1), ylim=c(0,1))
+abline(0,1,lty=2)

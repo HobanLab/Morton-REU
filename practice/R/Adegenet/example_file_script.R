@@ -31,7 +31,6 @@ for(j in 1:length(example_filenames_gen)) {
   example_file_genind[[j]] = read.genepop(example_filenames_gen[j], ncode = 3)
 }
 
-#examining list of separate genind objects
-example_file_genind[2]
+
 
 
