@@ -41,7 +41,7 @@ for(i in 1:length(genind_list)) {
   results[2,2,i] = 4
 }
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
 ##plotting
 for(i in 1:length(genind_list)) {
   x[i] = list(summary(genind_list[[i]]))
@@ -50,7 +50,7 @@ for(i in 1:length(genind_list)) {
 #heterozygosity expected vs. observed
 plot(x[[1]]$Hexp, x[[1]]$Hobs, pch=20, cex=3, xlim=c(0,1), ylim=c(0,1))
 abline(0,1,lty=2)
-=======
+#=======
 #summary
 sum_rep_1 = summary(rep_1)
 sum_rep_1$pop.n.all
@@ -59,7 +59,7 @@ sum_rep_1$pop.n.all
 plot(sum_rep_1$n.by.pop, sum_rep_1$pop.n.all, xlab="Sample size", 
      ylab="Number of alleles", main="Alleles numbers and sample sizes")
 text(sum_rep_1$n.by.pop, sum_rep_1$pop.n.all, lab=names(sum_rep_1$n.by.pop))
->>>>>>> 57e945ea91795e850df2e9df66bfec28fa287316
+
 
 plot(x[[2]]$Hexp, x[[2]]$Hobs, pch=20, cex=3, xlim=c(0,1), ylim=c(0,1))
 abline(0,1,lty=2)
