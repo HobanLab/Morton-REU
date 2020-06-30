@@ -19,6 +19,3 @@ import_gen2genind_objects = function(mypath, mypattern) {
 dir("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulations\\simcoal2\\compare_migration")
 files = list.files("C:\\Users\\kayle\\Documents\\Morton-REU\\practice\\Simulations\\simcoal2\\compare_migration", recursive = T, pattern = ".arp$")
 
-for(i in 1:length(files)) {
-  gen_files = list(arp2gen(files[[i]]))
-}
