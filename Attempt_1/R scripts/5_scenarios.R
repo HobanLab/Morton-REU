@@ -1,15 +1,21 @@
-#Script to analyze 2 different scenarios
-#scenario 1: all equal size populations
-#scenario 2: unequal size populations
-#script imports data, analyzes, and saves results to an array
+##This script analyzes 5 different scenarios
+##each scenario has different population sizes
+##sampling proportionally from each population in each scenario
+##script imports data, analyzes, and stores the results in an array
+
 
 library(adegenet)
 library(diveRsity)
 
 my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations"
 
-scenarios = c("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\all_same_size", 
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\all_diff_size")
+#list of scenarios
+#simulation file folder directories
+scenarios = c("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\equal_pop", 
+              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\unequal_pop_extreme",
+              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\unequal_pop_strong",
+              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\unequal_pop_moderate",
+              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\unequal_pop_weak")
 
 #import functions
 import_arp2gen_files = function(mypath, mypattern) {
@@ -29,14 +35,16 @@ import_gen2genind_objects = function(mypath, mypattern) {
 }
 
 ##converting .arp to .gen
-import_arp2gen_files("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\all_same_size", ".arp$")
-import_arp2gen_files("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\all_diff_size", ".arp$")
+for(i in 1:length(scenarios)) {
+  import_arp2gen_files(scenarios[i], ".arp$")
+}
+
 
 #creating results array to store the results
 #5 populations
 #10 replicates
-#2 scenarios
-results = array(0, dim = c(5,10,2))
+#5 scenarios
+results = array(0, dim = c(5,10,5))
 
 #loop through scenarios
 for(i in 1:length(scenarios)) {
@@ -55,10 +63,3 @@ for(i in 1:length(scenarios)) {
 
 #look at results
 results
-
-
-#Testing space
-temp_genind = read.genepop(list_files[[1]], ncode=3)
-temp_summary = summary(temp_genind)
-temp_summary
-temp_summary$pop.n.all
