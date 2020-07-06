@@ -1,21 +1,15 @@
-##This script analyzes 5 different scenarios
-##each scenario has different population sizes
-##sampling proportionally from each population in each scenario
-##script imports data, analyzes, and stores the results in an array
-
-
 library(adegenet)
 library(diveRsity)
 
-my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations"
+my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations"
 
 #list of scenarios
 #simulation file folder directories
-scenarios = c("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\equal_pop", 
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\unequal_pop_extreme",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\unequal_pop_strong",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\unequal_pop_moderate",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt_1\\Simulations\\unequal_pop_weak")
+scenarios = c("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations\\equal_pop",
+              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations\\unequal_pop_extreme",
+              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations\\unequal_pop_moderate",
+              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations\\unequal_pop_strong",
+              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations\\unequal_pop_weak")
 
 #import functions
 import_arp2gen_files = function(mypath, mypattern) {
@@ -39,7 +33,6 @@ for(i in 1:length(scenarios)) {
   import_arp2gen_files(scenarios[i], ".arp$")
 }
 
-
 #creating results array to store the results
 #5 populations
 #10 replicates
@@ -54,10 +47,12 @@ for(i in 1:length(scenarios)) {
   for(j in 1:length(list_files)) {
     #convert to genind
     temp_genind = read.genepop(list_files[[j]], ncode=3)
-    #run summary
-    temp_summary = summary(temp_genind)
-    #extract statistics & store results
-    results[,j,i] = temp_summary$pop.n.all
+    #total number of alleles in the population
+    total_n_alleles = ncol(temp_genind@tab)
+    t = 10
+    #number of alleles in 10 samples
+    sample_n_alleles = sum(colSums(temp_genind@tab[sample(1:nrow(temp_genind@tab), t),])>0)
+    results[,j,i] = sample_n_alleles
   }
 }
 
