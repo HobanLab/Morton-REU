@@ -1,17 +1,17 @@
 //Parameters for the coalescence simulation program : simcoal.exe
 5 samples to simulate : equal population sizes
 //Population effective sizes (number of genes 2*diploids)
-300
-300
-300
-300
-300
+600
+600
+600
+600
+600
 //Sample sizes (number of genes 2*diploids)
-300
-300
-300
-300
-300
+600
+600
+600
+600
+600
 //Growth rates	: negative growth implies population expansion
 0
 0

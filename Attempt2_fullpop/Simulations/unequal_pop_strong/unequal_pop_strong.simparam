@@ -3,19 +3,19 @@ Simulation parameters for current simulations
 
 
 Deme sizes
-Deme 0	50
-Deme 1	200
-Deme 2	200
-Deme 3	200
-Deme 4	850
+Deme 0	100
+Deme 1	400
+Deme 2	400
+Deme 3	400
+Deme 4	1700
 
 
 Sample sizes
-Deme 0	50
-Deme 1	200
-Deme 2	200
-Deme 3	200
-Deme 4	850
+Deme 0	100
+Deme 1	400
+Deme 2	400
+Deme 3	400
+Deme 4	1700
 
 Growth rates
 0	0
@@ -104,9 +104,9 @@ Number of linkage blocks to simulate in structure 1: 1
 
 
 
-Random generator initialized with : 238
+Random generator initialized with : 231
 
 
 
-done in 0.4530000sec
+done in 1.0470000sec
 
