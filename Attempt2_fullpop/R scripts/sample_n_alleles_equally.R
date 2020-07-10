@@ -1,6 +1,7 @@
 library(adegenet)
 library(diveRsity)
 library(ggplot2)
+library(tidyr)
 
 my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations"
 
@@ -34,10 +35,12 @@ for(i in 1:length(scenarios)) {
   import_arp2gen_files(scenarios[i], ".arp$")
 }
 
+row.names = c("scen1", "scen2", "scen3", "scen4", "scen5")
+column.names = c("rep1", "rep2", "rep3", "rep4", "rep5", "rep6", "rep7", "rep8", "rep9", "rep10")
 #creating results array to store the results
 #5 scenarios (each with 5 populations)
 #10 replicates
-results = array(0, dim = c(5,10))
+results = array(0, dim = c(5,10), dimnames = list(row.names, column.names))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
@@ -67,11 +70,12 @@ for(i in 1:length(scenarios)) {
 #look at results
 results
 
+#plotting
+#this is a mess
+results_plot = as.data.frame(results)
+results_plot_long = gather(results_plot, replicate, prop_all)
+scenario = rep(c(1,2,3,4,5), 10)
+as.factor(scenario)
+results_plot_long$scenario=scenario
 
-##plots
-barplot(results[,,1], main="Equal populations", xlab="Replicates", ylab="sample_n_alleles")
-barplot(results[,,2], main="Unequal populations: extreme", xlab="Replicates", ylab="sample_n_alleles")
-barplot(results[,,3], main="Unequal populations: strong", xlab="Replicates", ylab="sample_n_alleles")
-barplot(results[,,4], main="Unequal populations: moderate", xlab="Replicates", ylab="sample_n_alleles")
-barplot(results[,,5], main="Unequal populations: weak", xlab="Replicates", ylab="sample_n_alleles")
-
+ggplot(results_plot_long, aes(x=scenario, y=prop_all, group=scenario, fill=scenario)) + geom_boxplot()

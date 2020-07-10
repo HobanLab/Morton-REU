@@ -67,8 +67,11 @@ for(i in 1:length(scenarios)) {
 #look at results
 results
 
-barplot(results[,,1], main="Equal populations", xlab="Replicates", ylab="sample_n_alleles")
-barplot(results[,,2], main="Unequal populations: extreme", xlab="Replicates", ylab="sample_n_alleles")
-barplot(results[,,3], main="Unequal populations: strong", xlab="Replicates", ylab="sample_n_alleles")
-barplot(results[,,4], main="Unequal populations: moderate", xlab="Replicates", ylab="sample_n_alleles")
-barplot(results[,,5], main="Unequal populations: weak", xlab="Replicates", ylab="sample_n_alleles")
+#plotting
+results_plot = as.data.frame(results)
+results_plot_long = gather(results_plot, replicate, prop_all)
+scenario = rep(c(1,2,3,4,5), 10)
+as.factor(scenario)
+results_plot_long$scenario=scenario
+
+ggplot(results_plot_long, aes(x=scenario, y=prop_all, group=scenario, fill=scenario)) + geom_boxplot()
