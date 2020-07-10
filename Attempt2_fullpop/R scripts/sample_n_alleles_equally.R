@@ -1,5 +1,6 @@
 library(adegenet)
 library(diveRsity)
+library(ggplot2)
 
 my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations"
 
@@ -34,10 +35,9 @@ for(i in 1:length(scenarios)) {
 }
 
 #creating results array to store the results
-#5 populations
+#5 scenarios (each with 5 populations)
 #10 replicates
-#5 scenarios
-results = array(0, dim = c(5,10,5))
+results = array(0, dim = c(5,10))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
@@ -59,13 +59,16 @@ for(i in 1:length(scenarios)) {
     #convert to genind
     temp_genind = read.genepop(list_files[[j]], ncode=3)
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp[[i]],])>0)
-    results[,j,i] = sample_n_alleles
+    total_alleles = ncol(temp_genind@tab)
+    results[i,j] = sample_n_alleles/total_alleles
   }
 }
 
 #look at results
 results
 
+
+##plots
 barplot(results[,,1], main="Equal populations", xlab="Replicates", ylab="sample_n_alleles")
 barplot(results[,,2], main="Unequal populations: extreme", xlab="Replicates", ylab="sample_n_alleles")
 barplot(results[,,3], main="Unequal populations: strong", xlab="Replicates", ylab="sample_n_alleles")
