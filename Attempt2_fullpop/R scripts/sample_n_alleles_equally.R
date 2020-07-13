@@ -35,8 +35,6 @@ for(i in 1:length(scenarios)) {
   import_arp2gen_files(scenarios[i], ".arp$")
 }
 
-row.names = c("scen1", "scen2", "scen3", "scen4", "scen5")
-column.names = c("rep1", "rep2", "rep3", "rep4", "rep5", "rep6", "rep7", "rep8", "rep9", "rep10")
 #creating results array to store the results
 #5 scenarios (each with 5 populations)
 #10 replicates
@@ -78,4 +76,7 @@ scenario = rep(c(1,2,3,4,5), 10)
 as.factor(scenario)
 results_plot_long$scenario=scenario
 
-ggplot(results_plot_long, aes(x=scenario, y=prop_all, group=scenario, fill=scenario)) + geom_boxplot()
+ggplot(results_plot_long, aes(x=scenario, y=prop_all, group=scenario, fill=scenario)) + 
+  geom_boxplot() +
+  ggtitle("Alleles captured across scenarios: equal strategy") +
+  ylim(0.7,1)

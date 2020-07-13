@@ -1,6 +1,7 @@
 library(adegenet)
 library(diveRsity)
 library(ggplot2)
+library(tidyr)
 
 my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt2_fullpop\\Simulations"
 
@@ -74,4 +75,7 @@ scenario = rep(c(1,2,3,4,5), 10)
 as.factor(scenario)
 results_plot_long$scenario=scenario
 
-ggplot(results_plot_long, aes(x=scenario, y=prop_all, group=scenario, fill=scenario)) + geom_boxplot()
+ggplot(results_plot_long, aes(x=scenario, y=prop_all, group=scenario, fill=scenario)) + 
+  geom_boxplot() +
+  ggtitle("Alleles captured across scenarios: proportional strategy") +
+  ylim(0.7,1)
