@@ -1,0 +1,10 @@
+500 1
+scen1_lowMig_highSamp.par
+scen2_lowMig_highSamp.par
+scen3_lowMig_highSamp.par
+scen4_lowMig_highSamp.par
+scen5_lowMig_highSamp.par
+scen6_lowMig_highSamp.par
+scen7_lowMig_highSamp.par
+scen8_lowMig_highSamp.par
+scen9_lowMig_highSamp.par

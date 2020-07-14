@@ -66,7 +66,7 @@ for(i in 1:length(scenarios)) {
 }
 
 #look at results
-results
+round(results, 3)
 
 #plotting
 results_plot = as.data.frame(results)
