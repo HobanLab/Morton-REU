@@ -3,19 +3,23 @@ library(diveRsity)
 library(ggplot2)
 library(tidyr)
 
+#root directory
+#containing sub-folders
 my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp"
+setwd(my_dir)
+
 
 #list of scenarios
-#simulation file folder directories
-scenarios = c("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen1_highMig_highSamp",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen2_highMig_highSamp",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen3_highMig_highSamp",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen4_highMig_highSamp",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen5_highMig_highSamp",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen6_highMig_highSamp",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen7_highMig_highSamp",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen8_highMig_highSamp",
-              "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen9_highMig_highSamp")
+#simulation sub-folder directories
+scenarios = c("\\scen1_highMig_highSamp",
+              "\\scen2_highMig_highSamp",
+              "\\scen3_highMig_highSamp",
+              "\\scen4_highMig_highSamp",
+              "\\scen5_highMig_highSamp",
+              "\\scen6_highMig_highSamp",
+              "\\scen7_highMig_highSamp",
+              "\\scen8_highMig_highSamp",
+              "\\scen9_highMig_highSamp")
 
 #import functions
 import_arp2gen_files = function(mypath, mypattern) {
@@ -36,7 +40,7 @@ import_gen2genind_objects = function(mypath, mypattern) {
 
 ##converting .arp to .gen
 for(i in 1:length(scenarios)) {
-  import_arp2gen_files(scenarios[i], ".arp$")
+  import_arp2gen_files(paste(my_dir,scenarios[i],sep=""), ".arp$")
 }
 
 #****************************************************************************************************************************************************
@@ -64,14 +68,17 @@ rows_to_samp_equal[[9]] = c(sample(1:300,30), sample(301:600,30), sample(601:900
 #loop through scenarios
 #equal strategy
 for(i in 1:length(scenarios)) {
-  setwd(scenarios[i])
-  list_files = list.files(path = scenarios[i], pattern = ".gen$")
+  setwd(paste(my_dir,scenarios[i],sep=""))
+  list_files = list.files(path = paste(my_dir,scenarios[i],sep=""), pattern = ".gen$")
   #loop through replicates
   for(j in 1:length(list_files)) {
     #convert to genind
     temp_genind = read.genepop(list_files[[j]], ncode=3)
+    #sampling alleles from each population
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_equal[[i]],])>0)
+    #total alleles
     total_alleles = ncol(temp_genind@tab)
+    #saving results
     results_highMig_highSamp_equal[i,j] = sample_n_alleles/total_alleles
   }
 }
@@ -108,8 +115,11 @@ for(i in 1:length(scenarios)) {
   for(j in 1:length(list_files)) {
     #convert to genind
     temp_genind = read.genepop(list_files[[j]], ncode=3)
+    #sampling alelles from the population
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_prop[[i]],])>0)
+    #keeping track of the total alleles
     total_alleles = ncol(temp_genind@tab)
+    #calculating proportion and saving the results
     results_highMig_highSamp_prop[i,j] = sample_n_alleles/total_alleles
   }
 }

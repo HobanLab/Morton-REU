@@ -3,10 +3,12 @@ library(diveRsity)
 library(ggplot2)
 library(tidyr)
 
+#root directory
+#containing sub-folders
 my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp"
 
 #list of scenarios
-#simulation file folder directories
+#simulation sub-folder directories
 scenarios = c("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen1_highMig_highSamp",
               "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen2_highMig_highSamp",
               "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt3_full_factorial_lowRep\\Simulations\\highMig_highSamp\\scen3_highMig_highSamp",
