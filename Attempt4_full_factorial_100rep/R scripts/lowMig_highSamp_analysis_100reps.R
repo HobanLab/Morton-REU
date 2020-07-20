@@ -2,6 +2,7 @@ library(adegenet)
 library(diveRsity)
 library(ggplot2)
 library(tidyr)
+library(car)
 
 #root directory
 #containing sub-folders
@@ -48,7 +49,7 @@ for(i in 1:length(scenarios)) {
 #creating results array to store the results for the equal strategy
 #9 scenarios (each with 5 populations)
 #100 replicates
-results_highMig_highSamp_equal = array(0, dim = c(9,100))
+results_lowMig_highSamp_equal = array(0, dim = c(9,100))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
@@ -79,19 +80,19 @@ for(i in 1:length(scenarios)) {
     #total alleles
     total_alleles = ncol(temp_genind@tab)
     #saving results
-    results_highMig_highSamp_equal[i,j] = sample_n_alleles/total_alleles
+    results_lowMig_highSamp_equal[i,j] = sample_n_alleles/total_alleles
   }
 }
 
 #look at results
-round(results_highMig_highSamp_equal, 3)
+round(results_lowMig_highSamp_equal, 3)
 
 #**************************************************************************************************************************************************************
 #proportional strategy
 #creating results array to store the results for the proportional strategy
 #9 scenarios (each with 5 populations)
 #100 replicates
-results_highMig_highSamp_prop = array(0, dim = c(9,100))
+results_lowMig_highSamp_prop = array(0, dim = c(9,100))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
@@ -122,17 +123,17 @@ for(i in 1:length(scenarios)) {
     #keeping track of the total alleles
     total_alleles = ncol(temp_genind@tab)
     #calculating proportion and saving the results
-    results_highMig_highSamp_prop[i,j] = sample_n_alleles/total_alleles
+    results_lowMig_highSamp_prop[i,j] = sample_n_alleles/total_alleles
   }
 }
 
 #look at results
-round(results_highMig_highSamp_prop, 3)
+round(results_lowMig_highSamp_prop, 3)
 
 #***********************************************************************************************************************************************************
 #converting results arrays to matrices
 #Equal results array conversion:
-results_plot_equal = as.data.frame(results_highMig_highSamp_equal)
+results_plot_equal = as.data.frame(results_lowMig_highSamp_equal)
 results_plot_equal_long = gather(results_plot_equal, replicate, prop_all)
 scenario = rep(c(1,2,3,4,5,6,7,8,9), 100) #repeating the number of scenarios x number replicates (10)
 factor(scenario)
@@ -141,7 +142,7 @@ strategy = rep("equal", 900)#repeat equal 90 times to keep track that this is th
 results_plot_equal_long$strategy=strategy
 
 #Proportional results array conversion:
-results_plot_prop = as.data.frame(results_highMig_highSamp_prop)
+results_plot_prop = as.data.frame(results_lowMig_highSamp_prop)
 results_plot_prop_long = gather(results_plot_prop, replicate, prop_all)
 results_plot_prop_long$scenario = scenario
 strategy = rep("proportional", 900)#repeat proportional to keep track that this is proportional strategy
@@ -152,7 +153,7 @@ results_plot_prop_long$strategy = strategy
 combined_results = rbind(results_plot_equal_long, results_plot_prop_long)
 
 #************************************************************************************************************************************************************
-#plotting combined results
+#plotting/visualizing combined results
 #all results on one plot
 ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
   geom_boxplot() +
@@ -169,3 +170,14 @@ ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy)) +
   ylim(0.85,1) +
   facet_wrap(~scenario, scale="free") +
   scale_fill_brewer(palette = "blues")
+
+#**************************************************************************************************************************************************************
+#statistical analyses
+#testing assumptions
+#normality
+aov_results_lowMig_highSamp = aov(prop_all, scenario + strategy, data = combined_results)
+aov_residuals_lowMig_highSamp = residuals(object=aov_results_lowMig_highSamp)
+shapiro.test(x=aov_residuals_lowMig_highSamp)#non-normal data
+ggplot(combined_results, aes(x=prop_all)) + geom_histogram(bins=20)
+#equal variances
+leveneTest(prop_all ~ strategy, data = combined_results)

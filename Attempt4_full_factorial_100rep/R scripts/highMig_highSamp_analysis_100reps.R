@@ -2,6 +2,7 @@ library(adegenet)
 library(diveRsity)
 library(ggplot2)
 library(tidyr)
+library(car)
 
 #root directory
 #containing sub-folders
@@ -153,6 +154,7 @@ combined_results = rbind(results_plot_equal_long, results_plot_prop_long)
 
 #************************************************************************************************************************************************************
 #plotting combined results
+
 #all results on one plot
 ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
   geom_boxplot() +
@@ -169,3 +171,20 @@ ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy)) +
   ylim(0.85,1) +
   facet_wrap(~scenario, scale="free") +
   scale_fill_brewer(palette = "blues")
+
+#**************************************************************************************************************************************************************
+#testing assumptions
+
+#normality
+aov_results_highMig_highSamp = aov(prop_all ~ scenario + strategy, data = combined_results) #run anova
+aov_residuals_highMig_highSamp = residuals(object = aov_results_highMig_highSamp) #get residuals
+shapiro.test(x = aov_residuals_highMig_highSamp)#test for normality -> non-normal data
+#visualizing results with histogram
+ggplot(combined_results, aes(x=prop_all)) + geom_histogram(bins = 20)#skewed
+#visualizing results with Q-Q plot
+plot(aov_results_highMig_highSamp, 2)
+
+#equal variances
+leveneTest(prop_all ~ as.factor(scenario)*as.factor(strategy), data = combined_results)#unequal variances -> due to outliers?
+#visualizing results with residuals vs. fits plot
+plot(aov_results_highMig_highSamp, 1)
