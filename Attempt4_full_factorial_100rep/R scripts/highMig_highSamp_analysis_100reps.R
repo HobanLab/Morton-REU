@@ -51,6 +51,13 @@ for(i in 1:length(scenarios)) {
 #100 replicates
 results_highMig_highSamp_equal = array(0, dim = c(9,100))
 
+#creating arrays to store summary statistics 
+#total number of alleles
+total_alleles_highMig_highSamp_equal = array(0, dim = c(9, 100))
+#heterozygosity observed / expected
+heterozyogisty_highMig_highSamp_equal = array(0, dim = c(9,100))
+
+
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
 #5 pops in each scenario
@@ -79,7 +86,9 @@ for(i in 1:length(scenarios)) {
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_equal[[i]],])>0)
     #total alleles
     total_alleles = ncol(temp_genind@tab)
-    #saving results
+    #saving alleles
+    total_alleles_highMig_highSamp_equal[i,j] = total_alleles
+    #saving results - proportion of alleles captured
     results_highMig_highSamp_equal[i,j] = sample_n_alleles/total_alleles
   }
 }
@@ -93,6 +102,11 @@ round(results_highMig_highSamp_equal, 3)
 #9 scenarios (each with 5 populations)
 #100 replicates
 results_highMig_highSamp_prop = array(0, dim = c(9,100))
+
+#creating arrays to store summary statistics 
+#total number of alleles
+total_alleles_highMig_highSamp_prop = array(0, dim = c(9, 100))
+heterozyogisty_highMig_highSamp_prop = array(0, dim = c(9,100))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
@@ -122,6 +136,8 @@ for(i in 1:length(scenarios)) {
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_prop[[i]],])>0)
     #keeping track of the total alleles
     total_alleles = ncol(temp_genind@tab)
+    #saving alleles
+    total_alleles_highMig_highSamp_prop[i,j] = total_alleles
     #calculating proportion and saving the results
     results_highMig_highSamp_prop[i,j] = sample_n_alleles/total_alleles
   }
@@ -129,7 +145,11 @@ for(i in 1:length(scenarios)) {
 
 #look at results
 round(results_highMig_highSamp_prop, 3)
-
+#***********************************************************************************************************************************************************
+#saving data 
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
+save(results_highMig_highSamp_equal, results_highMig_highSamp_prop, file="results_highMig_highSamp.Rdata")
+save(total_alleles_highMig_highSamp_equal, total_alleles_highMig_highSamp_prop, file="total_alleles_highMig_highSamp.Rdata")
 #***********************************************************************************************************************************************************
 #converting results arrays to matrices
 #Equal results array conversion:
@@ -160,7 +180,8 @@ ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy, colo
   geom_boxplot() +
   ggtitle("High migration/high sampling") +
   ylim(0.85,1) +
-  scale_fill_brewer()
+  scale_fill_brewer() +
+  theme_bw()
 #note:can take out color = to get rid of mess
 
 #faceted results
@@ -170,7 +191,8 @@ ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy)) +
   ggtitle("High migration/high sampling") +
   ylim(0.85,1) +
   facet_wrap(~scenario, scale="free") +
-  scale_fill_brewer(palette = "blues")
+  scale_fill_brewer(palette = "blues") +
+  theme_bw()
 
 #**************************************************************************************************************************************************************
 #testing assumptions

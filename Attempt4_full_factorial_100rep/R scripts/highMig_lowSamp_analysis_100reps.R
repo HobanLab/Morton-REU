@@ -2,25 +2,24 @@ library(adegenet)
 library(diveRsity)
 library(ggplot2)
 library(tidyr)
-library(car)
 
 #root directory
 #containing sub-folders
-my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU Simulations\\Attempt4_full_factorial_100reps\\lowMig_highSamp"
+my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU Simulations\\Attempt4_full_factorial_100reps\\highMig_lowSamp"
 setwd(my_dir)
 
 
 #list of scenarios
 #simulation sub-folder directories
-scenarios = c("\\scen1_lowMig_highSamp",
-              "\\scen2_lowMig_highSamp",
-              "\\scen3_lowMig_highSamp",
-              "\\scen4_lowMig_highSamp",
-              "\\scen5_lowMig_highSamp",
-              "\\scen6_lowMig_highSamp",
-              "\\scen7_lowMig_highSamp",
-              "\\scen8_lowMig_highSamp",
-              "\\scen9_lowMig_highSamp")
+scenarios = c("\\scen1_highMig_lowSamp",
+              "\\scen2_highMig_lowSamp",
+              "\\scen3_highMig_lowSamp",
+              "\\scen4_highMig_lowSamp",
+              "\\scen5_highMig_lowSamp",
+              "\\scen6_highMig_lowSamp",
+              "\\scen7_highMig_lowSamp",
+              "\\scen8_highMig_lowSamp",
+              "\\scen9_highMig_lowSamp")
 
 #import functions
 import_arp2gen_files = function(mypath, mypattern) {
@@ -48,26 +47,22 @@ for(i in 1:length(scenarios)) {
 #equal strategy
 #creating results array to store the results for the equal strategy
 #9 scenarios (each with 5 populations)
-#100 replicates
-results_lowMig_highSamp_equal = array(0, dim = c(9,100))
-
-#creating arrays to store summary statistics 
-#total number of alleles
-total_alleles_lowMig_highSamp_equal = array(0, dim = c(9, 100))
+#10 replicates
+results_highMig_lowSamp_equal = array(0, dim = c(9,100))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
 #5 pops in each scenario
 rows_to_samp_equal = list(length = length(scenarios))
-rows_to_samp_equal[[1]] = c(sample(1:30,30), sample(31:130,30), sample(131:230,30), sample(231:330,30), sample(331:1500,30))
-rows_to_samp_equal[[2]] = c(sample(1:40,30), sample(41:190,30), sample(191:340,30), sample(341:490,30), sample(491:1500,30))
-rows_to_samp_equal[[3]] = c(sample(1:50,30), sample(51:250,30), sample(251:450,30), sample(451:650,30), sample(651:1500,30))
-rows_to_samp_equal[[4]] = c(sample(1:100,30), sample(101:300,30), sample(301:500,30), sample(501:700,30), sample(701:1500,30))
-rows_to_samp_equal[[5]] = c(sample(1:150,30), sample(151:350,30), sample(351:550,30), sample(551:750,30), sample(750:1500,30))
-rows_to_samp_equal[[6]] = c(sample(1:200,30), sample(201:450,30), sample(451:700,30), sample(701:950,30), sample(951:1500,30))
-rows_to_samp_equal[[7]] = c(sample(1:200,30), sample(201:500,30), sample(501:800,30), sample(801:1100,30), sample(1101:1500,30))
-rows_to_samp_equal[[8]] = c(sample(1:290,30), sample(291:590,30), sample(591:890,30), sample(891:1190,30), sample(1191:1500,30))
-rows_to_samp_equal[[9]] = c(sample(1:300,30), sample(301:600,30), sample(601:900,30), sample(901:1200,30), sample(1201:1500,30))
+rows_to_samp_equal[[1]] = c(sample(1:30,15), sample(31:130,15), sample(131:230,15), sample(231:330,15), sample(331:1500,15))
+rows_to_samp_equal[[2]] = c(sample(1:40,15), sample(41:190,15), sample(191:340,15), sample(341:490,15), sample(491:1500,15))
+rows_to_samp_equal[[3]] = c(sample(1:50,15), sample(51:250,15), sample(251:450,15), sample(451:650,15), sample(651:1500,15))
+rows_to_samp_equal[[4]] = c(sample(1:100,15), sample(101:300,15), sample(301:500,15), sample(501:700,15), sample(701:1500,15))
+rows_to_samp_equal[[5]] = c(sample(1:150,15), sample(151:350,15), sample(351:550,15), sample(551:750,15), sample(750:1500,15))
+rows_to_samp_equal[[6]] = c(sample(1:200,15), sample(201:450,15), sample(451:700,15), sample(701:950,15), sample(951:1500,15))
+rows_to_samp_equal[[7]] = c(sample(1:200,15), sample(201:500,15), sample(501:800,15), sample(801:1100,15), sample(1101:1500,15))
+rows_to_samp_equal[[8]] = c(sample(1:290,15), sample(291:590,15), sample(591:890,15), sample(891:1190,15), sample(1191:1500,15))
+rows_to_samp_equal[[9]] = c(sample(1:300,15), sample(301:600,15), sample(601:900,15), sample(901:1200,15), sample(1201:1500,15))
 
 
 #loop through scenarios
@@ -83,39 +78,34 @@ for(i in 1:length(scenarios)) {
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_equal[[i]],])>0)
     #total alleles
     total_alleles = ncol(temp_genind@tab)
-    total_alleles_lowMig_highSamp_equal[i,j] = total_alleles 
     #saving results
-    results_lowMig_highSamp_equal[i,j] = sample_n_alleles/total_alleles
+    results_highMig_lowSamp_equal[i,j] = sample_n_alleles/total_alleles
   }
 }
 
 #look at results
-round(results_lowMig_highSamp_equal, 3)
+round(results_highMig_lowSamp_equal, 3)
 
 #**************************************************************************************************************************************************************
 #proportional strategy
 #creating results array to store the results for the proportional strategy
 #9 scenarios (each with 5 populations)
-#100 replicates
-results_lowMig_highSamp_prop = array(0, dim = c(9,100))
-
-#creating arrays to store summary statistics 
-#total number of alleles
-total_alleles_lowMig_highSamp_prop = array(0, dim = c(9, 100))
+#10 replicates
+results_highMig_lowSamp_prop = array(0, dim = c(9,100))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
 #5 pops in each scenario
 rows_to_samp_prop = list(length = length(scenarios))
-rows_to_samp_prop[[1]] = c(sample(1:30,3), sample(31:130,10), sample(131:230,10), sample(231:330,10), sample(331:1500,117))
-rows_to_samp_prop[[2]] = c(sample(1:40,4), sample(41:190,15), sample(191:340,15), sample(341:490,15), sample(491:1500,101))
-rows_to_samp_prop[[3]] = c(sample(1:50,5), sample(51:250,20), sample(251:450,20), sample(451:650,20), sample(651:1500,85))
-rows_to_samp_prop[[4]] = c(sample(1:100,10), sample(101:300,20), sample(301:500,20), sample(501:700,20), sample(701:1500,80))
-rows_to_samp_prop[[5]] = c(sample(1:150,15), sample(151:350,20), sample(351:550,20), sample(551:750,20), sample(750:1500,75))
-rows_to_samp_prop[[6]] = c(sample(1:200,20), sample(201:450,25), sample(451:700,25), sample(701:950,25), sample(951:1500,55))
-rows_to_samp_prop[[7]] = c(sample(1:200,20), sample(201:500,30), sample(501:800,30), sample(801:1100,30), sample(1101:1500,40))
-rows_to_samp_prop[[8]] = c(sample(1:290,29), sample(291:590,30), sample(591:890,30), sample(891:1190,30), sample(1191:1500,31))
-rows_to_samp_prop[[9]] = c(sample(1:300,30), sample(301:600,30), sample(601:900,30), sample(901:1200,30), sample(1201:1500,30))
+rows_to_samp_prop[[1]] = c(sample(1:30,2), sample(31:130,5), sample(131:230,5), sample(231:330,5), sample(331:1500,59))
+rows_to_samp_prop[[2]] = c(sample(1:40,2), sample(41:190,8), sample(191:340,8), sample(341:490,8), sample(491:1500,51))
+rows_to_samp_prop[[3]] = c(sample(1:50,3), sample(51:250,10), sample(251:450,10), sample(451:650,10), sample(651:1500,43))
+rows_to_samp_prop[[4]] = c(sample(1:100,5), sample(101:300,10), sample(301:500,10), sample(501:700,10), sample(701:1500,40))
+rows_to_samp_prop[[5]] = c(sample(1:150,8), sample(151:350,10), sample(351:550,10), sample(551:750,10), sample(750:1500,38))
+rows_to_samp_prop[[6]] = c(sample(1:200,10), sample(201:450,13), sample(451:700,13), sample(701:950,13), sample(951:1500,28))
+rows_to_samp_prop[[7]] = c(sample(1:200,10), sample(201:500,15), sample(501:800,15), sample(801:1100,15), sample(1101:1500,20))
+rows_to_samp_prop[[8]] = c(sample(1:290,15), sample(291:590,15), sample(591:890,15), sample(891:1190,15), sample(1191:1500,15))
+rows_to_samp_prop[[9]] = c(sample(1:300,15), sample(301:600,15), sample(601:900,15), sample(901:1200,15), sample(1201:1500,15))
 
 #loop through scenarios
 for(i in 1:length(scenarios)) {
@@ -131,33 +121,32 @@ for(i in 1:length(scenarios)) {
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_prop[[i]],])>0)
     #keeping track of the total alleles
     total_alleles = ncol(temp_genind@tab)
-    #saving total alleles
-    total_alleles_lowMig_highSamp_prop[i,j] = total_alleles
     #calculating proportion and saving the results
-    results_lowMig_highSamp_prop[i,j] = sample_n_alleles/total_alleles
+    results_highMig_lowSamp_prop[i,j] = sample_n_alleles/total_alleles
   }
 }
 
 #look at results
-round(results_lowMig_highSamp_prop, 3)
+round(results_highMig_lowSamp_prop, 3)
+
 #***********************************************************************************************************************************************************
 #saving results
 setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
-save(results_lowMig_highSamp_equal, results_lowMig_highSamp_prop, file = "results_lowMig_highSamp.Rdata")
-save(total_alleles_lowMig_highSamp_equal, total_alleles_lowMig_highSamp_prop, file="total_alleles_lowMig_highSamp.Rdata")
+save(results_highMig_lowSamp_equal, results_highMig_lowSamp_prop, file = "results_highMig_lowSamp.Rdata")
+save(total_alleles_highMig_lowSamp_equal, total_alleles_highMig_lowSamp_prop, file="total_alleles_highMig_lowSamp.Rdata")
 #***********************************************************************************************************************************************************
 #converting results arrays to matrices
 #Equal results array conversion:
-results_plot_equal = as.data.frame(results_lowMig_highSamp_equal)
+results_plot_equal = as.data.frame(results_highMig_lowSamp_equal)
 results_plot_equal_long = gather(results_plot_equal, replicate, prop_all)
-scenario = rep(c(1,2,3,4,5,6,7,8,9), 100) #repeating the number of scenarios x number replicates (10)
+scenario = rep(c(1,2,3,4,5,6,7,8,9), 100) #repeating the number of scenarios x number replicates (100)
 factor(scenario)
 results_plot_equal_long$scenario = scenario
 strategy = rep("equal", 900)#repeat equal 90 times to keep track that this is the equal strategy
 results_plot_equal_long$strategy=strategy
 
 #Proportional results array conversion:
-results_plot_prop = as.data.frame(results_lowMig_highSamp_prop)
+results_plot_prop = as.data.frame(results_highMig_lowSamp_prop)
 results_plot_prop_long = gather(results_plot_prop, replicate, prop_all)
 results_plot_prop_long$scenario = scenario
 strategy = rep("proportional", 900)#repeat proportional to keep track that this is proportional strategy
@@ -168,11 +157,11 @@ results_plot_prop_long$strategy = strategy
 combined_results = rbind(results_plot_equal_long, results_plot_prop_long)
 
 #************************************************************************************************************************************************************
-#plotting/visualizing combined results
+#plotting combined results
 #all results on one plot
 ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
   geom_boxplot() +
-  ggtitle("Low migration/high sampling") +
+  ggtitle("High migration/low sampling") +
   ylim(0.85,1) +
   scale_fill_brewer() +
   theme_bw()
@@ -182,19 +171,8 @@ ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy, colo
 #separate plots for each scenario
 ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
-  ggtitle("Low migration/high sampling") +
+  ggtitle("High migration/low sampling") +
   ylim(0.85,1) +
   facet_wrap(~scenario, scale="free") +
   scale_fill_brewer(palette = "blues") +
   theme_bw()
-
-#**************************************************************************************************************************************************************
-#statistical analyses
-#testing assumptions
-#normality
-aov_results_lowMig_highSamp = aov(prop_all, scenario + strategy, data = combined_results)
-aov_residuals_lowMig_highSamp = residuals(object=aov_results_lowMig_highSamp)
-shapiro.test(x=aov_residuals_lowMig_highSamp)#non-normal data
-ggplot(combined_results, aes(x=prop_all)) + geom_histogram(bins=20)
-#equal variances
-leveneTest(prop_all ~ strategy, data = combined_results)
