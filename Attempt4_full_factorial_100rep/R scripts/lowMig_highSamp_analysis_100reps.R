@@ -54,6 +54,8 @@ results_lowMig_highSamp_equal = array(0, dim = c(9,100))
 #creating arrays to store summary statistics 
 #total number of alleles
 total_alleles_lowMig_highSamp_equal = array(0, dim = c(9, 100))
+#expected heterozygosity
+heterozygosity_lowMig_highSamp_equal = array(0, dim = c(9,100))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
@@ -81,9 +83,15 @@ for(i in 1:length(scenarios)) {
     temp_genind = read.genepop(list_files[[j]], ncode=3)
     #sampling alleles from each population
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_equal[[i]],])>0)
+    
     #total alleles
     total_alleles = ncol(temp_genind@tab)
-    total_alleles_lowMig_highSamp_equal[i,j] = total_alleles 
+    total_alleles_lowMig_highSamp_equal[i,j] = total_alleles
+    
+    #heterozyogisty
+    sum_temp_genind = summary(temp_genind)
+    heterozygosity_lowMig_highSamp_equal = sum_temp_genind$Hexp
+    
     #saving results
     results_lowMig_highSamp_equal[i,j] = sample_n_alleles/total_alleles
   }
@@ -91,6 +99,12 @@ for(i in 1:length(scenarios)) {
 
 #look at results
 round(results_lowMig_highSamp_equal, 3)
+#total alleles
+total_alleles_lowMig_highSamp_equal
+mean(total_alleles_lowMig_highSamp_equal)
+#heterozygosity expected
+heterozygosity_lowMig_highSamp_equal
+mean(heterozygosity_lowMig_highSamp_equal)
 
 #**************************************************************************************************************************************************************
 #proportional strategy
@@ -102,6 +116,8 @@ results_lowMig_highSamp_prop = array(0, dim = c(9,100))
 #creating arrays to store summary statistics 
 #total number of alleles
 total_alleles_lowMig_highSamp_prop = array(0, dim = c(9, 100))
+#expected heterozygosity
+heterozygosity_lowMig_highSamp_prop = array(0, dim = c(9,100))
 
 #creating list of vectors representing rows to sample from genind object
 #sampling 10% from each population
@@ -129,10 +145,15 @@ for(i in 1:length(scenarios)) {
     print(table(temp_genind@pop))
     #sampling alelles from the population
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_prop[[i]],])>0)
+    
     #keeping track of the total alleles
     total_alleles = ncol(temp_genind@tab)
-    #saving total alleles
     total_alleles_lowMig_highSamp_prop[i,j] = total_alleles
+    
+    #expected heterozygosity
+    sum_temp_genind = summary(temp_genind)
+    heterozygosity_lowMig_highSamp_prop = sum_temp_genind$Hexp
+    
     #calculating proportion and saving the results
     results_lowMig_highSamp_prop[i,j] = sample_n_alleles/total_alleles
   }
@@ -140,11 +161,20 @@ for(i in 1:length(scenarios)) {
 
 #look at results
 round(results_lowMig_highSamp_prop, 3)
+#total alleles
+total_alleles_lowMig_highSamp_prop
+mean(total_alleles_lowMig_highSamp_prop)
+#heterozygosity
+heterozygosity_lowMig_highSamp_prop
+mean(heterozygosity_lowMig_highSamp_prop)
+
 #***********************************************************************************************************************************************************
 #saving results
 setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
 save(results_lowMig_highSamp_equal, results_lowMig_highSamp_prop, file = "results_lowMig_highSamp.Rdata")
 save(total_alleles_lowMig_highSamp_equal, total_alleles_lowMig_highSamp_prop, file="total_alleles_lowMig_highSamp.Rdata")
+save(heterozygosity_lowMig_highSamp_equal, heterozygosity_lowMig_highSamp_prop, file="heterozygosity_lowMig_highSamp.Rdata")
+
 #***********************************************************************************************************************************************************
 #converting results arrays to matrices
 #Equal results array conversion:
@@ -218,6 +248,7 @@ for(i in 1:length(scenarios)){
 #print p-values
 round(p_values_lowMig_highSamp, 8)
 
+#**************************************************************************************************************************************************************
 #saving results
 setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
 save(p_values_lowMig_highSamp, file="p_values_lowMig_highSamp.Rdata")

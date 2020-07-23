@@ -84,17 +84,30 @@ for(i in 1:length(scenarios)) {
     temp_genind = read.genepop(list_files[[j]], ncode=3)
     #sampling alleles from each population
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_equal[[i]],])>0)
-    #total alleles
+    
+    #total alleles -> saving result
     total_alleles = ncol(temp_genind@tab)
-    #saving alleles
     total_alleles_highMig_highSamp_equal[i,j] = total_alleles
+    
+    #heterozygosity
+    sum_temp_genind = summary(temp_genind)
+    heterozyogisty_highMig_highSamp_equal = sum_temp_genind$Hexp
+    
+    
     #saving results - proportion of alleles captured
     results_highMig_highSamp_equal[i,j] = sample_n_alleles/total_alleles
   }
 }
 
 #look at results
+#prop alleles
 round(results_highMig_highSamp_equal, 3)
+#total alleles
+total_alleles_highMig_highSamp_equal
+mean(total_alleles_highMig_highSamp_equal)
+#heterozygosity -> expected heterozygosity
+heterozyogisty_highMig_highSamp_equal
+mean(heterozyogisty_highMig_highSamp_equal)
 
 #**************************************************************************************************************************************************************
 #proportional strategy
@@ -130,26 +143,42 @@ for(i in 1:length(scenarios)) {
   for(j in 1:length(list_files)) {
     #convert to genind
     temp_genind = read.genepop(list_files[[j]], ncode=3)
-    #check population orer
-    print(table(temp_genind@pop))
+    #check population order
+    #print(table(temp_genind@pop))
     #sampling alelles from the population
     sample_n_alleles = sum(colSums(temp_genind@tab[rows_to_samp_prop[[i]],])>0)
+    
     #keeping track of the total alleles
     total_alleles = ncol(temp_genind@tab)
     #saving alleles
     total_alleles_highMig_highSamp_prop[i,j] = total_alleles
+    
+    #heterozygosity
+    sum_temp_genind = summary(temp_genind)
+    heterozyogisty_highMig_highSamp_prop = sum_temp_genind$Hexp
+    
     #calculating proportion and saving the results
     results_highMig_highSamp_prop[i,j] = sample_n_alleles/total_alleles
   }
 }
 
 #look at results
+#proportion of alleles captured
 round(results_highMig_highSamp_prop, 3)
+#total alleles
+total_alleles_highMig_highSamp_prop
+mean(total_alleles_highMig_highSamp_prop)
+#heterozygosity
+heterozyogisty_highMig_highSamp_prop
+mean(heterozyogisty_highMig_highSamp_prop)
+
 #***********************************************************************************************************************************************************
 #saving data 
 setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
 save(results_highMig_highSamp_equal, results_highMig_highSamp_prop, file="results_highMig_highSamp.Rdata")
 save(total_alleles_highMig_highSamp_equal, total_alleles_highMig_highSamp_prop, file="total_alleles_highMig_highSamp.Rdata")
+save(heterozyogisty_highMig_highSamp_equal, heterozyogisty_highMig_highSamp_prop, file = "heterozygosity_highMig_HighSamp.Rdata")
+
 #***********************************************************************************************************************************************************
 #converting results arrays to matrices
 #Equal results array conversion:
@@ -228,6 +257,7 @@ for(i in 1:length(scenarios)){
 #print p-values
 round(p_values_highMig_highSamp, 8)
 
-#saving results
+#***************************************************************************************************************************************************************
+#saving p-value results
 setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
 save(p_values_highMig_highSamp, file="p_values_highMig_highSamp.Rdata")
