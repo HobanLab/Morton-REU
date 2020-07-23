@@ -177,3 +177,36 @@ ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy)) +
   facet_wrap(~scenario, scale="free") +
   scale_fill_brewer(palette = "blues") +
   theme_bw()
+#**************************************************************************************************************************************************************
+#testing assumptions
+#normality
+aov_results_lowMig_lowSamp = aov(prop_all ~ scenario + strategy, data = combined_results)
+aov_residuals_lowMig_lowSamp = residuals(object=aov_results_lowMig_lowSamp)
+shapiro.test(x=aov_residuals_lowMig_lowSamp)#non-normal data
+ggplot(combined_results, aes(x=prop_all)) + geom_histogram(bins=20)
+#visualizing results with Q-Q plot
+plot(aov_results_lowMig_lowSamp, 2)
+
+#equal variances
+leveneTest(prop_all ~ as.factor(strategy)*as.factor(strategy), data = combined_results)
+#visualizing results with residuals vs. fits plot
+plot(aov_results_lowMig_lowSamp, 1)
+#***************************************************************************************************************************************************************
+#Statistical tests - nonparametric
+#Wilcoxon rank sums test
+
+#loop through all scenarios for highMig_highSamp
+#saving p-values of the tests
+p_values_lowMig_lowSamp = c(rep(0,9))
+for(i in 1:length(scenarios)){
+  x_var = results_lowMig_lowSamp_prop[i,]
+  y_var = results_lowMig_lowSamp_equal[i,]
+  test_result = wilcox.test(x_var, y_var)
+  p_values_lowMig_lowSamp[i] = test_result$p.value
+}
+#print p-values
+round(p_values_lowMig_lowSamp, 8)
+
+#saving results
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
+save(p_values_lowMig_lowSamp, file="p_values_lowMig_lowSamp.Rdata")

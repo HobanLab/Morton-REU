@@ -195,7 +195,7 @@ ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy)) +
   theme_bw()
 
 #**************************************************************************************************************************************************************
-#testing assumptions
+#testing assumptions of two-way Anova
 
 #normality
 aov_results_highMig_highSamp = aov(prop_all ~ scenario + strategy, data = combined_results) #run anova
@@ -210,3 +210,24 @@ plot(aov_results_highMig_highSamp, 2)
 leveneTest(prop_all ~ as.factor(scenario)*as.factor(strategy), data = combined_results)#unequal variances -> due to outliers?
 #visualizing results with residuals vs. fits plot
 plot(aov_results_highMig_highSamp, 1)
+
+#assumptions not met
+#***************************************************************************************************************************************************************
+#Statistical tests - nonparametric
+#Wilcoxon rank sums test
+
+#loop through all scenarios for highMig_highSamp
+#saving p-values of the tests
+p_values_highMig_highSamp = c(rep(0,9))
+for(i in 1:length(scenarios)){
+  x_var = results_highMig_highSamp_prop[i,]
+  y_var = results_highMig_highSamp_equal[i,]
+  test_result = wilcox.test(x_var, y_var)
+  p_values_highMig_highSamp[i] = test_result$p.value
+}
+#print p-values
+round(p_values_highMig_highSamp, 8)
+
+#saving results
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
+save(p_values_highMig_highSamp, file="p_values_highMig_highSamp.Rdata")
