@@ -177,7 +177,7 @@ mean(heterozyogisty_highMig_highSamp_prop)
 setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt4_full_factorial_100rep\\R scripts")
 save(results_highMig_highSamp_equal, results_highMig_highSamp_prop, file="results_highMig_highSamp.Rdata")
 save(total_alleles_highMig_highSamp_equal, total_alleles_highMig_highSamp_prop, file="total_alleles_highMig_highSamp.Rdata")
-save(heterozyogisty_highMig_highSamp_equal, heterozyogisty_highMig_highSamp_prop, file = "heterozygosity_highMig_HighSamp.Rdata")
+save(heterozyogisty_highMig_highSamp_equal, heterozyogisty_highMig_highSamp_prop, file = "heterozygosity_highMig_highSamp.Rdata")
 
 #***********************************************************************************************************************************************************
 #converting results arrays to matrices
@@ -207,7 +207,9 @@ combined_results = rbind(results_plot_equal_long, results_plot_prop_long)
 #all results on one plot
 ggplot(combined_results, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
   geom_boxplot() +
-  ggtitle("High migration/high sampling") +
+  ggtitle("High migration and high sampling intensity") +
+  xlab("Scenarios (in order of increasing homogeneity of population sizes)") +
+  ylab("Proportion of alleles captured") +
   ylim(0.85,1) +
   scale_fill_brewer() +
   theme_bw()
