@@ -318,7 +318,7 @@ p = ggplot(combined_highMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=s
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE) +
   ggtitle("High migration high sampling intensity") +
-  xlab("Scenarios (in order of increasing homogeneity of population sizes)") +
+  xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
   ylim(0.85,1) +
@@ -332,7 +332,7 @@ p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=st
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE) +
   ggtitle("Low migration high sampling intensity") +
-  xlab("Scenarios (in order of increasing homogeneity of population sizes)") +
+  xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
   ylim(0.85,1) +
@@ -347,7 +347,7 @@ p = ggplot(combined_highMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=st
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE) +
   ggtitle("High migration low sampling intensity") +
-  xlab("Scenarios (in order of increasing homogeneity of population sizes)") +
+  xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
   ylim(0.85,1) +
@@ -362,7 +362,7 @@ p = ggplot(combined_lowMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=str
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE) +
   ggtitle("Low migration low sampling intensity") +
-  xlab("Scenarios (in order of increasing homogeneity of population sizes)") +
+  xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
   ylim(0.85,1) +
@@ -420,4 +420,5 @@ rownames(p_value_matrix) = c("highMig_highSamp", "lowMig_highSamp", "highMig_low
 colnames(p_value_matrix) = c("scenario 1", "scenario 2", "scenario 3", "scenario 4", "scenario 5", "scenario 6", "scenario 7", "scenario 8", "scenario 9")
 round(p_value_matrix, 5)
 
+round(p.adjust(p_value_matrix, method = "BH"), 5)
 
