@@ -316,7 +316,7 @@ combined_lowMig_lowSamp = rbind(results_lowMig_lowSamp_equal_long, results_lowMi
 #high migration high sampling
 p = ggplot(combined_highMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
   geom_boxplot() +
-  stat_compare_means(label = "p.signif", hide.ns = TRUE) +
+  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.96,0.97,0.98,0.98,0.985)) +
   ggtitle("High migration high sampling intensity") +
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
@@ -330,7 +330,7 @@ p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = eleme
 #low migration high sampling
 p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
   geom_boxplot() +
-  stat_compare_means(label = "p.signif", hide.ns = TRUE) +
+  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.985,0.985,0.985,0.985,0.99, 0.99)) +
   ggtitle("Low migration high sampling intensity") +
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
@@ -345,7 +345,7 @@ p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = eleme
 #high migration low sampling
 p = ggplot(combined_highMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
   geom_boxplot() +
-  stat_compare_means(label = "p.signif", hide.ns = TRUE) +
+  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.94,0.94,0.95,0.96,0.96)) +
   ggtitle("High migration low sampling intensity") +
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
@@ -360,7 +360,7 @@ p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = eleme
 #low migration low sampling
 p = ggplot(combined_lowMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
   geom_boxplot() +
-  stat_compare_means(label = "p.signif", hide.ns = TRUE) +
+  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.96,0.97,0.97,0.975,0.975,0.975)) +
   ggtitle("Low migration low sampling intensity") +
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
