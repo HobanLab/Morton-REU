@@ -71,3 +71,4 @@ combined_highMig_lowSamp = rbind(results_highMig_lowSamp_equal_long, results_hig
 combined_lowMig_lowSamp = rbind(results_lowMig_lowSamp_equal_long, results_lowMig_lowSamp_prop_long)
 
 save(combined_highMig_highSamp, combined_lowMig_highSamp, combined_highMig_lowSamp, combined_lowMig_lowSamp, file="combined_dataframes.Rdata")
+
