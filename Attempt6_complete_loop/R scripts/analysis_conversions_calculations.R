@@ -13,7 +13,7 @@ library(tidyr)
 
 #defining root directory
 #containing sub-folders
-my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt6_one_loop_100reps\\Simulations"
+my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt6_complete_loop\\Simulations"
 setwd(my_dir)
 
 #list of combinations
@@ -97,8 +97,10 @@ for(i in 1:length(combinations)) {
       }
       
       #defining individuals to randomly sample from each population for both strategies
-      rows_to_samp_equal = c(sample(first_ind[1]:last_ind[1], sample_size_equal[1]), sample(first_ind[2]:last_ind[2], sample_size_equal[2]), sample(first_ind[3]:last_ind[3], sample_size_equal[3]), sample(first_ind[4]:last_ind[4], sample_size_equal[4]), sample(first_ind[5]:last_ind[5], sample_size_equal[5]))
-      rows_to_samp_prop = c(sample(first_ind[1]:last_ind[1], sample_size_prop[1]), sample(first_ind[2]:last_ind[2], sample_size_prop[2]), sample(first_ind[3]:last_ind[3], sample_size_prop[3]), sample(first_ind[4]:last_ind[4], sample_size_prop[4]), sample(first_ind[5]:last_ind[5], sample_size_prop[5]))
+      for(x in 1:5) {
+        rows_to_samp_equal = sample(first_ind[x]:last_ind[x], sample_size_equal[x])
+        rows_to_samp_prop = sample(first_ind[x]:last_ind[x], sample_size_prop[x])
+      }
       
       sample_n_alleles_equal = sum(colSums(temp_genind@tab[rows_to_samp_equal,])>0)
       sample_n_alleles_prop = sum(colSums(temp_genind@tab[rows_to_samp_prop,])>0)

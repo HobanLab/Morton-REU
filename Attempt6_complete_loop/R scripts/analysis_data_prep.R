@@ -10,7 +10,7 @@ library(ggpubr)
 library(ggsignif)
 library(tidyr)
 
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt6_one_loop_100reps\\R scripts")
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt6_complete_loop\\R scripts")
 load("results_highMig_highSamp.Rdata")
 load("results_lowMig_highSamp.Rdata")
 load("results_highMig_lowSamp.Rdata")
