@@ -37,28 +37,28 @@ Directory contents:
 
     Attempt3_mig_intensity_10_reps: Third attempt for project; importing entire simulated population into R with varying parameter files; using 10 simulated replicates
         R scripts: contains data analysis in R, script was updated to include sampling code. Code imports simualted files and converts them to genind objects. For loop iterates through each simulation replicate to simulate sampling from each population
-            highMig_highSamp_analysis_combined.R: Script analyses data from high migration parameter files, samples 10% from each population 
-            highMig_lowSamp_analysis_combined.R: Script analyses data from low migration parameter files, samples 10% from each population
-            lowMig_highSamp_analysis_combined.R:  Script analyses data from high migration parameter files, samples 5% from each population 
-            lowMig_lowSamp_analysis_combined.R: Script analyses data from low migration parameter files, samples 5% from each population
+            highMig_highSamp_analysis_combined.R: analysis for high migration parameter files, samples 10% from each population 
+            highMig_lowSamp_analysis_combined.R: analysis for low migration parameter files, samples 10% from each population
+            lowMig_highSamp_analysis_combined.R:  analysis for high migration parameter files, samples 5% from each population 
+            lowMig_lowSamp_analysis_combined.R: analysis for low migration parameter files, samples 5% from each population
         Simulations: contain parameter files and other simulation files; parameter files were updated to include high and low migration;  simulation outputs are stored in folders
-            highMig_highSamp: contains scenarios with high migration rates and high sampling intensity
-            highMig_lowSamp: contains scenarios with high migration rates and low sampling intensity
-            lowMig_highSamp: contains scenarios with low migration rates and high sampling intensity
-            lowMig_lowSamp: contains scenarios with low migration rates and low sampling intensity
+            highMig_highSamp: simulation files for high migration rates and high sampling intensity
+            highMig_lowSamp: simulation files for high migration rates and low sampling intensity
+            lowMig_highSamp: simulation files for low migration rates and high sampling intensity
+            lowMig_lowSamp: simulation files for low migration rates and low sampling intensity
         Figures: contain plots resulted from analyses in R scripts
 
     Attempt4_mig_intensity_100_reps: increased replicates from 10 to 100 from last iteration. Improved analysis files.
         R scripts: contain data analysis in R scripts. Folder also contains .Rdata files, to save time with the larger amount of replicates, processed data may be loaded in without re-running code.  updated to create boxplots and compute p-vals
-            highMig_highSamp_analysis_100reps.R: Script analyses data from high migration parameter files, samples 10% from each population
-            lowMig_highSamp_analysis_100reps.R: Script analyses data from low migration parameter files, samples 10% from each population
-            highMig_lowSamp_analysis_100reps.R: Script analyses data from high migration parameter files, samples 5% from each population
-            lowMig_lowSamp_analysis_100reps.R: Script analyses data from low migration parameter files, samples 5% from each population
+            highMig_highSamp_analysis_100reps.R: analysis for high migration parameter files, samples 10% from each population
+            lowMig_highSamp_analysis_100reps.R: analysis for low migration parameter files, samples 10% from each population
+            highMig_lowSamp_analysis_100reps.R: analysis for high migration parameter files, samples 5% from each population
+            lowMig_lowSamp_analysis_100reps.R: analysis for low migration parameter files, samples 5% from each population
         Simulations: contain parameter files and other simulation files; parameter files were updated to include high and low migration; simulation outputs are stored in folders
-            highMig_highSamp: contains scenarios with high migration rates and high sampling intensity
-            highMig_lowSamp: contains scenarios with high migration rates and low sampling intensity
-            lowMig_highSamp: contains scenarios with low migration rates and high sampling intensity
-            lowMig_lowSamp: contains scenarios with low migration rates and low sampling intensity
+            highMig_highSamp: simulation files for high migration rates and high sampling intensity
+            highMig_lowSamp: simulation files for high migration rates and low sampling intensity
+            lowMig_highSamp: simulation files for low migration rates and high sampling intensity
+            lowMig_lowSamp: simulation files for low migration rates and low sampling intensity
         Figures: contains plots resulted from analyses in R scripts, contains figures used for describing populations.
 
     Attempt5_REU_final: 100 simulation replicates. Improved code to process all simulation files with one main script. Scripts are split into different files used for converting/calculating, preparing data and generating graphics.
