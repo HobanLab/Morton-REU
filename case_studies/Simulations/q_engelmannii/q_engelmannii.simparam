@@ -39,7 +39,7 @@ Migration matrix
 Historical events
 Event 0
 
-#Time             : 10000
+#Time             : 5000
 #Source           : 0
 #Sink             : 0
 #Migrants         : 0.0000
@@ -49,7 +49,7 @@ Event 0
 
 Event 1
 
-#Time             : 10000
+#Time             : 5000
 #Source           : 1
 #Sink             : 0
 #Migrants         : 1.0000
@@ -59,7 +59,7 @@ Event 1
 
 Event 2
 
-#Time             : 10000
+#Time             : 5000
 #Source           : 2
 #Sink             : 0
 #Migrants         : 1.0000
@@ -69,7 +69,7 @@ Event 2
 
 Event 3
 
-#Time             : 10000
+#Time             : 5000
 #Source           : 3
 #Sink             : 0
 #Migrants         : 1.0000
@@ -89,4 +89,9 @@ Number of linkage blocks to simulate in structure 1: 1
 
 
 
-Random generator initialized with : 654
+Random generator initialized with : 738
+
+
+
+done in 210180.5310000sec
+
