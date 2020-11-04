@@ -22,6 +22,8 @@ Rscripts:
     Analyze data through functions associated with the adegenet package
     Create figures for data visualization with package ggplot2
 
+![Alt text](casestudies/Figures/read_me_flowchart.png?raw=true "Files to run")
+
 Directory contents:
 
     Practice: Contains practice simulations and R scripts
