@@ -1,5 +1,5 @@
-# Morton-REU
-Simulation files and R scripts associated with summer REU project and extension fellowship at the Morton Arboretum
+# Morton REU & REEF Project 2020
+Simulation files and R scripts associated with summer REU project and extension fellowship at the Morton Arboretum. The purpose of this project was to assess sampling strategies tested on simulated populations of varying sizes. Simulated species were created with populations of varying sizes using the software Simcoal2. We then created scripts with R that represent sampling from the simulated populations. We tested two strategies--equal and proportional--based on the amount of genetic diversity captured (in proportion of alleles captured). The equal strategy takes a constant number of individuals from every population regardless of their sizes. The proportional strategy allocates sampling effort--it samples more from larger populations and less from smaller populations. Results were analyzed and visualized in R. 
     Files include R scripts used for data collection, analysis, and producing plots, and text files containing paramter values used for simulation. 
     Multiple attemps are documented in separate folders. Each attempt builds on the previous in improving the code efficiency or adding new parameter values.
 
