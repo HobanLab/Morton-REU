@@ -1,4 +1,4 @@
-#Q. oglethorpensis
+#Q. Acerifolia
 
 library(adegenet)
 library(car)
@@ -8,7 +8,7 @@ library(ggpubr)
 library(ggsignif)
 library(tidyr)
 
-mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_studies\\Simulations\\q_oglethorpensis'
+mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_studies\\Simulations\\q_acerifolia'
 setwd(mydir)
 
 #import function
@@ -25,11 +25,11 @@ import_arp2gen_files = function(mypath, mypattern) {
 import_arp2gen_files(mydir, ".arp$")
 
 #defining arrays to store results
-results_q_oglethorpensis_equal = array(0, dim = c(1, 100))
-results_q_oglethorpensis_prop = array(0, dim = c(1, 100))
+results_q_acerifolia_equal = array(0, dim = c(1, 100))
+results_q_acerifolia_prop = array(0, dim = c(1, 100))
 
 #array to store total arrays for each replicate
-total_alleles_q_oglethorpensis = array(0, dim = c(1, 100))
+total_alleles_q_acerifolia = array(0, dim = c(1, 100))
 
 #***********************************************************************
 #Loop to simulate sampling
@@ -40,14 +40,14 @@ for(i in 1:length(list_files)) {
   #defining population boundaries by the first individual and the last individuals
   last_ind = as.numeric(cumsum(table(temp_genind@pop)))
   first_ind = as.numeric(c(1, cumsum(table(temp_genind@pop)) +1))
-  first_ind = first_ind[1:5]
+  first_ind = first_ind[1:4]
   
-  sample_size_equal = c(10,10,10,10,10)
-  sample_size_prop = as.numeric(table(temp_genind@pop)*0.05)
+  sample_size_equal = c(8,8,8,8)
+  sample_size_prop = as.numeric(table(temp_genind@pop)*0.06)
   sample_size_prop = ceiling(sample_size_prop) #round up values
   
-  rows_to_samp_equal = c(sample(first_ind[1]:last_ind[1], sample_size_equal[1]), sample(first_ind[2]:last_ind[2], sample_size_equal[2]), sample(first_ind[3]:last_ind[3], sample_size_equal[3]), sample(first_ind[4]:last_ind[4], sample_size_equal[4]), sample(first_ind[5]:last_ind[5], sample_size_equal[5]))
-  rows_to_samp_prop = c(sample(first_ind[1]:last_ind[1], sample_size_prop[1]), sample(first_ind[2]:last_ind[2], sample_size_prop[2]), sample(first_ind[3]:last_ind[3], sample_size_prop[3]), sample(first_ind[4]:last_ind[4], sample_size_prop[4]), sample(first_ind[5]:last_ind[5], sample_size_prop[5]))
+  rows_to_samp_equal = c(sample(first_ind[1]:last_ind[1], sample_size_equal[1]), sample(first_ind[2]:last_ind[2], sample_size_equal[2]), sample(first_ind[3]:last_ind[3], sample_size_equal[3]), sample(first_ind[4]:last_ind[4], sample_size_equal[4]))
+  rows_to_samp_prop = c(sample(first_ind[1]:last_ind[1], sample_size_prop[1]), sample(first_ind[2]:last_ind[2], sample_size_prop[2]), sample(first_ind[3]:last_ind[3], sample_size_prop[3]), sample(first_ind[4]:last_ind[4], sample_size_prop[4]))
   
   sample_n_alleles_equal = sum(colSums(temp_genind@tab[rows_to_samp_equal,])>0)
   sample_n_alleles_prop = sum(colSums(temp_genind@tab[rows_to_samp_prop,])>0)
@@ -55,45 +55,46 @@ for(i in 1:length(list_files)) {
   #saving the total alleles present
   total_alleles = ncol(temp_genind@tab)
   
-  results_q_oglethorpensis_equal[1,i] = sample_n_alleles_equal/total_alleles
-  results_q_oglethorpensis_prop[1,i] = sample_n_alleles_prop/total_alleles
+  results_q_acerifolia_equal[1,i] = sample_n_alleles_equal/total_alleles
+  results_q_acerifolia_prop[1,i] = sample_n_alleles_prop/total_alleles
   
-  total_alleles_q_oglethorpensis[1,i] = total_alleles
+  total_alleles_q_acerifolia[1,i] = total_alleles
   
 }
 
 #**************************************************************************************
 #Preparing data for graphics
 #converting results to data frames 
-results_q_oglethorpensis_equal = as.data.frame(results_q_oglethorpensis_equal)
-results_q_oglethorpensis_prop = as.data.frame(results_q_oglethorpensis_prop)
+results_q_acerifolia_equal = as.data.frame(results_q_acerifolia_equal)
+results_q_acerifolia_prop = as.data.frame(results_q_acerifolia_prop)
 #converting to long format
-results_q_oglethorpensis_equal = gather(results_q_oglethorpensis_equal, replicate, prop_all)
-results_q_oglethorpensis_prop = gather(results_q_oglethorpensis_prop, replicate, prop_all)
+results_q_acerifolia_equal = gather(results_q_acerifolia_equal, replicate, prop_all)
+results_q_acerifolia_prop = gather(results_q_acerifolia_prop, replicate, prop_all)
 
 #variables to keep track of strategy
 equal_strategy = rep("equal", 100)
 prop_strategy = rep("proportional", 100)
 
-results_q_oglethorpensis_equal$strategy = equal_strategy
-results_q_oglethorpensis_prop$strategy = prop_strategy
+results_q_acerifolia_equal$strategy = equal_strategy
+results_q_acerifolia_prop$strategy = prop_strategy
 
 #combining dataframes into one
-combined_q_oglethorpensis = rbind(results_q_oglethorpensis_equal, results_q_oglethorpensis_prop)
+combined_q_acerifolia = rbind(results_q_acerifolia_equal, results_q_acerifolia_prop)
 
 setwd(mydir)
-save(results_q_oglethorpensis_equal, results_q_oglethorpensis_prop, file="results_q_oglethorpensis.Rdata")
-save(combined_q_oglethorpensis, file="combined_results_q_oglethorpensis.Rdata")
+save(results_q_acerifolia_equal, results_q_acerifolia_prop, file="results_q_acerifolia.Rdata")
+save(combined_q_acerifolia, file="combined_results_q_acerifolia.Rdata")
 
 #****************************************************************************************
 #Creating graphs
-p = ggplot(combined_q_oglethorpensis, aes(x=strategy, y=prop_all, fill=strategy)) +
+p = ggplot(combined_q_acerifolia, aes(x=strategy, y=prop_all, fill=strategy)) +
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE) +
-  ggtitle("Q. oglethorpensis") +
+  ggtitle("Q. acerifolia") +
   xlab("Strategy") +
   ylab("Proportion of alleles captured") +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
-  theme_bw()
+  theme_bw() +
+  theme(legend.position = "none")
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14))
