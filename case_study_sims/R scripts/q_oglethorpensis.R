@@ -43,7 +43,7 @@ for(i in 1:length(list_files)) {
   first_ind = first_ind[1:5]
   
   sample_size_equal = c(10,10,10,10,10)
-  sample_size_prop = as.numeric(table(temp_genind@pop)*0.05)
+  sample_size_prop = as.numeric(table(temp_genind@pop)*0.05)#low intensity
   sample_size_prop = ceiling(sample_size_prop) #round up values
   
   rows_to_samp_equal = c(sample(first_ind[1]:last_ind[1], sample_size_equal[1]), sample(first_ind[2]:last_ind[2], sample_size_equal[2]), sample(first_ind[3]:last_ind[3], sample_size_equal[3]), sample(first_ind[4]:last_ind[4], sample_size_equal[4]), sample(first_ind[5]:last_ind[5], sample_size_equal[5]))

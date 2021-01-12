@@ -13,7 +13,7 @@ library(tidyr)
 
 #defining root directory
 #containing sub-folders
-my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt6_complete_loop\\Simulations"
+my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations"
 setwd(my_dir)
 
 #list of combinations
