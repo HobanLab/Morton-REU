@@ -72,4 +72,5 @@ Directory contents:
             q_acerifolia
             q_engelmannii
             q_oglethorpensis
+            combined_graphics.R: this script was used to merge results from all case studies into one large dataframe to be plotted together for comparison
         Simulations: Contains parameter files used to simulate each of the case study species, along with simulation result files.

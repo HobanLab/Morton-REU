@@ -1,7 +1,8 @@
 #analysis_graphics_results
-#this script contains code for creating plots, and Wilcoxon ranks sums tests
-#we saved the p-values from the tests in a matrix
+#This script contains code for creating plots, and Wilcoxon ranks sums tests
+#The p-values from the tests were saved in a matrix
 
+#library functions
 library(adegenet)
 library(car)
 library(diveRsity)
@@ -10,7 +11,8 @@ library(ggpubr)
 library(ggsignif)
 library(tidyr)
 
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt6_complete_loop\\R scripts")
+#set working directory and load in data
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R scripts")
 load("results_highMig_highSamp.Rdata")
 load("results_lowMig_highSamp.Rdata")
 load("results_highMig_lowSamp.Rdata")
@@ -33,9 +35,10 @@ scenarios = c("\\scen1",
               "\\scen8",
               "\\scen9")
 
+###########################################################################################################
 #PLOTTING RESULTS
-#High migration high sampling
-p = ggplot(combined_highMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
+#Graph for High migration high sampling
+p = ggplot(combined_highMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.96,0.97,0.98,0.98,0.985)) +
   ggtitle("High migration high sampling intensity") +
@@ -48,7 +51,7 @@ p = ggplot(combined_highMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=s
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14))
 
 #Low migration high sampling
-p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
+p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.985,0.985,0.985,0.985,0.99, 0.99)) +
   ggtitle("Low migration high sampling intensity") +
@@ -62,7 +65,7 @@ p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=st
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14))
 
 #High migration low sampling
-p = ggplot(combined_highMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
+p = ggplot(combined_highMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.94,0.94,0.95,0.96,0.96)) +
   ggtitle("High migration low sampling intensity") +
@@ -76,7 +79,7 @@ p = ggplot(combined_highMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=st
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14))
 
 #Low migration low sampling
-p = ggplot(combined_lowMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=strategy, color=factor(scenario))) + 
+p = ggplot(combined_lowMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.96,0.97,0.97,0.975,0.975,0.975)) +
   ggtitle("Low migration low sampling intensity") +
@@ -89,6 +92,7 @@ p = ggplot(combined_lowMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=str
   theme_bw()
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14))
 
+################################################################################################################
 #STATISTICAL ANALYSES
 #Wilcoxon rank sums test
 #vector to store the p-values of each test for each combination

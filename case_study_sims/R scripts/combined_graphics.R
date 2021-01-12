@@ -1,4 +1,7 @@
-#libraries
+#This script combines all results from three case study species
+#into one large dataframe, so that results could be plotted on one graph for comparison.
+
+#Library functions
 library(adegenet)
 library(car)
 library(diveRsity)
@@ -7,7 +10,7 @@ library(ggpubr)
 library(ggsignif)
 library(tidyr)
 
-#loading in data from other case study scripts
+#loading in data that was saved from other case study R scripts
 mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_study_sims\\Simulations\\q_acerifolia'
 setwd(mydir)
 load("combined_results_q_acerifolia.Rdata")
@@ -20,7 +23,7 @@ mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_study_sims\\Simulations\\
 setwd(mydir)
 load("combined_results_q_oglethorpensis.Rdata")
 
-#preparing data by naming a column indicating species
+#preparing data by naming a column indicating each case study species
 q_acer = rep("Q. acerifolia", 200)
 combined_q_acerifolia$species = q_acer
 
@@ -33,7 +36,7 @@ combined_q_oglethorpensis$species = q_ogle
 #combining all results into one larger dataframe for plotting on one graph
 all_case_studies = rbind(combined_q_acerifolia, combined_q_engelmannii, combined_q_oglethorpensis)
 
-#Creating graph with all case study species compared
+#Creating graph using ggplot2 with all case study species compared together
 p = ggplot(all_case_studies, aes(x=species, y=prop_all, fill=strategy)) +
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE) +

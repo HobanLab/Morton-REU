@@ -1,7 +1,8 @@
 #analysis_data_prep
-#this file converts the results arrays into data frames for utility in ggplot2
-#columns are added to the dataframes to keep track of scenario and strategy variables
+#This file converts the results arrays into data frames for utility in ggplot2
+#Columns are added to the dataframes to keep track of scenario and strategy variables
 
+#Library functions
 library(adegenet)
 library(car)
 library(diveRsity)
@@ -10,7 +11,8 @@ library(ggpubr)
 library(ggsignif)
 library(tidyr)
 
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt6_complete_loop\\R scripts")
+#set working directory and load in data from calculations R script
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R scripts")
 load("results_highMig_highSamp.Rdata")
 load("results_lowMig_highSamp.Rdata")
 load("results_highMig_lowSamp.Rdata")
@@ -44,6 +46,7 @@ scenario = rep(c(1,2,3,4,5,6,7,8,9), 100)
 equal_strategy = rep("equal", 900)
 prop_strategy = rep("proportional", 900)
 
+#naming columns on existing dataframes to keep track of these variables when plotting
 results_highMig_highSamp_equal_long$scenario = scenario
 results_highMig_highSamp_prop_long$scenario = scenario
 results_highMig_highSamp_equal_long$strategy = equal_strategy
@@ -64,11 +67,12 @@ results_lowMig_lowSamp_prop_long$scenario = scenario
 results_lowMig_lowSamp_equal_long$strategy = equal_strategy
 results_lowMig_lowSamp_prop_long$strategy = prop_strategy
 
-#combining dataframes (equal and proportional) for plotting
+#combining dataframes vertically using rbind() (equal and proportional) for plotting
 combined_highMig_highSamp = rbind(results_highMig_highSamp_equal_long, results_highMig_highSamp_prop_long)
 combined_lowMig_highSamp = rbind(results_lowMig_highSamp_equal_long, results_lowMig_highSamp_prop_long)
 combined_highMig_lowSamp = rbind(results_highMig_lowSamp_equal_long, results_highMig_lowSamp_prop_long)
 combined_lowMig_lowSamp = rbind(results_lowMig_lowSamp_equal_long, results_lowMig_lowSamp_prop_long)
 
+#saving data as Rdata file
 save(combined_highMig_highSamp, combined_lowMig_highSamp, combined_highMig_lowSamp, combined_lowMig_lowSamp, file="combined_dataframes.Rdata")
 
