@@ -19,7 +19,8 @@ load("results_highMig_lowSamp.Rdata")
 load("results_lowMig_lowSamp.Rdata")
 
 #PREPARING DATA (for plotting and statistical analyses)
-#converting results arrays to dataframes
+#converting results arrays to dataframes (dataframes are easier to use in ggplot2 than matrices)
+#we have 8 matrices total, holding results for which strategy (equal or prop.), migration rate, and sampling intensity
 results_highMig_highSamp_equal_df = as.data.frame(results_highMig_highSamp_equal)
 results_highMig_highSamp_prop_df = as.data.frame(results_highMig_highSamp_prop)
 results_lowMig_highSamp_equal_df = as.data.frame(results_lowMig_highSamp_equal)
@@ -40,9 +41,10 @@ results_lowMig_lowSamp_equal_long = gather(results_lowMig_lowSamp_equal_df, repl
 results_lowMig_lowSamp_prop_long = gather(results_lowMig_lowSamp_prop_df, replicate, prop_all)
 
 #creating new columns for scenario and strategy
-#variable to keep track of scenario
+#variable to keep track of scenario - repeating 100 times for each replicate
 scenario = rep(c(1,2,3,4,5,6,7,8,9), 100)
 #variables to keep track of strategy
+#these are each repeated 900 times since for each strategy, there is 9 scenarios and 100 replicates of each (900 total instances)
 equal_strategy = rep("equal", 900)
 prop_strategy = rep("proportional", 900)
 
@@ -68,6 +70,7 @@ results_lowMig_lowSamp_equal_long$strategy = equal_strategy
 results_lowMig_lowSamp_prop_long$strategy = prop_strategy
 
 #combining dataframes vertically using rbind() (equal and proportional) for plotting
+#then, both strategies can be visualized on the same plot
 combined_highMig_highSamp = rbind(results_highMig_highSamp_equal_long, results_highMig_highSamp_prop_long)
 combined_lowMig_highSamp = rbind(results_lowMig_highSamp_equal_long, results_lowMig_highSamp_prop_long)
 combined_highMig_lowSamp = rbind(results_highMig_lowSamp_equal_long, results_highMig_lowSamp_prop_long)

@@ -88,8 +88,12 @@ for(i in 1:length(combinations)) {
       temp_genind = read.genepop(list_files[[k]], ncode=3)
       
       #defining population boundaries by the first individual and the last individuals
+      #last individual for every population as the cumulative sum of all populations (ie., last individual for pop 1 is the sum of pop 1)
       last_ind = as.numeric(cumsum(table(temp_genind@pop)))
+      #first individual of every population begins at 1, then for following populations, it is the last individual (cumulative sum) + 1
+      #for example, if the last individual for pop 1 is 30, the first individual for pop 2 would be 31
       first_ind = as.numeric(c(1, cumsum(table(temp_genind@pop)) +1))
+      #selecting the first 5 values since we have 5 populations
       first_ind = first_ind[1:5]
       
       #defining how many individuals to sample from every population
@@ -105,6 +109,10 @@ for(i in 1:length(combinations)) {
       }
       
       #defining individuals to randomly sample from each population for both strategies
+      #from above, we defined the population boundaries of each population by the first and last individuals of the populations
+      #ie., the 'range' of the populations is defined as (first_ind:last_ind)
+      #here, we are defining which individuals to sample from, for each of the populations
+      #so we are sampling a certain amount (define in sample_size... variable) from the population 'ranges'
       rows_to_samp_equal = c(sample(first_ind[1]:last_ind[1], sample_size_equal[1]), sample(first_ind[2]:last_ind[2], sample_size_equal[2]), sample(first_ind[3]:last_ind[3], sample_size_equal[3]), sample(first_ind[4]:last_ind[4], sample_size_equal[4]), sample(first_ind[5]:last_ind[5], sample_size_equal[5]))
       rows_to_samp_prop = c(sample(first_ind[1]:last_ind[1], sample_size_prop[1]), sample(first_ind[2]:last_ind[2], sample_size_prop[2]), sample(first_ind[3]:last_ind[3], sample_size_prop[3]), sample(first_ind[4]:last_ind[4], sample_size_prop[4]), sample(first_ind[5]:last_ind[5], sample_size_prop[5]))
       

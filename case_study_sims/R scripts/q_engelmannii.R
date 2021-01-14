@@ -4,6 +4,9 @@
 #and simulates sampling from the wild populations by selecting a random number of individuals 
 #The results are saved for each replicate in a matrix, run through a series of conversions/edits, and plotted using ggplot2
 
+#Note: for these simulations, we were only interested in low sampling intensity
+#however, increasing the intensity is as simple as increasing the values indicated on lines 58 and 59
+
 #Library functions
 library(adegenet)
 library(car)
@@ -47,8 +50,12 @@ for(i in 1:length(list_files)) {
   temp_genind = read.genepop(list_files[[i]], ncode=3)
   
   #defining population boundaries by the first individual and the last individuals in each population
+  #last individual for every population as the cumulative sum of all populations (ie., last individual for pop 1 is the sum of pop 1)
   last_ind = as.numeric(cumsum(table(temp_genind@pop)))
+  #first individual of every population begins at 1, then for following populations, it is the last individual (cumulative sum) + 1
+  #for example, if the last individual for pop 1 is 30, the first individual for pop 2 would be 31
   first_ind = as.numeric(c(1, cumsum(table(temp_genind@pop)) +1))
+  ##selecting the first 4 values since we have 4 populations
   first_ind = first_ind[1:4]
   
   #defining sample sizes for equal sampling and proportional sampling
