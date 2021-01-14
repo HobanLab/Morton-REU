@@ -33,7 +33,7 @@ analysis_conversions_calculations.R: converts from Arlequin format to genepop fo
 analysis_data_prep.R: Takes the sampling results and puts them in tidy format for graphing and analysis
 analysis_graphics_results.R: Plots results, and performs Wilcoxon statistical tests, and p value adjustment for multiple comparisons.
 
-    Note: For the case studies, the 3 scripts listed above are combined into one single script for each species (files listed in the directory by species). The same general logic is performed in each script. 
+Note: For the case studies, the 3 scripts listed above are combined into one single script for each species (files listed in the directory by species). The same general logic is performed in each script. 
 
 **Flow chart describing order in which to run files for hypothetical species (samp_pop_sims)**
 ![Alt text](samp_pop_sims/Figures/read_me_flowchart.png?raw=true "Files to run")
