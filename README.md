@@ -1,34 +1,45 @@
 # Morton REU & REEF Project 2020
 Simulation files and R scripts associated with summer REU project and extension fellowship at the Morton Arboretum. 
-    The overall aim of this project was to contribute to practical seed sampling guidelines for creating and maintaining genetically diverse collections for botanic garden and arboreta. Informing these sampling guidelines is one way to ensure a genetically representative sample is obtained from wild populations. Prior work has found that it is important to consider species' traits like dispersal, mode of reproduction, population history, and more, when sampling from wild populations. For this project, we were specifically interested in creating guidelines that could apply to species with unequal population sizes. Previous simulation studies assumed populations of equal sizes for simplicity of the model. Thus, we want to determine how to effectively capture genetic diversity when population sizes vary for a rare species. The two 'strategies' we tested were equal (an equal number from each population regardless of size) and proportional (sampling proportionally to the population's size).
-    There were two main aspects of this project. First, we simulated a hypothetical rare species using Simcoal 2. Then, the two sampling strategies were tested on simulated populations of varying sizes. We then created scripts with R that represent sampling from the simulated populations. The two sampling strategies were assessed based on the amount of genetic diversity captured (in proportion of alleles captured). The equal strategy takes a constant number of individuals from every population regardless of their sizes. The proportional strategy allocates sampling effort--it samples more from larger populations and less from smaller populations. Results were analyzed and visualized in R. We also tested different migration rates and sampling intensities for this portion of the project to determine how results would vary based on these values.
-    Then, we created case studies to determine whether the same results would be achieved when using realistic parameter values that represent real species, in comparison to our first sets of simulations, which represented a hypothetical rare species. Our case studies were based on 3 species of Oak--Quercus acerifolia, Quercus engelmannii, and Quercus oglethorpensis. Similar to the framework described above, we created realistic parameter values for these species, simulated populations using Simcoal 2, and simulated sampling using R code to randomly select individuals. Again, we tested high and low sampling intensities to compare the diversity captured through each. 
+###### Background
+    The overall aim of this project was to contribute to practical seed sampling guidelines for creating and maintaining genetically diverse collections for botanic garden and arboreta. Informing these sampling guidelines is one way to ensure a genetically representative sample is obtained from wild populations. Prior work has found that it is important to consider species' traits like dispersal, mode of reproduction, population history, and more, when sampling from wild populations. **For this project, we were specifically interested in creating guidelines that could apply to species with unequal population sizes.** Previous simulation studies assumed populations of equal sizes for simplicity of the model. Thus, we want to determine how to effectively capture genetic diversity when population sizes vary for a rare species. **The two 'strategies' we tested were equal (an equal number from each population regardless of size) and proportional (sampling proportionally to the population's size).**
+###### Summary
+    There were two main aspects of this project. First, we simulated a hypothetical rare species using Simcoal 2. Then, the two sampling strategies were tested on simulated populations of varying sizes. We then created scripts with R that represent sampling from the simulated populations. The two sampling strategies were assessed based on the amount of genetic diversity captured (in proportion of alleles captured). The equal strategy takes a constant number of individuals from every population regardless of their sizes. The proportional strategy allocates sampling effort--it samples more from larger populations and less from smaller populations. Results were analyzed and visualized in R. 
+###### Other parameters tested
+    We also tested different migration rates and sampling intensities for this portion of the project to determine how results would vary based on these values.
+###### Case studies
+    Also, we created case studies to determine whether the same results would be achieved when using realistic parameter values that represent real species, in comparison to our first sets of simulations, which represented a hypothetical rare species. Our case studies were based on 3 species of Oak--Quercus acerifolia, Quercus engelmannii, and Quercus oglethorpensis. Similar to the framework described above, we created realistic parameter values for these species, simulated populations using Simcoal 2, and simulated sampling using R code to randomly select individuals. Again, we tested high and low sampling intensities to compare the diversity captured through each. 
     
     Files include R scripts used for data collection, analysis, and producing plots, and text files containing paramter values used for simulation. 
-    Multiple attemps are documented in separate folders. Each attempt builds on the previous in improving the code efficiency or adding new parameter values.
+    As this started as an REU project, multiple attempts or trials were used to gradually build the project, increase realism and revise code.  These initial attempts are stored documented in separate folders, but are not needed to recreate the final results for the project. Each attempt builds on the previous in improving the code efficiency or adding new parameter values.
 
-Parameter files:
+###### File types
+**Parameter files:**
     .par .txt
     Edited in text editor Notepad++
-    Input to the software Simcoal/Simcoal2 to create genetic datasets
-    .par represent parameter files containing information to create the genetic datasets
-    .txt files or 'batch files' contain a list of .par files to be sim through the simulation software with one command
+    These are input to the software Simcoal/Simcoal2 to create genetic datasets The .par signifies parameter files.  They contain information to create the genetic datasets via a coalescent simulation, including population sizes and migration rates.  The .txt files or 'batch files' contain a list of .par files to be run sim through the simulation software with one command
 
-Simulation files:
+**Simulation output files:**
     .par .arp .gen .simparam
-    Created through the software Simcoal2 after a parameter file is successfully imported into Simcoal2 and converted
-    software takes .par files and converts them to .arp files (genetic data)
+    Created through the software Simcoal2 after a parameter file is successfully imported into Simcoal2 and the simulation is run.  The .arp files (genetic data) are the initial dataset in Arlequin format; the .gen files are the datasets after conversion to genepop format.  The .simparam is just a mirror file of simulation parameters run.
 
-Rscripts:
-    .R
-    For this project, R scripts were used to import .arp files into R for conversion to .gen files through adegenet package, convert .gen files to genind objects through adegenet package, analyze data through functions associated with the adegenet package, and create figures for data visualization with package ggplot2
+**Rscripts:**
+    .R 
+    For this project, R scripts were used to import .arp files into R for conversion to .gen files through adegenet package, convert .gen files to genind objects through adegenet package, analyze data through functions associated with the adegenet package, and create figures for data visualization with package ggplot2 (see flowchart).  There are four R scripts in the simulation folder.  They are:
 
-Flow chart describing order in which to run files for hypothetical species (samp_pop_sims)
+analysis_conversions_calculations.R: converts from Arlequin format to genepop format, loops to import genepop files to genind objects in R and then calculate and save basic genetic statistics (e.g. heterozygosity).
+analysis_data_prep.R: Takes the sampling results and puts them in tidy format for graphing and analysis
+analysis_graphics_results.R: Plots results, and performs Wilcoxon statistical tests, and p value adjustment for multiple comparisons.
+
+    Note: For the case studies, the 3 scripts listed above are combined into one single script for each species (files listed in the directory by species). The same general logic is performed in each script. 
+
+**Flow chart describing order in which to run files for hypothetical species (samp_pop_sims)**
 ![Alt text](samp_pop_sims/Figures/read_me_flowchart.png?raw=true "Files to run")
-Flow chart describing order in which to run files for case study species (case_study_sims)
+
+**Flow chart describing order in which to run files for case study species (case_study_sims)**
 ![Alt text](case_study_sims/Figures/read_me_flowchart_case_studies.png?raw=true "Files to run")
 
-Directory contents:
+
+###### Directory contents:
 
     practice_sims: Contains practice simulations and R scripts
         Attempt0_exploration: Exploring functions and objects related to this project
