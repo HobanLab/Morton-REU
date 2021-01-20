@@ -1,4 +1,5 @@
 #analysis_graphics_results
+#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
 #This script contains code for creating plots, and Wilcoxon ranks sums tests
 #The p-values from the tests were saved in a matrix
 
@@ -50,7 +51,7 @@ p = ggplot(combined_highMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=s
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.85,1) + #defining limits for the y-axis
+  ylim(0.80,1) + #defining limits for the y-axis
   scale_fill_brewer() + #this and next line are design elements
   theme_bw() 
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14)) #this line will display/create the plot, along with making the font larger
@@ -65,7 +66,7 @@ p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=st
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.85,1) +
+  ylim(0.82,1) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
   theme_bw()
@@ -79,7 +80,7 @@ p = ggplot(combined_highMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=st
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.85,1) +
+  ylim(0.70,1) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
   theme_bw()
@@ -93,7 +94,7 @@ p = ggplot(combined_lowMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=str
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.85,1) +
+  ylim(0.75,1) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
   theme_bw()
@@ -146,6 +147,7 @@ p_value_matrix[4,] = p_val_lowMig_lowSamp
 rownames(p_value_matrix) = c("highMig_highSamp", "lowMig_highSamp", "highMig_lowSamp", "lowMig_lowSamp")
 colnames(p_value_matrix) = c("scenario 1", "scenario 2", "scenario 3", "scenario 4", "scenario 5", "scenario 6", "scenario 7", "scenario 8", "scenario 9")
 unadjust = matrix(round(p_value_matrix, 5), nrow=4, ncol=9)
+
 
 #p adjustment methods
 bh_p = matrix(round(p.adjust(p_value_matrix, method = "BH"), 5), nrow=4, ncol=9)

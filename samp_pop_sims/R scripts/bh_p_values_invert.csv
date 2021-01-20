@@ -1,0 +1,10 @@
+,highMig_highSamp,lowMig_highSamp,highMig_lowSamp,lowMig_lowSamp
+scenario 1,0,0,0,0
+scenario 2,0,0,0,0
+scenario 3,1.00E-05,0,1.57E-03,0
+scenario 4,5.00E-05,0,3.70E-04,0
+scenario 5,1.88E-03,1.50E-04,5.21E-03,3.00E-05
+scenario 6,0.957,0.215,0.554,0.376
+scenario 7,0.376,0.650,0.683,0.335
+scenario 8,0.366,0.554,0.417,0.376
+scenario 9,0.650,0.554,1.000,0.650

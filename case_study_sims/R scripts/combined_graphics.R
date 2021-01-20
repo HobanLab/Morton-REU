@@ -1,3 +1,5 @@
+#Combined_graphics.R
+#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
 #This script combines all results from three case study species
 #into one large dataframe, so that results could be plotted on one graph for comparison.
 
@@ -46,6 +48,7 @@ p = ggplot(all_case_studies, aes(x=species, y=prop_all, fill=strategy)) +
   ggtitle("Case study species") + #labels for plot
   xlab("Species") +
   ylab("Proportion of alleles captured") +
+  ylim(0.7,1.02) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) + #design elements
   theme_bw() #+

@@ -1,4 +1,5 @@
 #analysis_conversions_calculations R script
+#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
 #this script contains the conversions for files from Arlequin format to genepop format
 #and loops that analyze the data, involving converting genepop files to genind objects, 
 #calculating the proportion of alleles captured, expected heterozygosity, and total number of alleles
@@ -12,6 +13,13 @@ library(ggplot2)
 library(ggpubr)
 library(ggsignif)
 library(tidyr)
+
+#Flags 
+#File conversion flag
+#This flag is set to true when simulations have been run and files have been converted already
+#There is no need to re-convert the files once they have been converted once
+#if you want to re-run conversions, set this to FALSE
+imported = TRUE
 
 #defining root directory (containing sub-folders)
 #and setting working directory
@@ -45,14 +53,18 @@ import_arp2gen_files = function(mypath, mypattern) {
 }
 
 #loop converting .arp to .gen for all combinations and scenarios
-for(i in 1:length(combinations)) {
-  for(j in 1:length(scenarios)) {
-    import_arp2gen_files(paste(my_dir,combinations[i],scenarios[j],sep=""), ".arp$")
+if(imported == FALSE) {
+  for(i in 1:length(combinations)) {
+   for(j in 1:length(scenarios)) {
+     import_arp2gen_files(paste(my_dir,combinations[i],scenarios[j],sep=""), ".arp$")
+    }
   }
 }
 
 #DEFINING ARRAYS TO STORE RESULTS
 #stores proportion of alleles captured for both strategies -- equal and proportional 
+#arrays have dimenstions 9x100 in the format [scenarios, replicates]
+#for 9 simulation scenarios of varying parameters and 100 simulation replicates per scenario
 #high intensity
 results_highMig_highSamp_equal = array(0, dim = c(9,100))
 results_lowMig_highSamp_equal = array(0, dim = c(9,100))

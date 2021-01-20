@@ -1,4 +1,5 @@
 #analysis_data_prep
+#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
 #This file converts the results arrays into data frames for utility in ggplot2
 #Columns are added to the dataframes to keep track of scenario and strategy variables
 
@@ -21,6 +22,7 @@ load("results_lowMig_lowSamp.Rdata")
 #PREPARING DATA (for plotting and statistical analyses)
 #converting results arrays to dataframes (dataframes are easier to use in ggplot2 than matrices)
 #we have 8 matrices total, holding results for which strategy (equal or prop.), migration rate, and sampling intensity
+#***data frames can easily be visualized in R with the View() function
 results_highMig_highSamp_equal_df = as.data.frame(results_highMig_highSamp_equal)
 results_highMig_highSamp_prop_df = as.data.frame(results_highMig_highSamp_prop)
 results_lowMig_highSamp_equal_df = as.data.frame(results_lowMig_highSamp_equal)

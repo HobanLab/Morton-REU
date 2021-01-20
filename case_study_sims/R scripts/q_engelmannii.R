@@ -1,4 +1,5 @@
 #Code for Q. engelmannii case study
+#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
 #This script first imports simulation data and converts Arlequin file format to genepop format
 #Next, the script loops over simulation replicates, converts each one into a temporary genind object (using Adegenet package),
 #and simulates sampling from the wild populations by selecting a random number of individuals 
@@ -16,6 +17,13 @@ library(ggpubr)
 library(ggsignif)
 library(tidyr)
 
+#Flags 
+#File conversion flag
+#This flag is set to true when simulations have been run and files have been converted already
+#There is no need to re-convert the files once they have been converted once
+#if you want to re-run conversions, set this to FALSE
+imported = TRUE
+
 #set working directory
 mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_study_sims\\Simulations\\q_engelmannii'
 setwd(mydir)
@@ -31,9 +39,14 @@ import_arp2gen_files = function(mypath, mypattern) {
 }
 
 #converting all simulation files from arlequin format to genepop format using defined import function
-import_arp2gen_files(mydir, ".arp$")
+if(imported == FALSE) {
+  import_arp2gen_files(mydir, ".arp$")
+}
 
-#pre-defining arrays to store results from loop below
+#pre-defining arrays to store results in loops below
+#arrays dimensions are [1x100]
+#the 100 represents simulation replicates
+#the 1 represents 1 case study species with no varying parameters
 results_q_engelmannii_equal = array(0, dim = c(1, 100))
 results_q_engelmannii_prop = array(0, dim = c(1, 100))
 
