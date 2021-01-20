@@ -1,21 +1,21 @@
 # Morton REU & REEF Project 2020
 Simulation files and R scripts associated with summer REU project and extension fellowship at the Morton Arboretum. Code was written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration. 
-###### Background
+##### Background
 The overall aim of this project was to contribute to practical seed sampling guidelines for creating and maintaining genetically diverse collections for botanic garden and arboreta. Informing these sampling guidelines is one way to ensure a genetically representative sample is obtained from wild populations. Prior work has found that it is important to consider species' traits like dispersal, mode of reproduction, population history, and more, when sampling from wild populations. **For this project, we were specifically interested in creating guidelines that could apply to species with unequal population sizes.** Previous simulation studies assumed populations of equal sizes for simplicity of the model. Thus, we want to determine how to effectively capture genetic diversity when population sizes vary for a rare species. **The two 'strategies' we tested were equal (an equal number from each population regardless of size) and proportional (sampling proportionally to the population's size).**
 
-###### Summary
+#### Summary
 There were two main aspects of this project. First, we simulated a hypothetical rare species using Simcoal 2. Then, the two sampling strategies were tested on simulated populations of varying sizes. We then created scripts with R that represent sampling from the simulated populations. The two sampling strategies were assessed based on the amount of genetic diversity captured (in proportion of alleles captured). The equal strategy takes a constant number of individuals from every population regardless of their sizes. The proportional strategy allocates sampling effort--it samples more from larger populations and less from smaller populations. Results were analyzed and visualized in R. 
 
-###### Other parameters tested
+#### Other parameters tested
 We also tested different migration rates and sampling intensities for this portion of the project to determine how results would vary based on these values.
 
-###### Case studies
+#### Case studies
 Also, we created case studies to determine whether the same results would be achieved when using realistic parameter values that represent real species, in comparison to our first sets of simulations, which represented a hypothetical rare species. Our case studies were based on 3 species of Oak--Quercus acerifolia, Quercus engelmannii, and Quercus oglethorpensis. Similar to the framework described above, we created realistic parameter values for these species, simulated populations using Simcoal 2, and simulated sampling using R code to randomly select individuals. Again, we tested high and low sampling intensities to compare the diversity captured through each. 
     
 Files include R scripts used for data collection, analysis, and producing plots, and text files containing paramter values used for simulation. 
 As this started as an REU project, multiple attempts or trials were used to gradually build the project, increase realism and revise code.  These initial attempts are stored documented in separate folders, but are not needed to recreate the final results for the project. Each attempt builds on the previous in improving the code efficiency or adding new parameter values.
 
-###### File types
+#### File types
 **Parameter files:**
     .par .txt
     Edited in text editor Notepad++
