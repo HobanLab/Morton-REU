@@ -44,8 +44,8 @@ Note: For the case studies, the 3 scripts listed above are combined into one sin
 
 ###### Directory contents:
 
-    practice_sims: Contains practice simulations and R scripts
-        Attempt0_exploration: Exploring functions and objects related to this project
+    archive_and_practice: contains practice simulations as well as third, fourth, and fifth attempts for the project; importing entire simulated population into R with varying parameter files (varying rates of migration); various number of simulation replicates
+    Attempt0_exploration: Exploring functions and objects related to this project
             R: Following instructions on the genind tutorial ( )
             Simulations: Contains practice parameter files for the software Simcoal and Simcoal 2
         Attempt1_practice_sims: (archived to practice folder) Contains first iteration of writing my own parameter files, running simulations, and analyzing the code
@@ -54,8 +54,6 @@ Note: For the case studies, the 3 scripts listed above are combined into one sin
         Attempt2_practice_sims_revised: Contains similar parameter files and analyses as Attempt1, but code and parameter values have been revised
             Simulations: contains parameter files used for simulation, takes a sample of the entire population, revised parameter values
             R scripts: contains analysis files. Wrote functions to import files from a directory and convert them. Wrote a for loop to convert imported files to genind objects
-
-    archive_previous_versions: contains third, fourth, and fifth attempts for the project; importing entire simulated population into R with varying parameter files (varying rates of migration); various number of simulation replicates
         Attempt3_mig_intensity_10_reps: testing code and parameters using low level of replicates for faster loading
             Figures: contain figures generated from R
             R scripts: contains R scripts for sampling code and Rdata files for faster loading

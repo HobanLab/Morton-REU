@@ -17,7 +17,7 @@ library(ggsignif)
 library(tidyr)
 
 #set working directory
-mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_studies\\Simulations\\q_engelmannii'
+mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_study_sims\\Simulations\\q_engelmannii'
 setwd(mydir)
 
 #Defining an import function
