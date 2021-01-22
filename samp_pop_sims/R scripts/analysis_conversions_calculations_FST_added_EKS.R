@@ -14,6 +14,7 @@ library(ggplot2)
 library(ggpubr)
 library(ggsignif)
 library(tidyr)
+library(hierfstat)
 
 #defining root directory (containing sub-folders)
 #and setting working directory
@@ -251,3 +252,8 @@ save(results_highMig_highSamp_equal, results_highMig_highSamp_prop, file="result
 save(results_lowMig_highSamp_equal, results_lowMig_highSamp_prop, file="results_lowMig_highSamp.Rdata")
 save(results_highMig_lowSamp_equal, results_highMig_lowSamp_prop, file="results_highMig_lowSamp.Rdata")
 save(results_lowMig_lowSamp_equal, results_lowMig_lowSamp_prop, file="results_lowMig_lowSamp.Rdata")
+
+save(highmig_fst_min_mean_max, file="highMig_fst.Rdata")
+save(highmig_pwfst_output, file="highMig_fst_output.Rdata")
+save(lowmig_fst_min_mean_max, file="lowMig_fst.Rdata")
+save(lowmig_pwfst_output, file="lowMig_fst_output.Rdata")
