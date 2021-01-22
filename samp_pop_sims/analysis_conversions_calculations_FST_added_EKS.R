@@ -7,6 +7,7 @@
 
 #Library functions
 library(adegenet)
+library(hierfstat)
 library(car)
 library(diveRsity)
 library(ggplot2)
@@ -46,24 +47,22 @@ import_arp2gen_files = function(mypath, mypattern) {
 }
 
 #File conversion flag
-#This flag is set to true when simulations have been run and files have been converted already
+#This flag is set to false when simulations have been run and files have been converted already
 #There is no need to re-convert the files once they have been converted once
-#if you want to re-run conversions, set this to FALSE
-converted = TRUE
+#if you want to re-run conversions or you re-ran simulations, set this to TRUE
+convert = FALSE
 
 #loop converting .arp to .gen for all combinations and scenarios
-if(converted == FALSE) {
+if(convert == TRUE) {
   for(i in 1:length(combinations)) {
-   for(j in 1:length(scenarios)) {
-     import_arp2gen_files(paste(my_dir,combinations[i],scenarios[j],sep=""), ".arp$")
+    for(j in 1:length(scenarios)) {
+      import_arp2gen_files(paste(my_dir,combinations[i],scenarios[j],sep=""), ".arp$")
     }
   }
 }
 
 #DEFINING ARRAYS TO STORE RESULTS
 #stores proportion of alleles captured for both strategies -- equal and proportional 
-#arrays have dimenstions 9x100 in the format [scenarios, replicates]
-#for 9 simulation scenarios of varying parameters and 100 simulation replicates per scenario
 #high intensity
 results_highMig_highSamp_equal = array(0, dim = c(9,100))
 results_lowMig_highSamp_equal = array(0, dim = c(9,100))
@@ -78,22 +77,50 @@ results_lowMig_lowSamp_prop = array(0, dim = c(9,100))
 #stores the total alleles present
 total_alleles_highMig = array(0, dim = c(9, 100))
 total_alleles_lowMig = array(0, dim = c(9, 100))
+
 #defining array to store the expected heterozygosity for each locus
 hexp_highMig = array(0, dim = c(9,100))
 hexp_lowMig = array(0, dim = c(9,100))
 
+#####Fst saving
+##high mig lists
+highmig_hierfstat <- list(list(), list(), list(), list(),  list(),
+                          list(), list(), list(), list())
+
+##low mig lists
+lowmig_hierfstat <- list(list(), list(), list(), list(),  list(),
+                         list(), list(), list(), list())
+
+##arrays low and high mig 
+highmig_pwfst_array <- array(dim = c(5,5,100,9))
+lowmig_pwfst_array <- array(dim = c(5,5,100,9))
+
+##min max mean fst arrays
+highmig_fst_min_mean_max <- array(dim = c(3,100,9))
+lowmig_fst_min_mean_max <- array(dim = c(3,100,9))
+
+##results dfs
+highmig_pwfst_output <- matrix(nrow = 9, ncol = 3)
+lowmig_pwfst_output <- matrix(nrow = 9, ncol = 3)
+
 ###########################################################################################################
+##########Fst -- true/false 
+##Fst code adds a lot of time to run the code, so if you don't want to run it, keep Fst off by setting it FALSE
+f <- TRUE
 #looping over combinations, scenarios, and replicates
 #saving results in 2D arrays
 #first loop over combinations (migration rate + sample intensity)
+#i = combination
 for(i in 1:length(combinations)) {
   #next, loop through each scenario (1-9) for each combination
+  #j = scenario
   for(j in 1:length(scenarios)) {
     #update working directory for each scenario (to navigate through files)
     setwd(paste(my_dir,combinations[i],scenarios[j],sep=""))
     #create a list of all .gen files (ie., simulation replicates)
     list_files = list.files(path = paste(my_dir,combinations[i],scenarios[j],sep=""), pattern = ".gen$")
     #finally, loop through every replicate for each scenario, in each combination
+    #k = replicate
     for(k in 1:length(list_files)) {
       #creating a temporary genind object of the simulation replicate
       temp_genind = read.genepop(list_files[[k]], ncode=3)
@@ -148,7 +175,26 @@ for(i in 1:length(combinations)) {
         #saving expected heterozygosity
         sum_temp_genind = summary(temp_genind)
         hexp_highMig[j,k] = mean(sum_temp_genind$Hexp)
+       
+        if(f == TRUE) {
+        ##convert to hierfstat data frame and store in list
+        highmig_hierfstat[[j]][[k]] <- genind2hierfstat(temp_genind)
         
+        ##pairwise fst results for all scenarios and replicates stored in a 4D array - 
+        highmig_pwfst_array[,,k,j] <-  pairwise.neifst(highmig_hierfstat[[j]][[k]])
+        
+        ##calculate max, min, and mean pwfst for every replicate
+        highmig_fst_min_mean_max[1,k,j] <- mean(highmig_pwfst_array[,,k,j], na.rm = TRUE)
+        highmig_fst_min_mean_max[2,k,j] <- min(highmig_pwfst_array[,,k,j], na.rm = TRUE)
+        highmig_fst_min_mean_max[3,k,j] <- max(highmig_pwfst_array[,,k,j], na.rm = TRUE)
+        
+        ##write loops to calculate the mean of min/max/mean pwfst and then do it across scenario
+        for(a in 1:length(scenarios)){
+          for(b in 1:3){
+            highmig_pwfst_output[a,b] <- round(mean(highmig_fst_min_mean_max[b,,a]),3)
+          }
+        }
+      }
       } else if (i == 2) { #if the loop is in the second combination (low migration, high intensity), save results here
         #saving proportion of alleles captured for both equal and proportional strategies
         results_lowMig_highSamp_equal[j,k] = sample_n_alleles_equal/total_alleles
@@ -161,6 +207,25 @@ for(i in 1:length(combinations)) {
         sum_temp_genind = summary(temp_genind)
         hexp_lowMig[j,k] = mean(sum_temp_genind$Hexp)
         
+        if(f == TRUE) {
+        ##convert to hierfstat data frame and store in a list
+        lowmig_hierfstat[[j]][[k]] <- genind2hierfstat(temp_genind)
+        
+        ##pairwise fst results for all scenarios and replicates stored in a 4D array 
+        lowmig_pwfst_array[,,k,j] <-  pairwise.neifst(lowmig_hierfstat[[j]][[k]])
+        
+        ##calculate max, min, and mean pwfst for every replicate
+        lowmig_fst_min_mean_max[1,k,j] <- mean(lowmig_pwfst_array[,,k,j], na.rm = TRUE)
+        lowmig_fst_min_mean_max[2,k,j] <- min(lowmig_pwfst_array[,,k,j], na.rm = TRUE)
+        lowmig_fst_min_mean_max[3,k,j] <- max(lowmig_pwfst_array[,,k,j], na.rm = TRUE)
+        
+        ##write loops to calculate the mean of min/max/mean pwfst and then do it across scenario
+        for(a in 1:length(scenarios)){
+          for(b in 1:3){
+            lowmig_pwfst_output[a,b] <- round(mean(lowmig_fst_min_mean_max[b,,a]),3)
+          }
+        }
+       }
       } else if (i == 3) { #if loop is in high migration, low intensity combination, save results here
         ##saving proportion of alleles captured for both equal and proportional strategies
         results_highMig_lowSamp_equal[j,k] = sample_n_alleles_equal/total_alleles
@@ -181,7 +246,7 @@ for(i in 1:length(combinations)) {
 
 #######################################################################################################################
 #saving results to R data file
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\Attempt6_one_loop_100reps\\R scripts")
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations")
 save(results_highMig_highSamp_equal, results_highMig_highSamp_prop, file="results_highMig_highSamp.Rdata")
 save(results_lowMig_highSamp_equal, results_lowMig_highSamp_prop, file="results_lowMig_highSamp.Rdata")
 save(results_highMig_lowSamp_equal, results_highMig_lowSamp_prop, file="results_highMig_lowSamp.Rdata")

@@ -73,16 +73,17 @@ Note: For the case studies, the 3 scripts listed above are combined into one sin
             analysis_conversions_calculations_revised.R: revised vresion fixes errors. Data was being analyzed incorrectly.
             analysis_data_prep.R: Script to aggregate dataframes from conversion file into one main dataframe for generating results. This is to get results for equal and proportional sampling on one plot
             analysis_graphics_results.R: Script creates boxplots for each combination of migration rates and sample intensity. 
+            oneloop_allcap_code.R: calculates alleles captured by each strategy for allele frequency groups 
         Simulations: contain parameter files and other simulation files; parameter files include high and low migration; simulation outputs are stored in folders.
             highMig: simulation files resulting from high migration parameters
             lowMig:  simulation files resulting from low migration parameters
         Figures: contain images produced in R scripts for boxplots
 
-    cast_study_sims: Contains R scripts and simulation files relating to three species of Oak that were used as case studies for the project. Case studies were used in comparison to a hypothetical species (in previous attempts) in order to determine if, when applied to mroe realistic parameter values, the same results would be achieved. 
+    case_study_sims: Contains R scripts and simulation files relating to three species of Oak that were used as case studies for the project. Case studies were used in comparison to a hypothetical species (in previous attempts) in order to determine if, when applied to mroe realistic parameter values, the same results would be achieved. 
         Figures: contain images produced in R scripts for boxplots
-        R scripts: three separate R scripts for each case study species. Parameter values used were specified for each species separately in order to best represent them in simulation. Migration was constant in comparison to previous attempts, and different sampling intensities were used. 
+        R scripts: three separate R scripts for each case study species. Parameter values used were specified for each species separately in order to best represent them in simulation. Migration was constant in comparison to previous attempts, and different sampling intensities were used. Calculates Fst for case study species as well
             q_acerifolia
             q_engelmannii
             q_oglethorpensis
-            combined_graphics.R: this script was used to merge results from all case studies into one large dataframe to be plotted together for comparison
+            combined_graphics_analyses.R: this script was used to merge results from all case studies into one large dataframe to be plotted together for comparison, Fst calculations for all species are also in this script
         Simulations: Contains parameter files used to simulate each of the case study species, along with simulation result files.

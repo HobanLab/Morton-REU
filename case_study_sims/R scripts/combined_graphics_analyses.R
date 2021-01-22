@@ -11,19 +11,23 @@ library(ggplot2)
 library(ggpubr)
 library(ggsignif)
 library(tidyr)
+library(hierfstat)
 
 #loading in data that was saved from other case study R scripts
 mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_study_sims\\Simulations\\q_acerifolia'
 setwd(mydir)
 load("combined_results_q_acerifolia.Rdata")
+load("q_acerifolia_fst.Rdata")
 
 mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_study_sims\\Simulations\\q_engelmannii'
 setwd(mydir)
 load("combined_results_q_engelmannii.Rdata")
+load("q_engelmannii_fst.Rdata")
 
 mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_study_sims\\Simulations\\q_oglethorpensis'
 setwd(mydir)
 load("combined_results_q_oglethorpensis.Rdata")
+load("q_oglethorpensis_fst.Rdata")
 
 #preparing data by naming a column indicating each case study species
 #repeating 200 times for each species since there are 100 simulation replicates that were analzyed for equal and proportional (200 entries total)
@@ -54,3 +58,25 @@ p = ggplot(all_case_studies, aes(x=species, y=prop_all, fill=strategy)) +
   theme_bw() #+
   #theme(legend.position = "none")
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14)) #creating/displaying the plot and changing font size to be larger
+
+
+###################################################################################
+#Calculating Fst of each species 
+#only run if f == TRUE for all case study species
+##final df with combined species
+species_pwfst_df <- matrix(nrow = 3, ncol = 3)
+###write loops to calculate the mean of min/max/mean pwfst and then do it across scenario
+for(a in 1:length(quog_mean_max_min_fst[,1])){
+  species_pwfst_df[1,a] <-  round(mean(quac_mean_max_min_fst[a,]),3)  
+  species_pwfst_df[2,a] <-  round(mean(quen_mean_max_min_fst[a,]),3)
+  species_pwfst_df[3,a] <- round(mean(quog_mean_max_min_fst[a,]),3)
+}
+
+##rename dfs 
+rownames(species_pwfst_df) <- c("QUAC","QUEN","QUOG")
+colnames(species_pwfst_df) <- c("MeanFst", "MinFst", "MaxFst")
+
+##write out to csv
+mydir = 'C:\\Users\\kayle\\Documents\\Morton-REU\\case_study_sims\\R scripts'
+setwd(mydir)
+write.csv(species_pwfst_df, "case_study_fst.csv")

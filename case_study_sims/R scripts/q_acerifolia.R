@@ -16,6 +16,7 @@ library(ggplot2)
 library(ggpubr)
 library(ggsignif)
 library(tidyr)
+library(hierfstat)
 
 #Flags 
 #File conversion flag
@@ -53,7 +54,24 @@ results_q_acerifolia_prop = array(0, dim = c(1, 100))
 #pre-defining array to store total alleles present for each replicate
 total_alleles_q_acerifolia = array(0, dim = c(1, 100))
 
+#saving a list of genind objects created
+quac_genind_list <- list() 
+
+#list of hierfstat
+quac_hierfstat <- list()
+
+##quac pwfst array
+quac_pwfst_array <- array(dim = c(4,4,100))
+
+##min, max, mean of replicates 
+quac_mean_max_min_fst <- matrix(nrow = 3, ncol = 100)
+
 #***********************************************************************
+#Flag
+#flag set to true when you want to run fst
+#set to false if you don't want it to run
+f = TRUE
+
 #Loop to simulate sampling
 #First, create a list of all genepop files (all replicates) to loop over
 #the variable 'i' represents each replicate
@@ -62,6 +80,22 @@ for(i in 1:length(list_files)) {
   #creating a temporary genind object (using Adegenet package) for each simulation replicate
   temp_genind = read.genepop(list_files[[i]], ncode=3)
   
+  if(f == TRUE) {
+    ##creating genind list for QUAC genind 
+    quac_genind_list[[i]] <- temp_genind
+  
+    ##convert genind files to hierfstat format to run pwfst 
+    quac_hierfstat[[i]] <- genind2hierfstat(quac_genind_list[[i]])
+  
+    ##array to store all pwfst values
+    quac_pwfst_array[,,i] <- pairwise.neifst(quac_hierfstat[[i]])
+  
+    ##calculate statistics for QUAC - max, min, mean fst 
+    quac_mean_max_min_fst[1,i] <- mean(quac_pwfst_array[,,i], na.rm = TRUE)
+    quac_mean_max_min_fst[2,i] <- min(quac_pwfst_array[,,i], na.rm = TRUE)
+    quac_mean_max_min_fst[3,i] <- max(quac_pwfst_array[,,i], na.rm = TRUE)
+  }
+
   #defining population boundaries by the first individual and the last individuals in each population
   #last individual for every population as the cumulative sum of all populations (ie., last individual for pop 1 is the sum of pop 1)
   last_ind = as.numeric(cumsum(table(temp_genind@pop)))
@@ -123,6 +157,9 @@ setwd(mydir)
 save(results_q_acerifolia_equal, results_q_acerifolia_prop, file="results_q_acerifolia.Rdata")
 save(combined_q_acerifolia, file="combined_results_q_acerifolia.Rdata")
 
+if (f == TRUE) {
+  save(quac_mean_max_min_fst, file="q_acerifolia_fst.Rdata")
+}
 #****************************************************************************************
 #Creating Q. acerifolia graph using ggplot2
 #Note this graph only displays results of Q. acerifolia

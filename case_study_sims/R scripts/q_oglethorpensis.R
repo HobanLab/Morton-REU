@@ -16,6 +16,7 @@ library(ggplot2)
 library(ggpubr)
 library(ggsignif)
 library(tidyr)
+library(hierfstat)
 
 #Flags 
 #File conversion flag
@@ -53,7 +54,24 @@ results_q_oglethorpensis_prop = array(0, dim = c(1, 100))
 #array to store total alleles for each replicate
 total_alleles_q_oglethorpensis = array(0, dim = c(1, 100))
 
+#saving a list of the genind objects 
+quog_genind_list <- list() 
+
+#list of hierfstat
+quog_hierfstat <- list()
+
+##quog pwfst array
+quog_pwfst_array <- array(dim = c(5,5,100))
+
+##min, max, mean of replicates 
+quog_mean_max_min_fst <- matrix(nrow = 3, ncol = 100)
+
 #***********************************************************************
+#Flag
+#flag set to true when you want to run fst
+#set to false if you don't want it to run
+f = TRUE
+
 #Loop to simulate sampling
 #First, create a list of all genepop files (all replicates) to loop over
 #the variable 'i' represents each replicate
@@ -61,6 +79,22 @@ list_files = list.files(mydir, pattern = ".gen$")
 for(i in 1:length(list_files)) {
   #creating a temporary genind object (using Adegenet package) for each simulation replicate 
   temp_genind = read.genepop(list_files[[i]], ncode=3)
+  
+  if(f == TRUE) {
+    ##creating genind list for QUOG genind 
+    quog_genind_list[[i]] <- temp_genind
+  
+    ##convert genind files to hierfstat format for pwfst
+    quog_hierfstat[[i]] <- genind2hierfstat(quog_genind_list[[i]])
+  
+    ##QUOG pwfst array 
+    quog_pwfst_array[,,i] <- pairwise.neifst(quog_hierfstat[[i]])
+  
+    ##calculate statistics for QUOG
+    quog_mean_max_min_fst[1,i] <- mean(quog_pwfst_array[,,i], na.rm = TRUE)
+    quog_mean_max_min_fst[2,i] <- min(quog_pwfst_array[,,i], na.rm = TRUE)
+    quog_mean_max_min_fst[3,i] <- max(quog_pwfst_array[,,i], na.rm = TRUE)
+  }
   
   #defining population boundaries by the first individual and the last individuals in each population
   #last individual for every population as the cumulative sum of all populations (ie., last individual for pop 1 is the sum of pop 1)
@@ -122,6 +156,9 @@ setwd(mydir)
 save(results_q_oglethorpensis_equal, results_q_oglethorpensis_prop, file="results_q_oglethorpensis.Rdata")
 save(combined_q_oglethorpensis, file="combined_results_q_oglethorpensis.Rdata")
 
+if(f == TRUE) {
+  save(quog_mean_max_min_fst, file="q_oglethorpensis_fst.Rdata")
+}
 #****************************************************************************************
 #Creating graph for Q. oglethorpensis
 #Note: this graph only shows results for Q. oglethorpensis
