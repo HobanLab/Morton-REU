@@ -137,9 +137,7 @@ for(i in 1:length(combinations)) {
       #here, we are defining which individuals to sample from, for each of the populations
       #so we are sampling a certain amount (define in sample_size... variable) from the population 'ranges'
       #also, setting a seed value for replicable results
-      set.seed(1) #for comparing results -- seeding gives the same sampling results every time
       rows_to_samp_equal = c(sample(first_ind[1]:last_ind[1], sample_size_equal[1]), sample(first_ind[2]:last_ind[2], sample_size_equal[2]), sample(first_ind[3]:last_ind[3], sample_size_equal[3]), sample(first_ind[4]:last_ind[4], sample_size_equal[4]), sample(first_ind[5]:last_ind[5], sample_size_equal[5]))
-      set.seed(1) #for comparing results 
       rows_to_samp_prop = c(sample(first_ind[1]:last_ind[1], sample_size_prop[1]), sample(first_ind[2]:last_ind[2], sample_size_prop[2]), sample(first_ind[3]:last_ind[3], sample_size_prop[3]), sample(first_ind[4]:last_ind[4], sample_size_prop[4]), sample(first_ind[5]:last_ind[5], sample_size_prop[5]))
       
       ##Start code for allelic capture 
