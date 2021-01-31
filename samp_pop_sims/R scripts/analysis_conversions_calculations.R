@@ -16,6 +16,17 @@ library(ggsignif)
 library(tidyr)
 library(hierfstat)
 
+#Flags
+#File conversion flag
+#This flag is set to false when simulations have been run and files have been converted already
+#There is no need to re-convert the files once they have been converted once
+#if you want to re-run conversions or you re-ran simulations, set this to TRUE
+convert = FALSE
+#Fst flag
+#Fst code adds a lot of time to run the code 
+#so if you don't want to run it, keep Fst off by setting it FALSE
+f <- TRUE
+
 #defining root directory (containing sub-folders)
 #and setting working directory
 my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations"
@@ -46,12 +57,6 @@ import_arp2gen_files = function(mypath, mypattern) {
   for(i in 1:length(temp_list_1)){temp_list_2[[i]]=arp2gen(temp_list_1[i])}
   temp_list_2
 }
-
-#File conversion flag
-#This flag is set to false when simulations have been run and files have been converted already
-#There is no need to re-convert the files once they have been converted once
-#if you want to re-run conversions or you re-ran simulations, set this to TRUE
-convert = FALSE
 
 #loop converting .arp to .gen for all combinations and scenarios
 if(convert == TRUE) {
@@ -105,9 +110,7 @@ highmig_pwfst_output <- matrix(nrow = 9, ncol = 3)
 lowmig_pwfst_output <- matrix(nrow = 9, ncol = 3)
 
 ###########################################################################################################
-##########Fst -- true/false 
-##Fst code adds a lot of time to run the code, so if you don't want to run it, keep Fst off by setting it FALSE
-f <- TRUE
+#Sampling loop - converts replicates to genind objects and performs sampling 
 #looping over combinations, scenarios, and replicates
 #saving results in 2D arrays
 #first loop over combinations (migration rate + sample intensity)
@@ -234,7 +237,7 @@ for(i in 1:length(combinations)) {
         
         #we don't need to save the total alleles present or hexp again, since we are using the same data as the high migration combination above (i = 1)
         
-      } else { #if loop is in low migration, low intensity combination, save results here
+      } else { # (i==4) if loop is in low migration, low intensity combination, save results here
         #saving proportion of alleles captured for both equal and proportional strategies
         results_lowMig_lowSamp_equal[j,k] = sample_n_alleles_equal/total_alleles
         results_lowMig_lowSamp_prop[j,k] = sample_n_alleles_prop/total_alleles

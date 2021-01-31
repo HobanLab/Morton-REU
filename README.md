@@ -1,5 +1,5 @@
 # Morton REU & REEF Project 2020
-Simulation files and R scripts associated with summer REU project and extension fellowship at the Morton Arboretum. Code was written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration. 
+Simulation files and R scripts associated with summer REU project and extension fellowship at the Morton Arboretum. Code files were written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration. 
 ##### Background
 The overall aim of this project was to contribute to practical seed sampling guidelines for creating and maintaining genetically diverse collections for botanic garden and arboreta. Informing these sampling guidelines is one way to ensure a genetically representative sample is obtained from wild populations. Prior work has found that it is important to consider species' traits like dispersal, mode of reproduction, population history, and more, when sampling from wild populations. **For this project, we were specifically interested in creating guidelines that could apply to species with unequal population sizes.** Previous simulation studies assumed populations of equal sizes for simplicity of the model. Thus, we want to determine how to effectively capture genetic diversity when population sizes vary for a rare species. **The two 'strategies' we tested were equal (an equal number from each population regardless of size) and proportional (sampling proportionally to the population's size).**
 
@@ -32,6 +32,8 @@ As this started as an REU project, multiple attempts or trials were used to grad
 analysis_conversions_calculations.R: converts from Arlequin format to genepop format, loops to import genepop files to genind objects in R and then calculate and save basic genetic statistics (e.g. heterozygosity).
 analysis_data_prep.R: Takes the sampling results and puts them in tidy format for graphing and analysis
 analysis_graphics_results.R: Plots results, and performs Wilcoxon statistical tests, and p value adjustment for multiple comparisons.
+allfreq_capt_prop_equal_samp.R: Calculates alleles frequncy present in high and low migration scenarios, as well as the total alleles present 
+Fa_sample_funcs.R: Function written by Dr. Sean Hoban to calculate allele category frequencies. 
 
 Note: For the case studies, the 3 scripts listed above are combined into one single script for each species (files listed in the directory by species). The same general logic is performed in each script. 
 
