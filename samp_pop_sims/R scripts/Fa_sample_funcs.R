@@ -1,4 +1,4 @@
-#Code written by Dr. Sean Hoban
+#Code written by XXX XXX XXX
 
 #######################
 #---#DETERMINE WHAT ALLELES FALL IN WHAT CATEGORIES---#

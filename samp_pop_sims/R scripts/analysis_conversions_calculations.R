@@ -1,5 +1,5 @@
 #analysis_conversions_calculations R script
-#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
+#Code written by XXX XXX, XXX XXX, and XXX XXX XXX in collaboration
 #this script contains the conversions for files from Arlequin format to genepop format
 #and loops that analyze the data, involving converting genepop files to genind objects, 
 #calculating the proportion of alleles captured, expected heterozygosity, and total number of alleles
@@ -29,7 +29,7 @@ f <- TRUE
 
 #defining root directory (containing sub-folders)
 #and setting working directory
-my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations"
+my_dir = "C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\Simulations"
 setwd(my_dir)
 
 #list of combinations
@@ -250,7 +250,7 @@ for(i in 1:length(combinations)) {
 
 #######################################################################################################################
 #saving results to R data file
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations")
+setwd("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\Simulations")
 save(results_highMig_highSamp_equal, results_highMig_highSamp_prop, file="results_highMig_highSamp.Rdata")
 save(results_lowMig_highSamp_equal, results_lowMig_highSamp_prop, file="results_lowMig_highSamp.Rdata")
 save(results_highMig_lowSamp_equal, results_highMig_lowSamp_prop, file="results_highMig_lowSamp.Rdata")

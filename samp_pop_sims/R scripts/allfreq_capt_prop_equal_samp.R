@@ -1,4 +1,4 @@
-#Code written by Emily Schumacher and Dr. Sean Hoban
+#Code written by XXX XXX and XXX XXX XXX
 
 ####################################
 ########## Load Libraries ##########
@@ -17,11 +17,11 @@ library(tidyr)
 #####################################
 
 #containing sub-folders
-my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations"
+my_dir = "C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\Simulations"
 setwd(my_dir)
 
 ###allelic capture functions 
-source("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R scripts\\Fa_sample_funcs.R")
+source("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R scripts\\Fa_sample_funcs.R")
 ##functions
 colMax <- function(data) sapply(data, max, na.rm = TRUE)
 sample.pop<-function(genind_obj,vect_pop_ID,vect_samp_sizes){
@@ -247,7 +247,7 @@ rownames(highmig_alleles_existing_by_cat) <- c("Scenario 1", "Scenario 2", "Scen
                                                "Scenario 6", "scenario 7", "Scenario 8", "Scenario 9")
 colnames(highmig_alleles_existing_by_cat) <- list_allele_cat
 
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R scripts")
+setwd("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R scripts")
 write.csv(highmig_alleles_existing_by_cat, "highmig_alleles_existing_by_cat.csv")
 
 ###Create data frames with percent and # of alleles captured per category
@@ -286,7 +286,7 @@ rownames(highmig_all_cap_equal_df) <- c("Scenario 1", "Scenario 2", "Scenario 3"
 
 colnames(highmig_all_cap_prop_df) <- list_allele_cat
 
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R scripts")
+setwd("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R scripts")
 ##write out data frames
 write.csv(highmig_all_cap_equal_df, "highmig_all_cap_equal_df.csv")
 write.csv(highmig_all_cap_prop_df, "highmig_all_cap_prop_df.csv")
@@ -355,7 +355,7 @@ rownames(lowmig_all_cap_prop_df) <- c("Scenario 1", "Scenario 2", "Scenario 3", 
 colnames(lowmig_all_cap_prop_df) <- list_allele_cat
 
 ##write out data frames
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R scripts")
+setwd("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R scripts")
 write.csv(lowmig_all_cap_equal_df, "lowmig_all_cap_equal_df.csv")
 write.csv(lowmig_all_cap_prop_df, "lowmig_all_cap_prop_df.csv")
 

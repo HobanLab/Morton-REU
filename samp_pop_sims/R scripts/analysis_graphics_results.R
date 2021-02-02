@@ -1,5 +1,5 @@
 #analysis_graphics_results
-#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
+#Code written by XXX XXX, XXX XXX, and XXX XXX XXX in collaboration
 #This script contains code for creating plots, and Wilcoxon ranks sums tests
 #The p-values from the tests were saved in a matrix
 
@@ -13,7 +13,7 @@ library(ggsignif)
 library(tidyr)
 
 #set working directory and load in data
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R scripts")
+setwd("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R scripts")
 load("results_highMig_highSamp.Rdata")
 load("results_lowMig_highSamp.Rdata")
 load("results_highMig_lowSamp.Rdata")
