@@ -1,5 +1,5 @@
 #analysis_conversions_calculations R script
-#Code written by XXX XXX, XXX XXX, and XXX XXX XXX in collaboration
+#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
 #this script contains the conversions for files from Arlequin format to genepop format
 #and loops that analyze the data, involving converting genepop files to genind objects, 
 #calculating the proportion of alleles captured, expected heterozygosity, and total number of alleles

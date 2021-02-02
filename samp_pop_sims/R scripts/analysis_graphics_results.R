@@ -1,5 +1,5 @@
 #analysis_graphics_results
-#Code written by XXX XXX, XXX XXX, and XXX XXX XXX in collaboration
+#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
 #This script contains code for creating plots, and Wilcoxon ranks sums tests
 #The p-values from the tests were saved in a matrix
 

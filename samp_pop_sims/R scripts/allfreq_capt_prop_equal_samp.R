@@ -1,4 +1,4 @@
-#Code written by XXX XXX and XXX XXX XXX
+#Code written by Emily Schumacher and Dr. Sean Hoban in collaboration
 
 ####################################
 ########## Load Libraries ##########

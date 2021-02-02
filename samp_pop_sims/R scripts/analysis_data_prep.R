@@ -1,5 +1,5 @@
 #analysis_data_prep
-#Code written by XXX XXX, XXX XXX, and XXX XXX XXX in collaboration
+#Code written by Kaylee Rosenberger, Emily Schumacher, and Dr. Sean Hoban in collaboration
 #This file converts the results arrays into data frames for utility in ggplot2
 #Columns are added to the dataframes to keep track of scenario and strategy variables
 
