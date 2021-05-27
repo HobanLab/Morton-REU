@@ -13,7 +13,7 @@ library(ggsignif)
 library(tidyr)
 
 #set working directory and load in data from calculations R script
-setwd("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R scripts")
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R-scripts")
 load("results_highMig_highSamp.Rdata")
 load("results_lowMig_highSamp.Rdata")
 load("results_highMig_lowSamp.Rdata")

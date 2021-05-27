@@ -21,15 +21,15 @@ library(hierfstat)
 #This flag is set to false when simulations have been run and files have been converted already
 #There is no need to re-convert the files once they have been converted once
 #if you want to re-run conversions or you re-ran simulations, set this to TRUE
-convert = FALSE
+convert = FALSE 
 #Fst flag
 #Fst code adds a lot of time to run the code 
 #so if you don't want to run it, keep Fst off by setting it FALSE
-f <- TRUE
+f <- FALSE
 
 #defining root directory (containing sub-folders)
 #and setting working directory
-my_dir = "C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\Simulations"
+my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations"
 setwd(my_dir)
 
 #list of combinations
@@ -83,6 +83,18 @@ results_lowMig_lowSamp_prop = array(0, dim = c(9,100))
 #stores the total alleles present
 total_alleles_highMig = array(0, dim = c(9, 100))
 total_alleles_lowMig = array(0, dim = c(9, 100))
+
+#stores the number of alleles captured by the sample strategy (instead of proportion of alleles captured)
+#high intensity
+samp_all_highMig_highSamp_equal = array(0, dim = c(9,100))
+samp_all_lowMig_highSamp_equal = array(0, dim = c(9,100))
+samp_all_highMig_highSamp_prop = array(0, dim = c(9,100))
+samp_all_lowMig_highSamp_prop = array(0, dim = c(9,100))
+#low intensity
+samp_all_highMig_lowSamp_equal = array(0, dim = c(9,100))
+samp_all_lowMig_lowSamp_equal = array(0, dim = c(9,100))
+samp_all_highMig_lowSamp_prop = array(0, dim = c(9,100))
+samp_all_lowMig_lowSamp_prop = array(0, dim = c(9,100))
 
 #defining array to store the expected heterozygosity for each locus
 hexp_highMig = array(0, dim = c(9,100))
@@ -173,6 +185,10 @@ for(i in 1:length(combinations)) {
         results_highMig_highSamp_equal[j,k] = sample_n_alleles_equal/total_alleles
         results_highMig_highSamp_prop[j,k] = sample_n_alleles_prop/total_alleles
         
+        #saving number of alleles captured
+        samp_all_highMig_highSamp_equal[j,k] = sample_n_alleles_equal
+        samp_all_highMig_highSamp_prop[j,k] = sample_n_alleles_prop
+        
         #saving total alleles present for each replicate
         total_alleles_highMig[j,k] = total_alleles
         
@@ -203,6 +219,10 @@ for(i in 1:length(combinations)) {
         #saving proportion of alleles captured for both equal and proportional strategies
         results_lowMig_highSamp_equal[j,k] = sample_n_alleles_equal/total_alleles
         results_lowMig_highSamp_prop[j,k] = sample_n_alleles_prop/total_alleles
+        
+        #saving number of alleles captured
+        samp_all_lowMig_highSamp_equal[j,k] = sample_n_alleles_equal
+        samp_all_lowMig_highSamp_prop[j,k] = sample_n_alleles_prop
         
         #saving total alleles present
         total_alleles_lowMig[j,k] = total_alleles
@@ -235,12 +255,20 @@ for(i in 1:length(combinations)) {
         results_highMig_lowSamp_equal[j,k] = sample_n_alleles_equal/total_alleles
         results_highMig_lowSamp_prop[j,k] = sample_n_alleles_prop/total_alleles
         
+        #saving number of alleles captured
+        samp_all_highMig_lowSamp_equal[j,k] = sample_n_alleles_equal
+        samp_all_highMig_lowSamp_prop[j,k] =  sample_n_alleles_prop
+        
         #we don't need to save the total alleles present or hexp again, since we are using the same data as the high migration combination above (i = 1)
         
       } else { # (i==4) if loop is in low migration, low intensity combination, save results here
         #saving proportion of alleles captured for both equal and proportional strategies
         results_lowMig_lowSamp_equal[j,k] = sample_n_alleles_equal/total_alleles
         results_lowMig_lowSamp_prop[j,k] = sample_n_alleles_prop/total_alleles
+        
+        #saving number of alleles captured 
+        samp_all_lowMig_lowSamp_equal[j,k] = sample_n_alleles_equal
+        samp_all_lowMig_lowSamp_prop[j,k] = sample_n_alleles_prop
         
         #we don't need to save the total alleles present or hexp again, since we are using the same data as the low migration combination above (i = 2)
       }
@@ -250,12 +278,20 @@ for(i in 1:length(combinations)) {
 
 #######################################################################################################################
 #saving results to R data file
-setwd("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\Simulations")
+#save proportion of alleles captured 
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations")
 save(results_highMig_highSamp_equal, results_highMig_highSamp_prop, file="results_highMig_highSamp.Rdata")
 save(results_lowMig_highSamp_equal, results_lowMig_highSamp_prop, file="results_lowMig_highSamp.Rdata")
 save(results_highMig_lowSamp_equal, results_highMig_lowSamp_prop, file="results_highMig_lowSamp.Rdata")
 save(results_lowMig_lowSamp_equal, results_lowMig_lowSamp_prop, file="results_lowMig_lowSamp.Rdata")
 
+#save total alleles and number of alleles captured
+save(samp_all_highMig_highSamp_equal, samp_all_highMig_highSamp_prop, file="alleles_capt_highMig_highSamp.Rdata")
+save(samp_all_highMig_lowSamp_equal, samp_all_highMig_lowSamp_prop, file="alleles_capt_highMig_lowSamp.Rdata")
+save(samp_all_lowMig_highSamp_equal, samp_all_lowMig_highSamp_prop, file="alleles_capt_lowMig_highSamp.Rdata")
+save(samp_all_lowMig_lowSamp_equal, samp_all_lowMig_lowSamp_prop, file="alleles_capt_lowMig_lowSamp.Rdata")
+
+#save Fst files
 save(highmig_fst_min_mean_max, file="highMig_fst.Rdata")
 save(highmig_pwfst_output, file="highMig_fst_output.Rdata")
 save(lowmig_fst_min_mean_max, file="lowMig_fst.Rdata")
