@@ -285,14 +285,17 @@ save(results_lowMig_highSamp_equal, results_lowMig_highSamp_prop, file="results_
 save(results_highMig_lowSamp_equal, results_highMig_lowSamp_prop, file="results_highMig_lowSamp.Rdata")
 save(results_lowMig_lowSamp_equal, results_lowMig_lowSamp_prop, file="results_lowMig_lowSamp.Rdata")
 
-#save total alleles and number of alleles captured
+#save number of alleles captured
 save(samp_all_highMig_highSamp_equal, samp_all_highMig_highSamp_prop, file="alleles_capt_highMig_highSamp.Rdata")
 save(samp_all_highMig_lowSamp_equal, samp_all_highMig_lowSamp_prop, file="alleles_capt_highMig_lowSamp.Rdata")
 save(samp_all_lowMig_highSamp_equal, samp_all_lowMig_highSamp_prop, file="alleles_capt_lowMig_highSamp.Rdata")
 save(samp_all_lowMig_lowSamp_equal, samp_all_lowMig_lowSamp_prop, file="alleles_capt_lowMig_lowSamp.Rdata")
 
-#save Fst files
-save(highmig_fst_min_mean_max, file="highMig_fst.Rdata")
-save(highmig_pwfst_output, file="highMig_fst_output.Rdata")
-save(lowmig_fst_min_mean_max, file="lowMig_fst.Rdata")
-save(lowmig_pwfst_output, file="lowMig_fst_output.Rdata")
+#save total alleles present
+save(total_alleles_highMig, total_alleles_lowMig, file="total_alleles.Rdata")
+
+# #save Fst files
+# save(highmig_fst_min_mean_max, file="highMig_fst.Rdata")
+# save(highmig_pwfst_output, file="highMig_fst_output.Rdata")
+# save(lowmig_fst_min_mean_max, file="lowMig_fst.Rdata")
+# save(lowmig_pwfst_output, file="lowMig_fst_output.Rdata")
