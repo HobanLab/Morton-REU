@@ -1,0 +1,10 @@
+100 1
+scen1_lowMig.par
+scen2_lowMig.par
+scen3_lowMig.par
+scen4_lowMig.par
+scen5_lowMig.par
+scen6_lowMig.par
+scen7_lowMig.par
+scen8_lowMig.par
+scen9_lowMig.par

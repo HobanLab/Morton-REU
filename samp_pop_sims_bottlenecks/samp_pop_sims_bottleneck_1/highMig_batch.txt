@@ -1,0 +1,10 @@
+100 1
+scen1_highMig.par
+scen2_highMig.par
+scen3_highMig.par
+scen4_highMig.par
+scen5_highMig.par
+scen6_highMig.par
+scen7_highMig.par
+scen8_highMig.par
+scen9_highMig.par
