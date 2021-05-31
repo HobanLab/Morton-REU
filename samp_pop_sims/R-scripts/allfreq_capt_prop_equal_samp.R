@@ -21,7 +21,7 @@ my_dir = "C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\Simulations"
 setwd(my_dir)
 
 ###allelic capture functions 
-source("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R scripts\\Fa_sample_funcs.R")
+source("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R-scripts\\Fa_sample_funcs.R")
 ##functions
 colMax <- function(data) sapply(data, max, na.rm = TRUE)
 sample.pop<-function(genind_obj,vect_pop_ID,vect_samp_sizes){
@@ -98,6 +98,18 @@ lowmig_prop_mean_all_cap <- matrix(nrow = 9, ncol = 9)
 lowmig_equal_mean_all_cap_per <- matrix(nrow = 9, ncol = 9)
 lowmig_prop_mean_all_cap_per <- matrix(nrow = 9, ncol = 9)
 
+#This script will also collect in the freq_v_cap lists: a list of all the alleles in every simulation, their frequency in the population, and how many times they are captured (which also identifies those captured 0 times)
+
+#Lists to hold these matrices of alleles and capture counts
+#Each list element is a scenario, 1 to 9
+#inside each list element is a matrix, with each row being an individual allele 
+#col 1 = number of counts of that allele captured, col 2 = that alleles frequency in the simulated data (in situ)
+#alleles from every replicate will all be concatenated with rbind into a super long list 
+freq_v_cap_HM_equal<-list(c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0))
+freq_v_cap_HM_prop<-list(c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0))
+freq_v_cap_LM_equal<-list(c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0))
+freq_v_cap_LM_prop<-list(c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0))
+
 #looping over combinations, scenarios, and replicates
 #saving results in 3D arrays
 for(i in 1:length(combinations)) {
@@ -157,6 +169,19 @@ for(i in 1:length(combinations)) {
       ##determine number of alleles captured by the proportional sampling 
       alleles_cap_prop <- colSums(temp_genind@tab[rows_to_samp_prop,], na.rm = T)
       
+		#Get every allele and its capture rate and frequency
+		if (i==1){
+		freq_v_cap_HM_prop[[j]]<-rbind(freq_v_cap_HM_prop[[j]],cbind(alleles_cap_prop,colSums(temp_genind@tab)/3000))
+		freq_v_cap_HM_equal[[j]]<-rbind(freq_v_cap_HM_equal[[j]],cbind(alleles_cap_equal,colSums(temp_genind@tab)/3000))
+		}
+		#3000 is twice the population size- e.g. the number of gene copies (remember, its diploid)
+
+		#Low mig
+		if (i==2){
+		freq_v_cap_LM_prop[[j]]<-rbind(freq_v_cap_LM_prop[[j]],cbind(alleles_cap_prop,colSums(temp_genind@tab)/3000))
+		freq_v_cap_LM_equal[[j]]<-rbind(freq_v_cap_LM_equal[[j]],cbind(alleles_cap_equal,colSums(temp_genind@tab)/3000))
+		}
+
       ##Now, determine the all the alleles captured in each category
       #First object: genpop file
       #Second object: population files (will spit out error if this is not included, irrelevant in this case)
