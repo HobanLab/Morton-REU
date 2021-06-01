@@ -15,6 +15,9 @@ Also, we created case studies to determine whether the same results would be ach
 Files include R scripts used for data collection, analysis, and producing plots, and text files containing paramter values used for simulation. 
 As this started as an REU project, multiple attempts or trials were used to gradually build the project, increase realism and revise code.  These initial attempts are stored documented in separate folders, but are not needed to recreate the final results for the project. Each attempt builds on the previous in improving the code efficiency or adding new parameter values.
 
+#### Simulating bottlenecks 
+To increase the complexity of our simulations, we implemented bottlenecks. We simulated two types of bottlenecks for our first sets of simulations. The first type of bottleneck (bottleneck_1) simulates a population constriction of 10x for each population 5 generations past. The second bottleneck (bottlenecj_2) simulates a population constriction of varying factors depending on the population size. All current populations (which vary by some degree in size) were historically all the same size (3000 individuals), and constriction happened at varying rates such that we get current populations of different sizes. 
+
 #### File types
 **Parameter files:**
     .par .txt
@@ -89,3 +92,7 @@ Note: For the case studies, the 3 scripts listed above are combined into one sin
             q_oglethorpensis
             combined_graphics_analyses.R: this script was used to merge results from all case studies into one large dataframe to be plotted together for comparison, Fst calculations for all species are also in this script
         Simulations: Contains parameter files used to simulate each of the case study species, along with simulation result files.
+
+    samp_pop_sims_bottlenecks: Contains simulation files, R scripts, and figures for the 2 sets of bottleneck simulations. Bottlenecks were implemented to increase the complexity of our simulations. 
+        simulations_bottleneck_1: This simulation constricts populations 10x from their historical size to their current size
+        simulations_bottleneck_2: This simulation constricts historical populations of equal sizes at unequal factors to achieve current populations of unequal sizes. 
