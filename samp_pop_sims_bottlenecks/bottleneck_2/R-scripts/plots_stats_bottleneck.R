@@ -13,7 +13,7 @@ library(ggsignif)
 library(tidyr)
 
 #set working directory and load in data
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottleneck")
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottlenecks\\bottleneck_2\\R-scripts")
 load("results_highMig_highSamp.Rdata")
 load("results_lowMig_highSamp.Rdata")
 load("results_highMig_lowSamp.Rdata")
@@ -66,7 +66,7 @@ p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=st
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.95,1) +
+  ylim(0.82,1) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
   theme_bw()

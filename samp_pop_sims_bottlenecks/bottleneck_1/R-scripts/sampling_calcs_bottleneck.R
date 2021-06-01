@@ -29,7 +29,7 @@ f <- FALSE
 
 #defining root directory (containing sub-folders)
 #and setting working directory
-my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottleneck"
+my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottlenecks\\bottleneck_1\\Simulations"
 setwd(my_dir)
 
 #list of combinations
@@ -250,7 +250,7 @@ for(i in 1:length(combinations)) {
 
 #######################################################################################################################
 #saving results to R data file
-setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottleneck")
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottlenecks\\bottleneck_1\\R-scripts")
 save(results_highMig_highSamp_equal, results_highMig_highSamp_prop, file="results_highMig_highSamp.Rdata")
 save(results_lowMig_highSamp_equal, results_lowMig_highSamp_prop, file="results_lowMig_highSamp.Rdata")
 save(results_highMig_lowSamp_equal, results_highMig_lowSamp_prop, file="results_highMig_lowSamp.Rdata")

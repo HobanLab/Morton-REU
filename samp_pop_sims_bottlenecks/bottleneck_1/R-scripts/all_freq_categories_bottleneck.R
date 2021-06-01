@@ -17,7 +17,7 @@ library(tidyr)
 #####################################
 
 #containing sub-folders
-my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottleneck"
+my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottlenecks\\bottleneck_1\\Simulations"
 setwd(my_dir)
 
 ###allelic capture functions 
