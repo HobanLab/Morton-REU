@@ -13,7 +13,7 @@ library(ggsignif)
 library(tidyr)
 
 #set working directory and load in data
-setwd("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R scripts")
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R-scripts")
 load("results_highMig_highSamp.Rdata")
 load("results_lowMig_highSamp.Rdata")
 load("results_highMig_lowSamp.Rdata")
@@ -46,12 +46,12 @@ scenarios = c("\\scen1",
 #color of boxplots indicates which strategy was used
 p = ggplot(combined_highMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
-  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.96,0.97,0.98,0.98,0.985)) + #this code gives the stars *** indicating significance values
+  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.77,0.8,0.82,0.82,0.85)) + #this code gives the stars *** indicating significance values
   ggtitle("High migration high sampling intensity") + # this and next three lines are titles and labels
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.80,1) + #defining limits for the y-axis
+  ylim(0.70,1) + #defining limits for the y-axis
   scale_fill_brewer() + #this and next line are design elements
   theme_bw() 
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14)) #this line will display/create the plot, along with making the font larger
@@ -61,12 +61,12 @@ p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = eleme
 #2: Low migration high sampling plot
 p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
-  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.985,0.985,0.985,0.985,0.99, 0.99)) +
+  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.8,0.83,0.85,0.85,0.84)) +
   ggtitle("Low migration high sampling intensity") +
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.82,1) +
+  ylim(0.70,1) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
   theme_bw()
@@ -75,7 +75,7 @@ p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = eleme
 #3: High migration low sampling plot
 p = ggplot(combined_highMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
-  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.94,0.94,0.95,0.96,0.96)) +
+  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.71,0.76,0.77,0.79,0.8)) +
   ggtitle("High migration low sampling intensity") +
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
@@ -89,12 +89,12 @@ p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = eleme
 #4: Low migration low sampling plot
 p = ggplot(combined_lowMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=strategy)) + 
   geom_boxplot() +
-  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.96,0.97,0.97,0.975,0.975,0.975)) +
+  stat_compare_means(label = "p.signif", hide.ns = TRUE, label.y = c(0.74,0.77,0.8,0.82,0.83)) +
   ggtitle("Low migration low sampling intensity") +
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.75,1) +
+  ylim(0.70,1) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
   theme_bw()
