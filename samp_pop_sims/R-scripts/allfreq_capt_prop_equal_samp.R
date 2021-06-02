@@ -243,6 +243,10 @@ for(i in 1:length(combinations)) {
   }
 }
 
+#remove row 1 which was just 0,0 
+for (k in 1:length(freq_v_cap_LM_equal)) {freq_v_cap_LM_equal[[k]]<-freq_v_cap_LM_equal[[k]][-1,]; freq_v_cap_LM_prop[[k]]<-freq_v_cap_LM_prop[[k]][-1,]}
+for (k in 1:length(freq_v_cap_HM_equal)) {freq_v_cap_HM_equal[[k]]<-freq_v_cap_HM_equal[[k]][-1,]; freq_v_cap_HM_prop[[k]]<-freq_v_cap_HM_prop[[k]][-1,]}
+save(freq_v_cap_LM_equal,freq_v_cap_LM_prop,freq_v_cap_HM_equal,freq_v_cap_HM_prop,file="Rosenberger_freq_v_cap.Rdata")
 
 #################################################
 ######## High migration data frames #############
