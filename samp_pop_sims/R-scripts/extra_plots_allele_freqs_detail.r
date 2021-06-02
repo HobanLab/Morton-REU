@@ -1,6 +1,6 @@
 #This will produce plots of the rarest alleles
 
-setwd("C:/Users/shoban/Documents/GitHub/Morton-REU/samp_pop_sims/")
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R-scripts")
 load(file="Rosenberger_freq_v_cap.Rdata")
 
 for (i in 1:2){

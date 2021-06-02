@@ -17,11 +17,11 @@ library(tidyr)
 #####################################
 
 #containing sub-folders
-my_dir = "C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\Simulations"
+my_dir = "C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\Simulations"
 setwd(my_dir)
 
 ###allelic capture functions 
-source("C:\\Users\\kayle\\Documents\\XXX-XXX\\samp_pop_sims\\R-scripts\\Fa_sample_funcs.R")
+source("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R-scripts\\Fa_sample_funcs.R")
 ##functions
 colMax <- function(data) sapply(data, max, na.rm = TRUE)
 sample.pop<-function(genind_obj,vect_pop_ID,vect_samp_sizes){
@@ -246,6 +246,7 @@ for(i in 1:length(combinations)) {
 #remove row 1 which was just 0,0 
 for (k in 1:length(freq_v_cap_LM_equal)) {freq_v_cap_LM_equal[[k]]<-freq_v_cap_LM_equal[[k]][-1,]; freq_v_cap_LM_prop[[k]]<-freq_v_cap_LM_prop[[k]][-1,]}
 for (k in 1:length(freq_v_cap_HM_equal)) {freq_v_cap_HM_equal[[k]]<-freq_v_cap_HM_equal[[k]][-1,]; freq_v_cap_HM_prop[[k]]<-freq_v_cap_HM_prop[[k]][-1,]}
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims\\R-scripts")
 save(freq_v_cap_LM_equal,freq_v_cap_LM_prop,freq_v_cap_HM_equal,freq_v_cap_HM_prop,file="Rosenberger_freq_v_cap.Rdata")
 
 #################################################

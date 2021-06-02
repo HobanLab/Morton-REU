@@ -1,45 +1,9 @@
-#This script will also collect in the freq_v_cap lists: a list of all the alleles in every simulation, their frequency in the population, and how many times they are captured (which also identifies those captured 0 times)
+#This will produce plots of the rarest alleles
 
-#Lists to hold these matrices of alleles and capture counts
-#Each list element is a scenario, 1 to 9
-#inside each list element is a matrix, with each row being an individual allele 
-#col 1 = number of counts of that allele captured, col 2 = that alleles frequency in the simulated data (in situ)
-#alleles from every replicate will all be concatenated with rbind into a super long list 
-freq_v_cap_HM_equal<-list(c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0))
-freq_v_cap_HM_prop<-list(c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0))
-freq_v_cap_LM_equal<-list(c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0))
-freq_v_cap_LM_prop<-list(c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0),c(0,0))
-
-#Place this below line 158, which is where alleles_cap_prop and alleles_cap_equal are created
-
-###################
-#High Mig
-###################
-#3000 is twice the population size- e.g. the number of gene copies (remember, its diploid)
-if (i==1){
-freq_v_cap_HM_prop[[j]]<-rbind(freq_v_cap_HM_prop[[j]],cbind(alleles_cap_prop,colSums(temp_genind@tab)/3000))
-freq_v_cap_HM_equal[[j]]<-rbind(freq_v_cap_HM_equal[[j]],cbind(alleles_cap_equal,colSums(temp_genind@tab)/3000))
-}
-
-#Low mig
-if (i==2){
-freq_v_cap_LM_prop[[j]]<-rbind(freq_v_cap_LM_prop[[j]],cbind(alleles_cap_prop,colSums(temp_genind@tab)/3000))
-freq_v_cap_LM_equal[[j]]<-rbind(freq_v_cap_LM_equal[[j]],cbind(alleles_cap_equal,colSums(temp_genind@tab)/3000))
-}
-
-
-##################
-# Analysis, prob separate R file
-##################
-
-#remove row 1 which was just 0,0 FIX THIS THIS IS MISSING j
-for (k in 1:length(j)) freq_v_cap_LM_equal<-freq_v_cap_LM_equal[[k]][-1,-1]; freq_v_cap_LM_prop<-freq_v_cap_LM_prop[[k]][-1,-1]
-for (k in 1:length(j)) freq_v_cap_HM_equal<-freq_v_cap_HM_equal[[k]][-1,-1]; freq_v_cap_HM_prop<-freq_v_cap_HM_prop[[k]][-1,-1]
-save(freq_v_cap_LM_equal,freq_v_cap_LM_prop,freq_v_cap_HM_equal,freq_v_cap_HM_prop,file="Rosenberger_freq_v_cap.Rdata")
- 
- 
-setwd("C:/Users/shoban/Documents/GitHub/Morton-REU/samp_pop_sims/")
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottlenecks\\bottleneck_2\\R-scripts")
 load(file="Rosenberger_freq_v_cap.Rdata")
+
+setwd("C:\\Users\\kayle\\Documents\\Morton-REU\\samp_pop_sims_bottlenecks\\bottleneck_2\\Figures")
 
 for (i in 1:2){
 	if (i==1) { 
