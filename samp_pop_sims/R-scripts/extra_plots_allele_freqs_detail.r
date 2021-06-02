@@ -1,3 +1,6 @@
+#---------------------------------------
+#THIS IS ALL NOW IN THE SAMPLING SCRIPT, TO DELETE SOON#
+
 #This script will also collect in the freq_v_cap lists: a list of all the alleles in every simulation, their frequency in the population, and how many times they are captured (which also identifies those captured 0 times)
 
 #Lists to hold these matrices of alleles and capture counts
@@ -27,17 +30,20 @@ freq_v_cap_LM_prop[[j]]<-rbind(freq_v_cap_LM_prop[[j]],cbind(alleles_cap_prop,co
 freq_v_cap_LM_equal[[j]]<-rbind(freq_v_cap_LM_equal[[j]],cbind(alleles_cap_equal,colSums(temp_genind@tab)/3000))
 }
 
-
-##################
-# Analysis, prob separate R file
-##################
-
-#remove row 1 which was just 0,0 FIX THIS THIS IS MISSING j
-for (k in 1:length(j)) freq_v_cap_LM_equal<-freq_v_cap_LM_equal[[k]][-1,-1]; freq_v_cap_LM_prop<-freq_v_cap_LM_prop[[k]][-1,-1]
-for (k in 1:length(j)) freq_v_cap_HM_equal<-freq_v_cap_HM_equal[[k]][-1,-1]; freq_v_cap_HM_prop<-freq_v_cap_HM_prop[[k]][-1,-1]
+#remove row 1 which was just 0,0 
+for (k in 1:length(freq_v_cap_LM_equal)) {freq_v_cap_LM_equal[[k]]<-freq_v_cap_LM_equal[[k]][-1,]; freq_v_cap_LM_prop[[k]]<-freq_v_cap_LM_prop[[k]][-1,]}
+for (k in 1:length(freq_v_cap_HM_equal)) {freq_v_cap_HM_equal[[k]]<-freq_v_cap_HM_equal[[k]][-1,]; freq_v_cap_HM_prop[[k]]<-freq_v_cap_HM_prop[[k]][-1,]}
 save(freq_v_cap_LM_equal,freq_v_cap_LM_prop,freq_v_cap_HM_equal,freq_v_cap_HM_prop,file="Rosenberger_freq_v_cap.Rdata")
+
+ #---------------------------------------
+#ABOVE IS ALL NOW IN THE SAMPLING SCRIPT, TO DELETE SOON#
+
  
- 
+
+##################
+# Analysis, make separate R file
+##################
+
 setwd("C:/Users/shoban/Documents/GitHub/Morton-REU/samp_pop_sims/")
 load(file="Rosenberger_freq_v_cap.Rdata")
 
