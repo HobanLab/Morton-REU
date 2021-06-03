@@ -1,15 +1,15 @@
-//Parameters to model Q. acerifolia
+//Parameters to model Q. engelmannii
 4 samples to simulate : unequal population sizes
 //Population effective sizes (number of genes 2*diploids)
-600
-300
-100
-60
+37000
+2400
+400
+200
 //Sample sizes (number of genes 2*diploids)
-600
-300
-100
-60
+37000
+2400
+400
+200
 //Growth rates	: negative growth implies population expansion
 0
 0
@@ -29,10 +29,10 @@
 0 0 0 0
 //historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix index
 8 historical events
-5 0 0 0 10 0 1
-5 1 1 0 10 0 1
-5 2 2 0 10 0 1
-5 3 3 0 10 0 1 
+5 0 0 0 2.7027027 0 1
+5 1 1 0 41.666667 0 1
+5 2 2 0 250 0 1
+5 3 3 0 500 0 1 
 5000 0 0 0 1.00 0 1
 5000 1 0 1 1.00 0 1
 5000 2 0 1 1.00 0 1
