@@ -1,0 +1,45 @@
+//Parameters to model Q. acerifolia
+4 samples to simulate : unequal population sizes
+//Population effective sizes (number of genes 2*diploids)
+600
+300
+100
+60
+//Sample sizes (number of genes 2*diploids)
+600
+300
+100
+60
+//Growth rates	: negative growth implies population expansion
+0
+0
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//Migration rates matrix 0
+0 0.001 0.001 0.001
+0.001 0 0.001 0.001
+0.001 0.001 0 0.001
+0.001 0.001 0.001 0 
+//Migration rates matrix 1
+0 0 0 0
+0 0	0 0
+0 0 0 0
+0 0 0 0
+//historical event: time, source, sink, migrants, new deme size, new growth rate, migration matrix index
+8 historical events
+5 0 0 0 10 0 1
+5 1 1 0 10 0 1
+5 2 2 0 10 0 1
+5 3 3 0 10 0 1 
+5000 0 0 0 1.00 0 1
+5000 1 0 1 1.00 0 1
+5000 2 0 1 1.00 0 1
+5000 3 0 1 1.00 0 1
+//Number of independent loci [chromosome] (Number of sequences of 300 bp per gamete)
+20 0
+// Chromosome structure 1 begins with number of loci
+1
+//per block: data type, number of loci, per generation recombination and mutation rates and optional parameters
+MICROSAT      1        0.0005          0.0025           0        10

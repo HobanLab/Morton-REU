@@ -1,0 +1,7 @@
+#Arlequin input file written by program the simulation program sim_coal.exe
+
+
+[Profile]
+	Title="A series of simulated samples"
+	NbSamples=4
+

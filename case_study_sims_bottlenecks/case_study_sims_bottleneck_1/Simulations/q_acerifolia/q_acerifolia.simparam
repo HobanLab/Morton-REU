@@ -1,0 +1,137 @@
+Simulation parameters for current simulations
+=============================================
+
+
+Deme sizes
+Deme 0	600
+Deme 1	300
+Deme 2	100
+Deme 3	60
+
+
+Sample sizes
+Deme 0	600
+Deme 1	300
+Deme 2	100
+Deme 3	60
+
+Growth rates
+0	0
+1	0
+2	0
+3	0
+
+
+Migration matrix
+    0.0000     0.0010     0.0010     0.0010 
+    0.0010     0.0000     0.0010     0.0010 
+    0.0010     0.0010     0.0000     0.0010 
+    0.0010     0.0010     0.0010     0.0000 
+
+
+Migration matrix
+    0.0000     0.0000     0.0000     0.0000 
+    0.0000     0.0000     0.0000     0.0000 
+    0.0000     0.0000     0.0000     0.0000 
+    0.0000     0.0000     0.0000     0.0000 
+
+
+Historical events
+Event 0
+
+#Time             : 5
+#Source           : 0
+#Sink             : 0
+#Migrants         : 0.0000
+#New size         : 10.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+Event 1
+
+#Time             : 5
+#Source           : 1
+#Sink             : 1
+#Migrants         : 0.0000
+#New size         : 10.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+Event 2
+
+#Time             : 5
+#Source           : 2
+#Sink             : 2
+#Migrants         : 0.0000
+#New size         : 10.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+Event 3
+
+#Time             : 5
+#Source           : 3
+#Sink             : 3
+#Migrants         : 0.0000
+#New size         : 10.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+Event 4
+
+#Time             : 5000
+#Source           : 0
+#Sink             : 0
+#Migrants         : 0.0000
+#New size         : 1.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+Event 5
+
+#Time             : 5000
+#Source           : 1
+#Sink             : 0
+#Migrants         : 1.0000
+#New size         : 1.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+Event 6
+
+#Time             : 5000
+#Source           : 2
+#Sink             : 0
+#Migrants         : 1.0000
+#New size         : 1.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+Event 7
+
+#Time             : 5000
+#Source           : 3
+#Sink             : 0
+#Migrants         : 1.0000
+#New size         : 1.0000
+#New growth rate  : 0.0000
+#New migr. matrix : 1
+
+
+
+Number of independent loci to simulate : 20
+with the same chromosomal structure
+
+Number of linkage blocks to simulate in structure 1: 1
+
+   1 partially linked MICROSAT loci:
+      recombination, mutation rates, geometric parameter, and range constraint : 0.0005000   0.0025000   0.0000000   10
+
+
+
+Random generator initialized with : 326
+
+
+
+done in 11.7810000sec
+
