@@ -21,7 +21,7 @@ library(hierfstat)
 #This flag is set to false when simulations have been run and files have been converted already
 #There is no need to re-convert the files once they have been converted once
 #if you want to re-run conversions or you re-ran simulations, set this to TRUE
-convert = TRUE
+convert = FALSE
 #Fst flag
 #Fst code adds a lot of time to run the code 
 #so if you don't want to run it, keep Fst off by setting it FALSE

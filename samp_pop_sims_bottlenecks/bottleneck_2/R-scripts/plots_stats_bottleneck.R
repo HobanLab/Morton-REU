@@ -66,7 +66,7 @@ p = ggplot(combined_lowMig_highSamp, aes(x=factor(scenario), y=prop_all, fill=st
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.82,1) +
+  ylim(0.95,1) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
   theme_bw()
@@ -94,7 +94,7 @@ p = ggplot(combined_lowMig_lowSamp, aes(x=factor(scenario), y=prop_all, fill=str
   xlab("Scenarios") +
   ylab("Proportion of alleles captured") +
   labs(color = "Scenario", fill = "Sample strategy") +
-  ylim(0.75,1) +
+  ylim(0.93,1) +
   scale_fill_brewer() +
   theme(axis.text=element_text(size=30, face="bold")) +
   theme_bw()
