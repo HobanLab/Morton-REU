@@ -1,0 +1,4 @@
+100 1
+q_acerifolia.par
+q_oglethorpensis.par
+q_engelmannii.par
