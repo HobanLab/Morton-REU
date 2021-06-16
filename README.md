@@ -49,40 +49,18 @@ combined_graphics_analyses.R: This script plots all three case study species on 
 
 ###### Directory contents:
 
-    archive_and_practice: contains practice simulations as well as third, fourth, and fifth attempts for the project; importing entire simulated population into R with varying parameter files (varying rates of migration); various number of simulation replicates
-    Attempt0_exploration: Exploring functions and objects related to this project
-            R: Following instructions on the genind tutorial ( )
-            Simulations: Contains practice parameter files for the software Simcoal and Simcoal 2
-        Attempt1_practice_sims: (archived to practice folder) Contains first iteration of writing my own parameter files, running simulations, and analyzing the code
-            Simulations: contains parameter files used for simulation, takes a sample of the entire population
-            R scripts: contains analysis files. Wrote functions to import files from a directory and convert them. Wrote a for loop to convert imported files to genind objects
-        Attempt2_practice_sims_revised: Contains similar parameter files and analyses as Attempt1, but code and parameter values have been revised
-            Simulations: contains parameter files used for simulation, takes a sample of the entire population, revised parameter values
-            R scripts: contains analysis files. Wrote functions to import files from a directory and convert them. Wrote a for loop to convert imported files to genind objects
-        Attempt3_mig_intensity_10_reps: testing code and parameters using low level of replicates for faster loading
-            Figures: contain figures generated from R
-            R scripts: contains R scripts for sampling code and Rdata files for faster loading
-            Simulations: contains all parameter files used for simulation, along with the results of simulation
-        Attempt4_mig_intensity_100_reps: tesing code and parameters with higher replicates in order to view more accurate/precise results
-            Figures: contain figures generated from R
-            R scripts: contains R scripts for sampling code and Rdata files for faster loading
-            Simulations: contains all parameter files used for simulation, along with the results of simulation
-        Attempt5_REU_final: Finalized version of code for Summer REU project. Includes 100 simulation replicates, high and low migration rates, and high and low sampling intensity. Slightly improved code efficiency. 
-            Figures: contain figures generated from R
-            R scripts: contains R scripts for sampling code and Rdata files for faster loading
-            Simulations: contains all parameter files used for simulation, along with the results of simulation
-
+    archive_and_practice: contains practice simulations as well as third, fourth, and fifth attempts for the project; importing entire simulated population into R with varying parameter files (varying rates of migration); various number of simulation replicates (note: These files are just to track progress. They do not contain complete analyses)
 
     samp_pop_sims: Updated code from the last iteration to analyse all combinations of migration and sampling intensities within one nested for loop for increased efficiency and ease. Also removed any hard-coded instances of rows_to_samp variable compared to Attempt5. (Sixth and final attempt for the project)
-        R scripts: Improved code to analyse all combinations of migration and sampling intensities within one loop. Removed most instances of hard-coding to improve flexibility
-            analysis_conversions_calculations_revised.R: revised vresion fixes errors. Data was being analyzed incorrectly.
-            analysis_data_prep.R: Script to aggregate dataframes from conversion file into one main dataframe for generating results. This is to get results for equal and proportional sampling on one plot
-            analysis_graphics_results.R: Script creates boxplots for each combination of migration rates and sample intensity. 
-            oneloop_allcap_code.R: calculates alleles captured by each strategy for allele frequency groups 
+        R-scripts: R scripts to run sampling code on simulation files, convert files, save genetic statistics, run various analyses and plot results
         Simulations: contain parameter files and other simulation files; parameter files include high and low migration; simulation outputs are stored in folders.
-            highMig: simulation files resulting from high migration parameters
-            lowMig:  simulation files resulting from low migration parameters
-        Figures: contain images produced in R scripts for boxplots
+            highMig:
+            lowMig:
+        Figures: contain images produced in R scripts for boxplots and other various figures
+
+    samp_pop_sims_bottlenecks: Contains simulation files, R scripts, and figures for the 2 sets of bottleneck simulations. Bottlenecks were implemented to increase the complexity of our simulations. 
+        bottleneck_1: This simulation constricts populations 10x from their historical size to their current size
+        bottleneck_2: This simulation constricts historical populations of equal sizes at unequal factors to achieve current populations of unequal sizes. 
 
     case_study_sims: Contains R scripts and simulation files relating to three species of Oak that were used as case studies for the project. Case studies were used in comparison to a hypothetical species (in previous attempts) in order to determine if, when applied to mroe realistic parameter values, the same results would be achieved. 
         Figures: contain images produced in R scripts for boxplots
@@ -93,6 +71,7 @@ combined_graphics_analyses.R: This script plots all three case study species on 
             combined_graphics_analyses.R: this script was used to merge results from all case studies into one large dataframe to be plotted together for comparison, Fst calculations for all species are also in this script
         Simulations: Contains parameter files used to simulate each of the case study species, along with simulation result files.
 
-    samp_pop_sims_bottlenecks: Contains simulation files, R scripts, and figures for the 2 sets of bottleneck simulations. Bottlenecks were implemented to increase the complexity of our simulations. 
-        simulations_bottleneck_1: This simulation constricts populations 10x from their historical size to their current size
-        simulations_bottleneck_2: This simulation constricts historical populations of equal sizes at unequal factors to achieve current populations of unequal sizes. 
+    case_study_sims_bottlenecks: Contains two folders for each of the bottleneck simulations. Has similar contents as described above, for case_study_sims
+        bottleneck_1: This simulation constricts populations 10x from their historical size to their current size
+        bottleneck_2: This simulation constricts historical populations of equal sizes at unequal factors to achieve current populations of unequal sizes. 
+
