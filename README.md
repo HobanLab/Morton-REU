@@ -16,7 +16,7 @@ Files include R scripts used for data collection, analysis, and producing plots,
 As this started as an REU project, multiple attempts or trials were used to gradually build the project, increase realism and revise code.  These initial attempts are stored documented in separate folders, but are not needed to recreate the final results for the project. Each attempt builds on the previous in improving the code efficiency or adding new parameter values.
 
 #### Simulating bottlenecks 
-To increase the complexity of our simulations, we implemented bottlenecks. We simulated two types of bottlenecks for our first sets of simulations. The first type of bottleneck (bottleneck_1) simulates a population constriction of 10x for each population 5 generations past. The second bottleneck (bottlenecj_2) simulates a population constriction of varying factors depending on the population size. All current populations (which vary by some degree in size) were historically all the same size (3000 individuals), and constriction happened at varying rates such that we get current populations of different sizes. 
+To increase the complexity of our simulations, we implemented bottlenecks. We simulated two types of bottlenecks for our first sets of simulations. The first type of bottleneck (bottleneck_1) simulates a population constriction of 10x for each population 5 generations past. The second bottleneck (bottleneck_2) simulates a population constriction of varying factors depending on the population size. All current populations (which vary by some degree in size) were historically all the same size (3000 individuals), and constriction happened at varying rates such that we get current populations of different sizes. 
 
 #### File types
 **Parameter files:**
@@ -32,19 +32,19 @@ To increase the complexity of our simulations, we implemented bottlenecks. We si
     .R 
     For this project, R scripts were used to import .arp files into R for conversion to .gen files through adegenet package, convert .gen files to genind objects through adegenet package, analyze data through functions associated with the adegenet package, and create figures for data visualization with package ggplot2 (see flowchart).  There are four R scripts in the simulation folder.  They are:
 
-analysis_conversions_calculations.R: converts from Arlequin format to genepop format, loops to import genepop files to genind objects in R and then calculate and save basic genetic statistics (e.g. heterozygosity).
-analysis_data_prep.R: Takes the sampling results and puts them in tidy format for graphing and analysis
-analysis_graphics_results.R: Plots results, and performs Wilcoxon statistical tests, and p value adjustment for multiple comparisons.
-allfreq_capt_prop_equal_samp.R: Calculates alleles frequncy present in high and low migration scenarios, as well as the total alleles present 
-Fa_sample_funcs.R: Function written by Dr. Sean Hoban to calculate allele category frequencies. 
+**samp_pop_sims and samp_pop_sims_bottlenecks R-script folder contents** (numbers indicate order in which to run files)
+1_sampling_calcs.R: converts from Arlequin format to genepop format, loops to import genepop files to genind objects in R and then calculate and save basic genetic statistics (e.g. heterozygosity).
+2_data_prep.R: Takes the sampling results and puts them in tidy format for graphing and analysis
+3_plots_stats.R: Plots results, and performs Wilcoxon statistical tests, and p value adjustment for multiple comparisons.
+4_all_freq_categories.R: Calculates alleles frequncy present in high and low migration scenarios, as well as the total alleles present 
+5_extra_plots_all_freq_details.R: Various plots to visualize the frequency of alleles to determine how many rare alleles exist in scenario 1 vs. scenario 9. Also plots to determine what proportion of these rare alleles are 'missed' by the sampling strategy 
+Fa_sample_funcs_source.R: Function written by Dr. Sean Hoban to calculate allele category frequencies. 
 
-Note: For the case studies, the 3 scripts listed above are combined into one single script for each species (files listed in the directory by species). The same general logic is performed in each script. 
-
-**Flow chart describing order in which to run files for hypothetical species (samp_pop_sims)**
-![Alt text](samp_pop_sims/Figures/read_me_flowchart.png?raw=true "Files to run")
-
-**Flow chart describing order in which to run files for case study species (case_study_sims)**
-![Alt text](case_study_sims/Figures/read_me_flowchart_case_studies.png?raw=true "Files to run")
+**Note:** For the case studies, the scripts listed above are combined into a single script for each species (files listed in the directory by species). The same general logic is performed in each script. These scripts can be performed in any order; however, the combined_graphics_analysis.R script must be performed last, after all species have been processed. The scripts for both case_study_sims and case_study_sims_bottlenecks are:
+q_acerifolia.R: Contains file conversion functions, main sampling loop, genetic statistics, and single plot for Q. acerifolia
+q_engelmannii.R: Contains file conversion functions, main sampling loop, genetic statistics, and single plot for Q. engelmannii
+q_oglethorpensis.R: Contains file conversion functions, main sampling loop, genetic statistics, and single plot for Q. oglethorpensis
+combined_graphics_analyses.R: This script plots all three case study species on a single plot
 
 
 ###### Directory contents:
