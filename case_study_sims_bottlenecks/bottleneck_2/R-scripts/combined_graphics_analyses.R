@@ -25,6 +25,7 @@ load("q_engelmannii_fst.Rdata")
 load("combined_results_q_oglethorpensis.Rdata")
 load("q_oglethorpensis_fst.Rdata")
 
+###LOW INTENSITY SAMPLING PLOT
 #preparing data by naming a column indicating each case study species
 #repeating 200 times for each species since there are 100 simulation replicates that were analzyed for equal and proportional (200 entries total)
 q_acer = rep("Q. acerifolia", 200)
@@ -37,12 +38,12 @@ q_ogle = rep("Q. oglethorpensis", 200)
 combined_q_oglethorpensis_low$species = q_ogle
 
 #combining all results into one larger dataframe for plotting/comparison on one graph
-all_case_studies = rbind(combined_q_acerifolia_low, combined_q_engelmannii_low, combined_q_oglethorpensis_low)
+all_case_studies_low = rbind(combined_q_acerifolia_low, combined_q_engelmannii_low, combined_q_oglethorpensis_low)
 
 #Creating graph using ggplot2 with all case study species compared together
 #x-axis: species, y-axis: proportion of alleles captured
 #the color of the boxplot indicates which strategy was used
-p = ggplot(all_case_studies, aes(x=species, y=prop_all, fill=strategy)) +
+p = ggplot(all_case_studies_low, aes(x=species, y=prop_all, fill=strategy)) +
   geom_boxplot() +
   stat_compare_means(label = "p.signif", hide.ns = TRUE) + #this line shows stars *** for significant values on the plot
   ggtitle("Case study species (Bottleneck 2)") + #labels for plot
@@ -53,6 +54,37 @@ p = ggplot(all_case_studies, aes(x=species, y=prop_all, fill=strategy)) +
   theme(axis.text=element_text(size=30, face="bold")) + #design elements
   theme_bw() #+
   #theme(legend.position = "none")
+p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14)) #creating/displaying the plot and changing font size to be larger
+
+###HIGH INTENSITY SAMPLING PLOT
+#preparing data by naming a column indicating each case study species
+#repeating 200 times for each species since there are 100 simulation replicates that were analzyed for equal and proportional (200 entries total)
+q_acer = rep("Q. acerifolia", 200)
+combined_q_acerifolia_high$species = q_acer
+
+q_engel = rep("Q. engelmannii", 200)
+combined_q_engelmannii_high$species = q_engel
+
+q_ogle = rep("Q. oglethorpensis", 200)
+combined_q_oglethorpensis_high$species = q_ogle
+
+#combining all results into one larger dataframe for plotting/comparison on one graph
+all_case_studies_high = rbind(combined_q_acerifolia_high, combined_q_engelmannii_high, combined_q_oglethorpensis_high)
+
+#Creating graph using ggplot2 with all case study species compared together
+#x-axis: species, y-axis: proportion of alleles captured
+#the color of the boxplot indicates which strategy was used
+p = ggplot(all_case_studies_high, aes(x=species, y=prop_all, fill=strategy)) +
+  geom_boxplot() +
+  stat_compare_means(label = "p.signif", hide.ns = TRUE) + #this line shows stars *** for significant values on the plot
+  ggtitle("Case study species (Bottleneck 2)") + #labels for plot
+  xlab("Species") +
+  ylab("Proportion of alleles captured") +
+  ylim(0.7,1.02) +
+  scale_fill_brewer() +
+  theme(axis.text=element_text(size=30, face="bold")) + #design elements
+  theme_bw() #+
+#theme(legend.position = "none")
 p + theme(axis.text = element_text(size = 11, face = "bold"), axis.title = element_text(size = 14)) #creating/displaying the plot and changing font size to be larger
 
 
