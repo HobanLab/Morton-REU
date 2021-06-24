@@ -18,6 +18,16 @@ As this started as an REU project, multiple attempts or trials were used to grad
 #### Simulating bottlenecks 
 To increase the complexity of our simulations, we implemented bottlenecks. We simulated two types of bottlenecks for our first sets of simulations. The first type of bottleneck (bottleneck_1) simulates a population constriction of 10x for each population 5 generations past. The second bottleneck (bottleneck_2) simulates a population constriction of varying factors depending on the population size. All current populations (which vary by some degree in size) were historically all the same size (3000 individuals), and constriction happened at varying rates such that we get current populations of different sizes. 
 
+#### Analysis
+For this project, 4 GLMs were created and used to analyze the data:
+    1. GLM for generic, non-bottleneck simulations
+    2. GLM for generic, bottleneck simulations
+    3. GLM for case study (oak), non-bottleneck simulations
+    2. GLM for case study (oak), bottleneck simulations
+In general, the GLMs determine which strategy captures more diversity, and it also determines the effect of other factors--which vary based on whether the simulations were generic or case study. For generic simulations, factors included migration rates, sampling intensity, and scenario. For generic bottleneck simulations, bottleneck was also included as a factor. For case study simulations, the factors were species, sampling intensity, and strategy. For case study bottleneck simulations, bottleneck was included as a factor. 
+All GLMs can be found in the single script below: 
+    glm_pop_sims.R runs 4 GLMs for each of the dataset types: generic, generic with bottlenecks, case study, and case study with bottlenecks. For each GLM, the code reads and restructures simulated data into a format suitable for running the GLMs; then constructs pairwise contrasts for interaction terms.
+
 #### File types
 **Parameter files:**
     .par .txt
@@ -74,4 +84,6 @@ combined_graphics_analyses.R: This script plots all three case study species on 
     case_study_sims_bottlenecks: Contains two folders for each of the bottleneck simulations. Has similar contents as described above, for case_study_sims
         bottleneck_1: This simulation constricts populations 10x from their historical size to their current size
         bottleneck_2: This simulation constricts historical populations of equal sizes at unequal factors to achieve current populations of unequal sizes. 
+    
+    glm_pop_sims.R runs 4 GLMs for each of the dataset types: generic, generic with bottlenecks, case study, and case study with bottlenecks. For each GLM, the code reads and restructures simulated data into a format suitable for running the GLMs; then constructs pairwise contrasts for interaction terms.
 
