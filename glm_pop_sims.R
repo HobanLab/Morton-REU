@@ -1,7 +1,5 @@
 
-# Running Generalized Linear Models for paper:
-# Proportional sampling significantly increases genetic diversity capture when population sizes differ
-# Rosenberger et al. 
+# Running Generalized Linear Models
 
 # Code written by Alissa Brown.
 # This code reads and restructures simulated data for inclusion in GLMs.
